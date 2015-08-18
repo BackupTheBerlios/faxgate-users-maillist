@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/faxgate-users/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Seltsamer%20Javaclient-Anmeldefehler&In-Reply-To=%3C200811250754.34889.ingo.goeppert%40gmx.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000035.html">
+   <LINK REL="Next"  HREF="000040.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[FaxGate-users] Seltsamer Javaclient-Anmeldefehler</H1>
+    <B>Ingo G&#246;ppert</B> 
+    <A HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Seltsamer%20Javaclient-Anmeldefehler&In-Reply-To=%3C200811250754.34889.ingo.goeppert%40gmx.de%3E"
+       TITLE="[FaxGate-users] Seltsamer Javaclient-Anmeldefehler">ingo.goeppert at gmx.de
+       </A><BR>
+    <I>Tue Nov 25 07:54:31 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000035.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+        <LI>Next message: <A HREF="000040.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#36">[ date ]</a>
+              <a href="thread.html#36">[ thread ]</a>
+              <a href="subject.html#36">[ subject ]</a>
+              <a href="author.html#36">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Ralf,
+
+Am Dienstag, 25. November 2008 schrieb Ralf Muschall:
+&gt;<i> Hallo,
+</I>&gt;<i>
+</I>&gt;<i> auf einem anderen Rechner (Suse 10.3/32), frisch
+</I>&gt;<i> gezogene capisuite-suse-10.3-0.5.cvs-61.1.i586.rpm
+</I>&gt;<i> (von <A HREF="http://download.opensuse.org/repositories/home:/ingogoeppert/">http://download.opensuse.org/repositories/home:/ingogoeppert/</A>),
+</I>
+zieh dir die ..66.. von gestern, ein Fehler bei der Konvertierung der 
+Sprachnachrichten wurde behoben.
+
+Den neuesten Client habe ich hier eben hochgeladen:
+<A HREF="http://home.arcor.de/ingo.goeppert/faxgate/client/FaxgateClient0140.jar">http://home.arcor.de/ingo.goeppert/faxgate/client/FaxgateClient0140.jar</A>
+
+&gt;<i> bekomme ich im Client folgende Fehler:
+</I>&gt;<i>
+</I>&gt;<i> 1. Im Netzwerkmen&#252; beim ersten Testknopf (dem bei der IP)
+</I>&gt;<i>    &quot;kein CUPS&quot;
+</I>&gt;<i> 2. beim Anmeldeversuch: SFTP aus unbekanntem Grund fehlgeschlagen
+</I>&gt;<i>
+</I>&gt;<i> (Der Test auf Port 50000 ist OK).
+</I>&gt;<i>
+</I>&gt;<i> sshd, sftp und CUPS laufen und funktionieren (d.h. als
+</I>&gt;<i> Nebenwirkung des Tests ist der known_hosts-Kram erledigt),
+</I>&gt;<i> Susefirewall ist aus, das ganze soll eh erstmal auf localhost
+</I>&gt;<i> spielen.
+</I>&gt;<i> Sicherheitsprobleme sind nicht zu erwarten (es ist eine
+</I>&gt;<i> gegen physischen Feindzugriff gesicherte Arztpraxis), ich
+</I>&gt;<i> kann also bei Bedarf Ports aufmachen, Rechte vergr&#246;&#223;ern usw.,
+</I>&gt;<i> falls das hilft.
+</I>
+CUPS wurde scheinbar nicht erkannt. Ist f&#252;r den Client aber erst mal 
+nicht so wichtig. Der Client lauscht nur auf Port 50000 und baut eine 
+SFTP-Verbindung auf. Der SSH-Port ist in der neuesten Version 
+einstellbar (siehe Anhang). 
+
+&gt;<i>
+</I>&gt;<i> In der o.g. IP habe ich sowohl die wahre (192.168.10.10)
+</I>&gt;<i> als auch 127.0.0.1 probiert.
+</I>&gt;<i> In der sshd-Konfiguration ist Passwort erlaubt (eine
+</I>&gt;<i> funktionierende authorized_keys2 habe ich auch, und keins
+</I>&gt;<i> der Symptome &#228;ndert sich, wenn ich die verstecke).
+</I>&gt;<i> Es ist momentan nur ein Nutzer geplant, also sollten
+</I>&gt;<i> Rechteprobleme auch ausscheiden (er muss sich ja im Prinzip
+</I>&gt;<i> nur als der, der er schon ist dorthin, wo er schon ist anmelden).
+</I>&gt;<i>
+</I>&gt;<i> Falls das weiterhilft:
+</I>&gt;<i> telnet localhost 50000
+</I>&gt;<i> l&#228;uft los und bewirkt das Erscheinen von Meldungen im
+</I>&gt;<i> FaxgateClient (die mir so sinnvoll wie m&#246;glich erscheinen,
+</I>&gt;<i> d.h. er meckert &#252;ber die vom Telnet-Protokoll eingestreuten
+</I>&gt;<i> unverstandenen Bin&#228;rzeichen).
+</I>
+Die Meldungen &#252;ber neue Faxe usw. sollten somit durchkommen. 
+
+&gt;<i>
+</I>&gt;<i> Eine Besonderheit hat die Kiste: Das Homeverzeichnis des
+</I>&gt;<i> Nutzers ist gruppenschreibbar, und das muss so sein, weil
+</I>&gt;<i> sonst die Produktionssoftware (ein Arztprogramm) nicht
+</I>&gt;<i> funktioniert (Strictmodes=no in sshd ist gesetzt und getestet).
+</I>&gt;<i> Leider kann ich das nicht mal tempor&#228;r abstellen, da der
+</I>&gt;<i> Rechner benutzt wird (ich kann *nur* installieren, wenn dort
+</I>&gt;<i> gearbeitet wird, sonst ist er aus).
+</I>
+Geht den ssh auf der console? Schraub mal den Loglevel des sshd hoch und 
+schau in die messages. Ich vermute ein generelles Problem bei der 
+ssh-Anmeldung.
+
+&gt;<i>
+</I>&gt;<i> Im allerschlimmsten Fall konnte ich allerdings einen
+</I>&gt;<i> Hilfsuser anlegen und dann sagen
+</I>&gt;<i> ssh -X -l hilfuser 'java -jar /pfad/zu/FaxgateClient.jar'
+</I>&gt;<i> falls es daran liegen sollte (noch nicht probiert).
+</I>
+Hat damit nix zu tun. Es ist unerheblich mit welchen Rechten der Client 
+gestartet wird.
+
+Gru&#223;
+Ingo
+
+-- 
+## Registered Linux User #274727 -- <A HREF="http://counter.li.org/">http://counter.li.org/</A>
+## Windows, Linux und Mac Office-Suite -- <A HREF="http://de.openoffice.org/">http://de.openoffice.org/</A>
+## Die OpenOffice.org PrOOo-Box -- <A HREF="http://prooo-box.org/">http://prooo-box.org/</A>
+-------------- next part --------------
+Version 0.14.0 vom 17. Januar 2008
+
+- SSH-Port einstellbar &#195;&#188;ber versteckte Einstellung &quot;faxserverport&quot;, default ist
+  Port 22
+
+Version 0.13.0 vom 15. Dezember 2007
+
+- KeyboardInteractive Auth funktioniert jetzt
+- Source f&#195;&#188;r Java 5/6 angepasst
+- Crash beim Beenden ohne Nachrichtenverbindung behoben
+
+
+Version 0.11.2 vom 3. Dezember 2006
+
+- Mit Versteckter Einstellung &quot;auth_methode&quot; zwischen
+  0 = Passwort
+  1 = PublicKey
+  2 = KeyboardInteractive (noch nicht funktionsf&#195;&#164;hig)
+  w&#195;&#164;hlbar
+- Versteckte Einstellung &quot;pk_keyfile&quot; speichert automatisch Keyfile nach
+  erfolgreicher PublicKey Anmeldung
+
+
+Version 0.11.1 vom 9. November 2004
+
+- Benachrichtigung f&#195;&#188;r neue Faxe/Anrufe enth&#195;&#164;lt auch bei ausgeblendetem Log-
+und Infotab den Button zum &#195;&#150;ffnen des Faxes/Anrufes.
+
+- Versteckte Einstellung &quot;def_user&quot; setzt den Vorgabebenutzername f&#195;&#188;r
+den SFTP-Login, bleibt die Einstellung leer wird wie bisher der Benutzername
+des aktuell am Client PC angemeldeten Benutzers verwendet.
+
+- Codierung der Quelltexte auf UTF-8 ge&#195;&#164;ndert.
+
+- Nachrichten vom/zum Faxserver werden explizit in iso-8859-1
+gesendet/empfangen und ensprechend der aktuellen Client locale f&#195;&#188;r die Anzeige
+am Client konvertiert.
+
+Version 0.11 vom 21. Oktober 2004
+
+- SFTP-Logindialog bleibt jetzt im Vordergrund.
+
+- SSH-Hostkeydialog bleibt jetzt im Vordergrund.
+
+- Hinweis f&#195;&#188;r das Format Nummerneingabe entfernt (+49 ist in Deutschland nicht
+m&#195;&#182;glich!).
+
+- Optionen- und Hauptfenster-Tabs werden anstatt gestaffelt jetzt bei
+Bedarf gescrollt.
+
+- Schaltfl&#195;&#164;chen f&#195;&#188;r wichtigsten Funktionen befinden sich in der neuen Toolbar.
+
+- Kurzinfo zur Bedienung des Clients wird in einem neuen Tab gleich nach dem
+Start des Clients angezeigt.
+
+- Das Log Tab ist als neue Vorgabe ausgeblendet.
+
+- Toolbar und Log Tab lassen sich &#195;&#188;ber das Men&#195;&#188; Anzeige ein-/ausschalten,
+dies beeiflusst aber nicht das Verhalten beim Programmstart.
+
+- Toolbar, Log Tab und Kurzinfo Tab lassen sich in den Optionen f&#195;&#188;r den
+Programmstart ein- und ausschalten.
+
+- Abl&#195;&#164;ufe beim SFTP-Verbindungsaufbau optimiert.
+
+- Wenn die SFTP-Verbindung vom Benutzer und nicht vom Sevrer
+getrennt wird, erfolgt eine erneute Abfrage von Benutzername und Passwort beim
+n&#195;&#164;chsten Anmeldeversuch.
+
+- Beim Verbindungsaufbau zum SFTP-Server wird nach einem fehlerhaften Login
+gepr&#195;&#188;ft welche Anmeldemethoden verf&#195;&#188;gbar sind und eine Fehlermeldung erzeugt
+wenn die Password Authentication nicht m&#195;&#182;glich ist (sshd_config muss dann
+ge&#195;&#164;ndert werden).
+
+- Eine versteckten Einstellungen &quot;spool_dir&quot; mit value=&quot;/var/spool/capisuite/&quot;
+und user_dir&quot; mit value=&quot;/var/spool/capisuite/users/&quot; wurden eingef&#195;&#188;hrt um die
+Pfade anpassen zu k&#195;&#182;nnen ohne den Client neu zu compilieren. Die Einstellungen
+sind nur systemweit einstellbar (/etc/.java/.systemPrefs/faxgateclient -&gt; Linux,
+[HKEY_LOCAL_MACHINE\Software\JavaSoft\Prefs\faxgateclient] -&gt; Windows). Damit
+die Vorgabewerte bei bestehenden Installationen neu geschrieben werden, muss der
+Wert &quot;preferences_set&quot; auf &quot;false&quot; gesetzt werden.
+
+- Die aktuelle Client IP, der Port und die Uhrzeit werden beim SFTP-Login auf
+dem Server in der Datei
+/var/spool/capisuite/users/&lt;Benutzername&gt;/clientdataupdate gespeichert. Dieses
+Verhalten ist einschaltbar, derzeit noch nicht &#195;&#188;ber ein GUI sondern nur &#195;&#188;ber die
+Einstellung &quot;update_client_ip_port&quot; mit &quot;true&quot;. &quot;false&quot; schaltet die Funktion
+wieder ab (Voreinstellung).
+
+- M&#195;&#182;glichkeit ein Trayicon mit SysTray for Java zu benutzen hinzugef&#195;&#188;gt. Dank
+f&#195;&#188;r Idee und erste Realisierung geht an Alexander Forschner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/faxgate-users">mail at forschi.de</A>&gt;.
+Zum Testen &quot;use_systray&quot; auf &quot;true&quot; setzen. &quot;autohide_onstartup&quot; auf &quot;true&quot; und
+das Hauptfenster wird beim Start nicht angezeigt. SysTray for Java stammt von
+<A HREF="http://systray.sourceforge.net/">http://systray.sourceforge.net/</A> (GPL/LGPL).
+Derzeit befindet sich die Trayintegration aber noch in der Testphase und ist per
+default nicht aktiviert.
+
+- Setup enth&#195;&#164;lt die Dateien die f&#195;&#188;r die Systrayintegreation notwendig sind.
+Unter Windows wird die dll automatisch gefunden, unter Linux muss das passende
+Script zum Starten des Clients verwendet werden (systray_lib oder systray_d).
+
+- Setup enth&#195;&#164;lt die Quelltexte nicht mehr. Sie werden seperat zum Download
+bereitgestellt.
+
+- Setup auch mit VM verf&#195;&#188;gbar
+(<A HREF="ftp://ftp.berlios.de/pub/faxgate/client/011/VM/setup.exe">ftp://ftp.berlios.de/pub/faxgate/client/011/VM/setup.exe</A> und
+<A HREF="ftp://ftp.berlios.de/pub/faxgate/client/011/VM/setup.bin">ftp://ftp.berlios.de/pub/faxgate/client/011/VM/setup.bin</A>).
+
+- Setup wird nicht mehr &#195;&#188;ber eine Webseite mit Applet sonder nur noch als
+direkter Dateidownload angeboten.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/faxgate-users/attachments/20081125/c149f3cb/attachment.pgp">https://lists.berlios.de/pipermail/faxgate-users/attachments/20081125/c149f3cb/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000035.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+	<LI>Next message: <A HREF="000040.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#36">[ date ]</a>
+              <a href="thread.html#36">[ thread ]</a>
+              <a href="subject.html#36">[ subject ]</a>
+              <a href="author.html#36">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/faxgate-users">More information about the FaxGate-users
+mailing list</a><br>
+</body></html>

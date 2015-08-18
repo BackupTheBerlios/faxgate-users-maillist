@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [FaxGate-users] Kein Faxempfang
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/faxgate-users/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Kein%20Faxempfang&In-Reply-To=%3C405883.86343.qm%40web23102.mail.ird.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000021.html">
+   <LINK REL="Next"  HREF="000023.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[FaxGate-users] Kein Faxempfang</H1>
+    <B>Ralf Muschall</B> 
+    <A HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Kein%20Faxempfang&In-Reply-To=%3C405883.86343.qm%40web23102.mail.ird.yahoo.com%3E"
+       TITLE="[FaxGate-users] Kein Faxempfang">ralf_muschall at yahoo.de
+       </A><BR>
+    <I>Fri Aug 22 16:12:39 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000021.html">[FaxGate-users] Kein Faxempfang
+</A></li>
+        <LI>Next message: <A HREF="000023.html">[FaxGate-users] Kein Faxempfang
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#22">[ date ]</a>
+              <a href="thread.html#22">[ thread ]</a>
+              <a href="subject.html#22">[ subject ]</a>
+              <a href="author.html#22">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Ingo,
+
+&gt;<i> Installiere bitte die capisuite die bei deiner Distri dabei ist
+</I>&gt;<i> und pr&#252;fe damit ob der Empfang bei deiner Installation
+</I>&gt;<i> funktioniert. Mit der von mir und von dir ver&#228;nderten
+</I>
+Mag sein, aber ich denke, dass zumindest meine &#196;nderung
+irrelevant war (und vorher ging es ja auch nicht, nur
+kam eine Meldung weniger).  Interessanterweise ist der
+Umlaut (H&#252;bner in Zeile 422) jetzt noch drin, und es geht
+trotzdem (vermutlich, weil oben die coding-Konvention
+nicht mehr fehlt).
+
+&gt;<i> capisuite sind das zu viele Unbekannte um dir vern&#252;nftig
+</I>&gt;<i> helfen zu k&#246;nnen.
+</I>
+Gerade gemacht, und die empf&#228;ngt Faxe (in der fax.conf habe ich
+gegen&#252;ber dem Suse-Original outgoing_MSN und fax_stationID
+angepasst und unten die 3 Userbl&#246;cke ankopiert, die ich vorher
+auch hatte, die aber vermutlich jetzt nicht viel machen),
+capisuite.conf ist noch original.
+
+Zugeh&#246;rige Log-Eintr&#228;ge (jeweils so ausgeschnitten, dass
+Ereignisse vor dem Anfang und hinter dem Ende mehrere Minuten
+weg sind, damit nichts fehlt):
+
+/var/log/messages:
+
+Aug 22 15:27:55 mammut2 kernel: capidrv-1: incoming call
+vvvvvaaaaa,1,2,ee
+Aug 22 15:27:55 mammut2 kernel: capidrv-1: patching si2=2 to 0 for VBOX
+Aug 22 15:27:55 mammut2 kernel: isdn_net: call from vvvvvaaaaa -&gt; 0 ee
+ignored
+Aug 22 15:27:55 mammut2 kernel: isdn_tty: call from vvvvvaaaaa -&gt; ee
+ignored
+Aug 22 15:27:55 mammut2 kernel: capidrv-1: incoming call
+vvvvvaaaaa,1,0,ee ignored
+Aug 22 15:28:06 mammut2 kernel: capilib_new_ncci: kcapi: appl 2 ncci
+0x10401 up
+Aug 22 15:28:15 mammut2 kernel: kcapi: appl 2 ncci 0x10401 down
+
+
+capisuite.log:
+
+Fri Aug 22 15:27:55 2008 Connection 0x83dac0: Connection object created
+for incoming call PLCI 401 from vvvvvaaaaa t
+o ee CIP 0x4
+Fri Aug 22 15:27:56 2008 Connection 0x83dac0: call from vvvvvaaaaa to
+ee for ralf connecting with fax
+Fri Aug 22 15:27:56 2008 Connection 0x83dac0: accepting with service 1
+Fri Aug 22 15:28:15 2008 Connection 0x83dac0: disconnect initiated
+Fri Aug 22 15:28:16 2008 Connection 0x83dac0: connection lost with
+cause 0x3400,0x0
+Fri Aug 22 15:28:16 2008 Connection 0x83dac0: Connection object deleted
+
+
+capisuite.error: nur das hier, dann nichts mehr:
+
+Fri Aug 22 15:05:16 2008 CapiSuite 0x7fffb4f32830: CapiSuite 0.4.5
+started.
+
+Konventionen (ee, vvvvv, aaaaa) wie gestern.
+
+Sch&#246;nen Dank schonmal,
+Ralf
+
+
+GS d-&gt;? s:++&gt;+++ a+ C++++$ UL+++$ UH+ P++ L++ E+++ W- N++ o-- K- w--- !O M- V-
+PS+&gt;++ PE Y+&gt;++ PGP+ !t !5 !X !R !tv  b+++ DI+++ D?  G+ e++++ h+ r? y?
+
+__________________________________________________
+Do You Yahoo!?
+Sie sind Spam leid? Yahoo! Mail verf&#252;gt &#252;ber einen herausragenden Schutz gegen Massenmails. 
+<A HREF="http://mail.yahoo.com">http://mail.yahoo.com</A> 
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000021.html">[FaxGate-users] Kein Faxempfang
+</A></li>
+	<LI>Next message: <A HREF="000023.html">[FaxGate-users] Kein Faxempfang
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#22">[ date ]</a>
+              <a href="thread.html#22">[ thread ]</a>
+              <a href="subject.html#22">[ subject ]</a>
+              <a href="author.html#22">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/faxgate-users">More information about the FaxGate-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [FaxGate-users] Keine Nummernabfrage
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/faxgate-users/2009-February/index.html" >
+   <LINK REL="made" HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Keine%20Nummernabfrage&In-Reply-To=%3C49A2F0F0.1040901%40vr-web.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000046.html">
+   <LINK REL="Next"  HREF="000048.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[FaxGate-users] Keine Nummernabfrage</H1>
+    <B>Markus Frisch</B> 
+    <A HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Keine%20Nummernabfrage&In-Reply-To=%3C49A2F0F0.1040901%40vr-web.de%3E"
+       TITLE="[FaxGate-users] Keine Nummernabfrage">frisch at vr-web.de
+       </A><BR>
+    <I>Mon Feb 23 19:54:40 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000046.html">[FaxGate-users] Keine Nummernabfrage
+</A></li>
+        <LI>Next message: <A HREF="000048.html">[FaxGate-users] Keine Nummernabfrage
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#47">[ date ]</a>
+              <a href="thread.html#47">[ thread ]</a>
+              <a href="subject.html#47">[ subject ]</a>
+              <a href="author.html#47">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Ingo,
+
+Ingo G&#246;ppert schrieb:
+&gt;&gt;<i> Feb 22 16:30:24 linux sudo:       lp : TTY=unknown ; PWD=/ ;
+</I>&gt;&gt;<i> USER=root ; COMMAND=/usr/bin/faxgate.py -u thomas
+</I>&gt;&gt;<i> Feb 22 16:30:25 linux sudo:       lp : TTY=unknown ; PWD=/ ;
+</I>&gt;&gt;<i> USER=root ; COMMAND=/usr/bin/faxgate.py --user=thomas
+</I>&gt;&gt;<i> --ip=::ffff:192.168.1.14 --port=50000 --command=Question: faxnumber
+</I>&gt;&gt;<i> Feb 22 16:30:25 linux sudo:       lp : TTY=unknown ; PWD=/ ;
+</I>&gt;&gt;<i> USER=root ; COMMAND=/usr/bin/faxgate.py --user=thomas
+</I>&gt;&gt;<i> --ip=::ffff:192.168.1.14 --port=50000 --command=Warn_snd: Faxgate
+</I>&gt;&gt;<i> Fehler: Keine Faxnummer in Auftrag 21 gefunden!
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i> die IP scheint mir etwas seltsam:
+</I>&gt;<i> -ip=::ffff:192.168.1.14
+</I>&gt;<i>   
+</I>stimmt - ich habe da anscheinend den Protokoll-Teil eines Versuchs &#252;ber
+einen Windows-Client erwischt - ein localer Versuch auf der Kiste sieht
+in der /var/log/messages so aus:
+
+Feb 23 19:02:13 linux su: (to root) thomas on /dev/pts/2
+Feb 23 19:02:13 linux su: (to root) thomas on /dev/pts/2
+Feb 23 19:02:45 linux sudo:       lp : TTY=unknown ; PWD=/ ; USER=root ;
+COMMAND=/usr/bin/faxgate.py -u thomas
+Feb 23 19:02:46 linux sudo:       lp : TTY=unknown ; PWD=/ ; USER=root ;
+COMMAND=/usr/bin/faxgate.py --user=thomas --ip=localhost --port=50000
+--command=Question: faxnumber
+Feb 23 19:02:47 linux sudo:       lp : TTY=unknown ; PWD=/ ; USER=root ;
+COMMAND=/usr/bin/faxgate.py --user=thomas --ip=localhost --port=50000
+--command=Warn_snd: Faxgate Fehler: Keine Faxnummer in Auftrag 24 gefunden!
+
+&gt;<i> Hast du IPv6 laufen? Ich weis nicht ob faxgate damit funktioniert.
+</I>In den Netzwerkeinstellungen ist unter &quot;IPv6-Protokoll-Einstellungen ein
+H&#228;kchen vor
+&quot;IPv6 aktivieren&quot; gesetzt.
+Ich habe das jetzt mal deaktiviert und den Rechner neu gestartet -&gt; das
+Ergebnis ist das Gleiche :'( ,
+also hab ich das jetzt wieder angeschaltet.
+&gt;<i>  Was 
+</I>&gt;<i> kommt den im Logfenster des Clients an?
+</I>&gt;<i>   
+</I>Nach dem Start des Clients steht im Log-Fenster:
+-Faxgate Client gestartet...
+-Versuche Netzwerkschnittstelle zu aktivieren...
+-Benutze Port (50000)
+
+Beim Versuch, ein Fax &#252;ber den Faxgate-Drucker zu versenden, &#228;ndert sich
+im Client-Log absolut nichts - der bekommt das gar nicht mit.
+
+Ich habe jetzt noch Eintr&#228;ge in der Datei /var/log/cups/error.log
+gefunden, die sehen so aus:
+
+I [23/Feb/2009:19:02:45 +0100] [Job 24] Adding start banner page &quot;none&quot;.
+I [23/Feb/2009:19:02:45 +0100] [Job 24] Adding job file of type
+application/postscript.
+I [23/Feb/2009:19:02:45 +0100] [Job 24] Adding end banner page &quot;none&quot;.
+I [23/Feb/2009:19:02:45 +0100] [Job 24] Queued on &quot;Faxgate&quot; by &quot;thomas&quot;.
+I [23/Feb/2009:19:02:45 +0100] [Job 24] Started filter
+/usr/lib/cups/filter/pstops (PID 25375)
+I [23/Feb/2009:19:02:45 +0100] [Job 24] Started backend
+/usr/lib/cups/backend/faxgate (PID 25376)
+E [23/Feb/2009:19:02:46 +0100] [Job 24] Keine Faxnummer gefunden,
+Auftrag 24 abgebrochen!
+I [23/Feb/2009:19:02:47 +0100] [Job 24] Completed successfully.
+
+Zus&#228;tzlich gibts da eine Datei mit Namen
+/var/spool/cups/tmp/faxgate.log, die h&#228;nge ich mal als Anhang an die
+Mail (weiss gar nicht, wie ne log-Datei ins spool-Verzeichnis kommt??).
+
+Gru&#223;
+Markus
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: faxgate.log
+Type: text/x-log
+Size: 1444 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/faxgate-users/attachments/20090223/c087bea7/attachment.bin">https://lists.berlios.de/pipermail/faxgate-users/attachments/20090223/c087bea7/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000046.html">[FaxGate-users] Keine Nummernabfrage
+</A></li>
+	<LI>Next message: <A HREF="000048.html">[FaxGate-users] Keine Nummernabfrage
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#47">[ date ]</a>
+              <a href="thread.html#47">[ thread ]</a>
+              <a href="subject.html#47">[ subject ]</a>
+              <a href="author.html#47">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/faxgate-users">More information about the FaxGate-users
+mailing list</a><br>
+</body></html>

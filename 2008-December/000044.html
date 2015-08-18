@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [FaxGate-users] Restprobleme FaxgateClient
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/faxgate-users/2008-December/index.html" >
+   <LINK REL="made" HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Restprobleme%20FaxgateClient&In-Reply-To=%3C200812082009.54791.ingo.goeppert%40gmx.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000043.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[FaxGate-users] Restprobleme FaxgateClient</H1>
+    <B>Ingo G&#246;ppert</B> 
+    <A HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Restprobleme%20FaxgateClient&In-Reply-To=%3C200812082009.54791.ingo.goeppert%40gmx.de%3E"
+       TITLE="[FaxGate-users] Restprobleme FaxgateClient">ingo.goeppert at gmx.de
+       </A><BR>
+    <I>Mon Dec  8 20:09:50 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000043.html">[FaxGate-users] Restprobleme FaxgateClient
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#44">[ date ]</a>
+              <a href="thread.html#44">[ thread ]</a>
+              <a href="subject.html#44">[ subject ]</a>
+              <a href="author.html#44">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Ralf,
+
+Am Montag, 8. Dezember 2008 schrieb Ralf Muschall:
+&gt;<i> [ich]
+</I>[...]
+&gt;<i> Neues Problem:
+</I>&gt;<i> ==============
+</I>&gt;<i> Wenn ich auf eine Zeile im Eingangsreiter (oder woanders)
+</I>&gt;<i> doppelklicke und das Zielfile in /home/faxuser noch nicht
+</I>&gt;<i> existiert (also im Normalfall), kommt ein Javafehler:
+</I>&gt;<i>
+</I>&gt;<i> lava.lang.NullPointerException
+</I>&gt;<i> at java.awt.Container.createHierarchieEvents(Container.java:1335)
+</I>&gt;<i> at java.awt.Container.createHierarchieEvents(Container.java:1335)
+</I>&gt;<i> at java.awt.Container.createHierarchieEvents(Container.java:1335)
+</I>&gt;<i> at java.awt.Container.createHierarchieEvents(Container.java:1335)
+</I>&gt;<i> at java.awt.Container.createHierarchieEvents(Container.java:1335)
+</I>&gt;<i> at java.awt.Component.show(Component.java:1270)
+</I>&gt;<i> at java.awt.Windows.show(Windows.java:522)
+</I>&gt;<i> at java.awt.Component.show(Component.java:1302)
+</I>&gt;<i> at java.awt.Component.setVisible(Component.java:1255)
+</I>&gt;<i> at com.sshtools.shift.FileTransferDialog.getRemoteFiles(Unknown
+</I>&gt;<i> Source) af com.sshtools.shift.ShiftSessionPanel$7.run(Unknown Source)
+</I>&gt;<i> at java.land.Thread.run(Thread.java:595)
+</I>&gt;<i>
+</I>&gt;<i> (kann Tippfehler enthalten, musste ich abtippen mangels
+</I>&gt;<i> Markierbarkeit).
+</I>&gt;<i> Danach liegt das Zielfile am Ziel, aber mein Script
+</I>&gt;<i> (faxwork.sh) wird nicht aufgerufen.
+</I>&gt;<i>
+</I>&gt;<i> Wenn das Zielfile schon daliegt (d.h. beim zweiten Versuch),
+</I>&gt;<i> fragt er, ob er es ueberschreiben soll und ruft danach mein
+</I>&gt;<i> Script auf.
+</I>
+kann ich leider nur best&#228;tigen und derzeit nicht beheben. Tritt bei mir 
+allerdings nicht immer und bei einem kurzen Test nur bei 
+Sprachnachrichten auf. Reine Spekulation: Java scheint auf die Datei 
+zuzugreifen zu einem Zeitpunkt zu dem sie noch nicht vollst&#228;ndig 
+runtergeladen wurde. Wann ich mir das genauer anschauen und beheben 
+kann weis ich noch nicht.
+
+Gru&#223;
+Ingo
+
+-- 
+## Registered Linux User #274727 -- <A HREF="http://counter.li.org/">http://counter.li.org/</A>
+## Windows, Linux und Mac Office-Suite -- <A HREF="http://de.openoffice.org/">http://de.openoffice.org/</A>
+## Die OpenOffice.org PrOOo-Box -- <A HREF="http://prooo-box.org/">http://prooo-box.org/</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/faxgate-users/attachments/20081208/6fb1cab0/attachment.pgp">https://lists.berlios.de/pipermail/faxgate-users/attachments/20081208/6fb1cab0/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000043.html">[FaxGate-users] Restprobleme FaxgateClient
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#44">[ date ]</a>
+              <a href="thread.html#44">[ thread ]</a>
+              <a href="subject.html#44">[ subject ]</a>
+              <a href="author.html#44">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/faxgate-users">More information about the FaxGate-users
+mailing list</a><br>
+</body></html>

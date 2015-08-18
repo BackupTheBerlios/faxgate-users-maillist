@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/faxgate-users/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Seltsamer%20Javaclient-Anmeldefehler&In-Reply-To=%3C492DA0CE.50408%40vr-web.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000036.html">
+   <LINK REL="Next"  HREF="000037.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[FaxGate-users] Seltsamer Javaclient-Anmeldefehler</H1>
+    <B>Markus Frisch</B> 
+    <A HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Seltsamer%20Javaclient-Anmeldefehler&In-Reply-To=%3C492DA0CE.50408%40vr-web.de%3E"
+       TITLE="[FaxGate-users] Seltsamer Javaclient-Anmeldefehler">frisch at vr-web.de
+       </A><BR>
+    <I>Wed Nov 26 20:17:34 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000036.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+        <LI>Next message: <A HREF="000037.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#40">[ date ]</a>
+              <a href="thread.html#40">[ thread ]</a>
+              <a href="subject.html#40">[ subject ]</a>
+              <a href="author.html#40">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Ralf,
+
+Ralf Muschall schrieb:
+&gt;<i> Hallo,
+</I>&gt;<i>
+</I>&gt;<i> auf einem anderen Rechner (Suse 10.3/32), frisch
+</I>&gt;<i> gezogene capisuite-suse-10.3-0.5.cvs-61.1.i586.rpm
+</I>&gt;<i> (von <A HREF="http://download.opensuse.org/repositories/home:/ingogoeppert/">http://download.opensuse.org/repositories/home:/ingogoeppert/</A>),
+</I>&gt;<i> bekomme ich im Client folgende Fehler:
+</I>&gt;<i>
+</I>&gt;<i> 1. Im Netzwerkmen&#252; beim ersten Testknopf (dem bei der IP)
+</I>&gt;<i>    &quot;kein CUPS&quot;
+</I>&gt;<i> 2. beim Anmeldeversuch: SFTP aus unbekanntem Grund fehlgeschlagen
+</I>&gt;<i>
+</I>&gt;<i> (Der Test auf Port 50000 ist OK).
+</I>&gt;<i>   
+</I>Ich habe jetzt zwar keine konkrete Idee, wo dein Problem zu beheben ist,
+jedoch habe ich mir mal alles, was ich bei meiner Suse10.3 &#228;ndern bzw.
+einstellen muss, in eine kleine Textdatei als Anleitung geschrieben. Die
+h&#228;nge ich hier mal an, vielleicht wirst Du ja f&#252;ndig.
+
+Gru&#223;
+Markus
+
+-- 
+_________________________________________________________________
+Markus Frisch - Deutschenbaurstra&#223;e 29b - 86157 Augsburg
+Tel: 52 98 17 - Fax: 52 14 725 - mail: <A HREF="https://lists.berlios.de/mailman/listinfo/faxgate-users">frisch at vr-web.de</A>
+
+-------------- next part --------------
+########################################
+Installation von Faxgate:
+########################################
+
+
+1.
+Download der ge&#195;&#164;nderten Capisuite und des Faxgate-Clients von www.faxgate.org
+
+2.
+Installation des rpm und kopieren des Clients nach /home/.../bin
+Erstellen eines Scripts zum Aufruf des Clients:
+	cd /home/.../bin
+	java -jar FaxgateClient.jar
+
+3. Testen, ob Faxen &#195;&#188;ber Capisuite (Konqueror - Drucken - An Fax weiterleiten) funktioniert
+
+4.
+&#195;&#132;ndern der Datei /etc/sudoers - Erg&#195;&#164;nzungen von www.faxgate.org eintragen:
+
+# Host alias specification
+Host_Alias	FAXSERVER=linux
+
+# User alias specification
+User_Alias	SPOOLSYSTEM=lp
+
+# Cmnd alias specification
+Cmnd_Alias	FAXSENDING=/usr/bin/capisuitefax
+Cmnd_Alias	FAXCHECK=/usr/bin/faxgate.py
+
+# cups can run the scripts as root without password
+SPOOLSYSTEM	FAXSERVER=NOPASSWD:FAXSENDING
+SPOOLSYSTEM	FAXSERVER=NOPASSWD:FAXCHECK
+
+5.
+&#195;&#132;ndern der Datei sshd_config in /etc/ssh/
+	PasswordAuthentication yes (von &quot;no&quot; auf &quot;yes&quot; setzen)
+
+6.
+sffview von CD nachinstallieren
+
+7.
+Faxgate als Netzwerkdrucker einrichten: (FUNKTIONIERT NICHT BEI 11.0)
+- Yast -&gt; Hardware -&gt; Drucker -&gt; Hinzuf&#195;&#188;gen
+- &quot;Netzwerkdrucker&quot; -&gt; &quot;CUPS Netzwerkserver&quot; -&gt; &quot;CUPS Broadcasting verwenden&quot;
+- Fertigstellen
+- danach den Drucker anklicken -&gt; Bearbeiten
+- UNNOWN MANUFACTURER -&gt; Faxgate
+- diverse Einstellungen machen
+
+-&gt; manuelle Installation bei openSuSE 11.0:
+erst Druckerdatenbank neu einlesen mit Yast -&gt; Hardware -&gt; Drucker, dann
+in root-shell eingeben:
+	&quot;lpadmin -p Faxgate -v <A HREF="faxgate://capisuite">faxgate://capisuite</A> -m Faxgate.ppd.gz&quot;
+dann Test mit:
+	&quot;lpstat -p Faxgate&quot;
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000036.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+	<LI>Next message: <A HREF="000037.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#40">[ date ]</a>
+              <a href="thread.html#40">[ thread ]</a>
+              <a href="subject.html#40">[ subject ]</a>
+              <a href="author.html#40">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/faxgate-users">More information about the FaxGate-users
+mailing list</a><br>
+</body></html>

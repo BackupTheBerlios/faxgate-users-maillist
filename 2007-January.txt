@@ -1,0 +1,165 @@
+From ingo.goeppert at gmx.de  Tue Jan  9 23:00:47 2007
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-1?q?G=F6ppert?=)
+Date: Tue, 9 Jan 2007 23:00:47 +0100
+Subject: [FaxGate-users] =?iso-8859-1?q?faxgate_f=FCr_suse_=3E_10=2E0?=
+Message-ID: <200701092300.52088.ingo.goeppert@gmx.de>
+
+Hallo,
+
+auf ftp://ftp.berlios.de/pub/faxgate/server/013/ befindet sich faxgate 
+Version 0.13 f?r SUSE 10.1/SLES 10.
+
+Mangels einer 32-Bit Installation konnte ich nur die 64-Bit Version 
+erstellen. W?re nett wenn jemand das src.rpm auf einem 32 Bit System 
+neu compilieren w?rde (rpmbuild --rebuild 
+capisuite-0.5.cvs-0.13.src.rpm). Das Ergebnis w?rde ich dann gerne zum 
+Download anbieten oder verlinken.
+
+Gr??e,
+Ingo
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20070109/8b7b5f0a/attachment.pgp>
+
+From frisch at vr-web.de  Wed Jan 10 22:58:53 2007
+From: frisch at vr-web.de (Markus Frisch)
+Date: Wed, 10 Jan 2007 22:58:53 +0100
+Subject: [FaxGate-users] =?iso-8859-15?q?faxgate_f=FCr_suse_=3E_10=2E0?=
+In-Reply-To: <200701092300.52088.ingo.goeppert@gmx.de>
+References: <200701092300.52088.ingo.goeppert@gmx.de>
+Message-ID: <45A5619D.2040909@vr-web.de>
+
+Hallo Ingo,
+
+ich w?rde das schon machen - ich komm aber nicht auf den Server, der 
+hinter dem Link steckt.
+
+Auf deiner Homepage gibts das Paket (und auch die Quellen) der Version 
+0.13 noch nicht, wie ich gesehen habe.
+
+
+Gr??e
+Markus
+
+Ingo G?ppert schrieb:
+> Hallo,
+>
+> auf ftp://ftp.berlios.de/pub/faxgate/server/013/ befindet sich faxgate 
+> Version 0.13 f?r SUSE 10.1/SLES 10.
+>
+> Mangels einer 32-Bit Installation konnte ich nur die 64-Bit Version 
+> erstellen. W?re nett wenn jemand das src.rpm auf einem 32 Bit System 
+> neu compilieren w?rde (rpmbuild --rebuild 
+> capisuite-0.5.cvs-0.13.src.rpm). Das Ergebnis w?rde ich dann gerne zum 
+> Download anbieten oder verlinken.
+>   
+
+
+
+From ingo.goeppert at gmx.de  Thu Jan 11 07:49:46 2007
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-15?q?G=F6ppert?=)
+Date: Thu, 11 Jan 2007 07:49:46 +0100
+Subject: [FaxGate-users] =?iso-8859-15?q?faxgate_f=FCr_suse_=3E_10=2E0?=
+In-Reply-To: <45A5619D.2040909@vr-web.de>
+References: <200701092300.52088.ingo.goeppert@gmx.de>
+	<45A5619D.2040909@vr-web.de>
+Message-ID: <200701110749.50479.ingo.goeppert@gmx.de>
+
+Hallo Markus,
+
+Am Mittwoch, 10. Januar 2007 22:58 schrieb Markus Frisch:
+> Hallo Ingo,
+>
+> ich w?rde das schon machen - ich komm aber nicht auf den Server, der
+> hinter dem Link steckt.
+
+komisch, wird als OK angezeigt 
+(https://monitor.berlios.de/berlios-status/), funktioniert bei mir 
+heute aber auch nicht mehr.
+
+>
+> Auf deiner Homepage gibts das Paket (und auch die Quellen) der
+> Version 0.13 noch nicht, wie ich gesehen habe.
+
+Es war schon jemand schneller als du, da bin liegt auf 
+http://home.arcor.de/ingo.goeppert/faxgate/capisuite-0.5.cvs-0.13.i586.rpm
+
+Funktioniert aber leider nicht, beim Mailssende werden Fehler gemeldet.
+
+Gr??e,
+Ingo
+
+>
+>
+> Gr??e
+> Markus
+>
+> Ingo G?ppert schrieb:
+> > Hallo,
+> >
+> > auf ftp://ftp.berlios.de/pub/faxgate/server/013/ befindet sich
+> > faxgate Version 0.13 f?r SUSE 10.1/SLES 10.
+> >
+> > Mangels einer 32-Bit Installation konnte ich nur die 64-Bit Version
+> > erstellen. W?re nett wenn jemand das src.rpm auf einem 32 Bit
+> > System neu compilieren w?rde (rpmbuild --rebuild
+> > capisuite-0.5.cvs-0.13.src.rpm). Das Ergebnis w?rde ich dann gerne
+> > zum Download anbieten oder verlinken.
+>
+> _______________________________________________
+> FaxGate-users mailing list
+> FaxGate-users at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/faxgate-users
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20070111/f569b2f7/attachment.pgp>
+
+From ingo.goeppert at gmx.de  Sun Jan 21 20:49:40 2007
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-1?q?G=F6ppert?=)
+Date: Sun, 21 Jan 2007 20:49:40 +0100
+Subject: [FaxGate-users] faxgate 0.13 auf openSUSE Build Service
+Message-ID: <200701212049.44227.ingo.goeppert@gmx.de>
+
+Hallo,
+
+auf software.opensuse.org [1] steht faxgate ab sofort f?r verschiedene 
+Distris bereit zum Download. Falls noch eine der vom BuildService [2] 
+unterst?tzten Distris fehlt (ich habe bisher nur die aktuellsten SuSEs 
+aktiviert), bitte melden. Bitte ebenfalls melden ob die Builds 
+funktionieren oder nicht, ich kann das nicht alles selbst testen.
+
+Gr??e,
+Ingo
+
+[1] http://software.opensuse.org/download/home:/ingogoeppert/
+[2] http://de.opensuse.org/Build_Service
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20070121/fe2b9c60/attachment.pgp>
+

@@ -1,0 +1,304 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [FaxGate-users] FaxGate unter openSUSE 11.0
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/faxgate-users/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20FaxGate%20unter%20openSUSE%2011.0&In-Reply-To=%3C488DF3AD.6000203%40vr-web.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000019.html">
+   <LINK REL="Next"  HREF="000018.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[FaxGate-users] FaxGate unter openSUSE 11.0</H1>
+    <B>Markus Frisch</B> 
+    <A HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20FaxGate%20unter%20openSUSE%2011.0&In-Reply-To=%3C488DF3AD.6000203%40vr-web.de%3E"
+       TITLE="[FaxGate-users] FaxGate unter openSUSE 11.0">frisch at vr-web.de
+       </A><BR>
+    <I>Mon Jul 28 18:28:29 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000019.html">[FaxGate-users] FaxGate unter openSUSE 11.0
+</A></li>
+        <LI>Next message: <A HREF="000018.html">[FaxGate-users]  FaxGate unter openSUSE 11.0
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#20">[ date ]</a>
+              <a href="thread.html#20">[ thread ]</a>
+              <a href="subject.html#20">[ subject ]</a>
+              <a href="author.html#20">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Ingo,
+
+Ingo G&#246;ppert schrieb:
+&gt;<i> geplant ja, aber wann kann ich dir nicht sagen. Aktuell gibt es nicht 
+</I>&gt;<i> mal ein komplettes Paket f&#252;r opensuse 10.3...
+</I>&gt;<i>   
+</I>Hmm, das ist ja schon mal Licht am Horizont..
+
+&gt;&gt;<i> Als begeisterter FaxGate-Nutzer musste ich leider feststellen, dass
+</I>&gt;&gt;<i> mit der (FaxGate-) capisuite-0.5.cvs-29.1. unter der neuen opensuse
+</I>&gt;&gt;<i> keine Faxe mehr verschickt werden k&#246;nnen.
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i> Verschicken ging mit der 10.3 glaub noch, beim Empfang gabs aber diverse 
+</I>&gt;<i> Probleme. 
+</I>Stimmt, der Empfang funktionierte nicht, deshalb lief (und l&#228;uft) unser 
+Server noch unter SuSE 10.1.
+Jetzt wird aber ein dringend n&#246;tiger Hardwarewechsel f&#228;llig, und da 
+wirds schwierig, die neue Hardware unter der alten SuSE zum laufen zu 
+bekommen, wenn nicht sogar unm&#246;glich  :'(
+Aber einen Server (mit Win-Clients) ohne FaxGate kann ich mir gar nicht 
+vorstellen :'(
+&gt;<i> Was passiert den genau beim Versand bei der 11.0?
+</I>&gt;<i>   
+</I>Ich habe die capisuite-0.5.cvs-34.1.rpm unter der 11.0 installiert
+
+Im Anhang habe ich eine Textdatei mit 3 Abschnitten:
+- Fehlermeldung in der &quot;capisuite.log&quot; mit loglevel=3 bei Versuch ein 
+Fax zu senden
+- Fehlermeldung in der &quot;capisuite.error&quot; mit loglevel=3 bei Versuch ein 
+Fax zu senden
+- Fehlermeldung in der Konsole beim Versuch, aus dem src.rpm ein rpm zu 
+bauen.
+
+Ich hoffe, die Textdatei wird nicht rausgefiltert von berlios..
+
+Gru&#223;
+Markus
+
+
+
+-------------- next part --------------
+### capisuite.log ###
+
+Mon Jul 28 17:54:52 2008 CapiSuite 0xbf831c68: job fax-3.sff from markus to 5214725 initiated
+Mon Jul 28 17:54:52 2008 CapiSuite 0xbf831c68: No integer value for port given!
+Mon Jul 28 17:54:52 2008 Connection 0x8257b10: Connection object created for outgoing call from 5214725 to 5214725 service 1
+Mon Jul 28 17:54:52 2008 Connection 0x8257b10: using faxStationID +49 821 5214725 faxHeadline Markus Frisch - sent by CapiSuite CLIR 0
+Mon Jul 28 17:54:52 2008 Capi 0x81a2850: &gt;CONNECT_REQ: ApplId 0x2, MsgNr 0x4, Controller 0x1 CIPValue 0x11, B1proto 0x4, B2proto 0x4, B3proto 0x5
+Mon Jul 28 17:54:52 2008 Capi 0x81a2850: *
+Mon Jul 28 17:54:52 2008 Capi 0x81a2850: &lt;CONNECT_CONF, PLCI: 0x101, Info 0x0
+Mon Jul 28 17:54:52 2008 Capi 0x81a2850: info: 0
+Mon Jul 28 17:54:52 2008 Connection 0x8257b10: got PLCI 101
+Mon Jul 28 17:54:52 2008 Capi 0x81a2850: **
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: *
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: &lt;INFO_IND: Controller/PLCI 0x101, InfoNumber 800d (ignoring)
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: &gt;INFO_RESP ApplId 0x2, MsgNr 0x0, Address 0x101
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: info: 0
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: **
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: *
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: &lt;CONNECT_IND PLCI 0x201 CIP 0x11
+Mon Jul 28 17:54:55 2008 Connection 0x825b398: Connection object created for incoming call PLCI 201 from - to 5214725 CIP 0x11
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: **
+Mon Jul 28 17:54:55 2008 Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8219528: PythonScript created.
+Mon Jul 28 17:54:55 2008 Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8219528: Connection 0x825b398 created IncomingScript
+Mon Jul 28 17:54:55 2008 Connection 0x825b398: Python: deleting connection object
+Mon Jul 28 17:54:55 2008 Connection 0x825b398: rejecting with cause 34a9
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: &gt;CONNECT_RESP ApplId 0x2, msgNum 0x1, PLCI 0x201, Reject 0x34a9, B1proto 0x0, B2proto 0x0, B3proto 0x0
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: *
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: &lt;DISCONNECT_IND PLCI 0x201 Reason 0x0
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: &gt;DISCONNECT_RESP ApplId 0x2 MsgNum 0x4 PLCI 0x201
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: info: 0
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: **
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: info: 0
+Mon Jul 28 17:54:55 2008 Connection 0x825b398: stop_file_transmission initiated
+Mon Jul 28 17:54:55 2008 Connection 0x825b398: stop_file_transmission finished
+Mon Jul 28 17:54:55 2008 Connection 0x825b398: stop_file_reception finished
+Mon Jul 28 17:54:55 2008 Connection 0x825b398: Connection object deleted
+Mon Jul 28 17:54:55 2008 Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8219528: IncomingScript deleted
+Mon Jul 28 17:54:55 2008 Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8219528: PythonScript deleted.
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: *
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: &lt;INFO_IND: Controller/PLCI 0x101, InfoNumber 1e (ignoring)
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: &gt;INFO_RESP ApplId 0x2, MsgNr 0x5, Address 0x101
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: info: 0
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: **
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: *
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: &lt;DISCONNECT_IND PLCI 0x101 Reason 0x34a9
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: &gt;DISCONNECT_RESP ApplId 0x2 MsgNum 0x6 PLCI 0x101
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: info: 0
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: **
+Mon Jul 28 17:54:59 2008 Connection 0x8257b10: Python: deleting connection object
+Mon Jul 28 17:54:59 2008 Connection 0x8257b10: stop_file_transmission initiated
+Mon Jul 28 17:54:59 2008 Connection 0x8257b10: stop_file_transmission finished
+Mon Jul 28 17:54:59 2008 Connection 0x8257b10: stop_file_reception finished
+Mon Jul 28 17:54:59 2008 Connection 0x8257b10: Connection object deleted
+Mon Jul 28 17:54:59 2008 CapiSuite 0xbf831c68: job fax-3.sff: result was 34a9,0
+Mon Jul 28 17:54:59 2008 CapiSuite 0xbf831c68: No integer value for port given!
+Mon Jul 28 17:54:59 2008 CapiSuite 0xbf831c68: job fax-3.sff: delayed for 60 seconds
+Mon Jul 28 17:54:59 2008 CapiSuite 0xbf831c68: No integer value for port given!
+Mon Jul 28 17:54:59 2008 Pythonscript /usr/lib/capisuite/idle.py,idle,0x81d7408: idlescript finished...
+ 
+
+### capisuite.error ###
+
+Mon Jul 28 17:49:26 2008 CapiSuite 0xbf93ee18: CapiSuite 0.5.cvs started.
+Mon Jul 28 17:51:22 2008 CapiSuite 0xbf831c68: CapiSuite 0.5.cvs started.
+Mon Jul 28 17:54:55 2008 Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8219528: Error occured. message was: ApplicationError: syntax error while executing python script occured in PythonScript::run()
+Mon Jul 28 17:54:55 2008 Connection 0x825b398: Warning: Connection still established in capisuitemodule_desctruct_conn(). Disconnecting.
+Mon Jul 28 17:56:02 2008 Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8256e78: Error occured. message was: ApplicationError: syntax error while executing python script occured in PythonScript::run()
+Mon Jul 28 17:56:02 2008 Connection 0x825b398: Warning: Connection still established in capisuitemodule_desctruct_conn(). Disconnecting.
+
+
+### Fehler bei rpmbuild --rebuild -bb capisuite-0.5.cvs-34.1.src.rpm  ###
+
+g++ -DHAVE_CONFIG_H -I. -I../..   -DLOCALSTATEDIR=\&quot;/var\&quot; -DPKGDATADIR=\&quot;/usr/share/capisuite\&quot; -DPKGSYSCONFDIR=\&quot;/etc/capisuite\&quot; -DPKGLIBDIR=\&quot;/usr/lib/capisuite\&quot; -I/usr/include/python2.5  -O2 -g -m32 -march=i586 -mtune=i686 -fmessage-length=0 -D_FORTIFY_SOURCE=2 -MT capisuite.o -MD -MP -MF .deps/capisuite.Tpo -c -o capisuite.o capisuite.cpp
+In file included from capisuite.cpp:27:
+../backend/capi.h:20:20: error: capi20.h: No such file or directory
+In file included from capisuite.cpp:27:
+../backend/capi.h:103: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:118: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:147: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:170: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:170: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:170: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:177: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:198: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:198: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:198: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/capi.h:198: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/capi.h:198: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:198: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:198: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:198: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/capi.h:198: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/capi.h:198: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/capi.h:211: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:211: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:211: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:211: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:211: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/capi.h:211: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/capi.h:211: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/capi.h:218: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:229: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:229: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:229: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:229: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:237: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:237: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/capi.h:247: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:247: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/capi.h:247: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/capi.h:247: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/capi.h:256: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:256: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:256: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/capi.h:273: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:273: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:273: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:273: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:273: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:273: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:273: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/capi.h:273: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/capi.h:273: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/capi.h:281: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:281: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:291: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:291: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:291: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:291: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/capi.h:299: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:299: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:308: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:308: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:308: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:318: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:318: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:318: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:318: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/capi.h:326: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:326: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:334: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:334: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:342: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/capi.h:342: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/capi.h:422: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; was not declared in this scope
+../backend/capi.h:422: error: template argument 1 is invalid
+../backend/capi.h:422: error: template argument 3 is invalid
+../backend/capi.h:422: error: template argument 4 is invalid
+../backend/capi.h:425: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; does not name a type
+../backend/capi.h:426: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; does not name a type
+../backend/capi.h:427: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; does not name a type
+In file included from capisuite.cpp:28:
+../backend/connection.h:87: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/connection.h:216: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/connection.h:284: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; does not name a type
+../backend/connection.h:293: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; does not name a type
+../backend/connection.h:362: error: expected `)' before &#226;&#128;&#152;&amp;&#226;&#128;&#153; token
+../backend/connection.h:379: error: &#226;&#128;&#152;_cmsg&#226;&#128;&#153; has not been declared
+../backend/connection.h:389: error: &#226;&#128;&#152;_cmsg&#226;&#128;&#153; has not been declared
+../backend/connection.h:399: error: &#226;&#128;&#152;_cmsg&#226;&#128;&#153; has not been declared
+../backend/connection.h:409: error: &#226;&#128;&#152;_cmsg&#226;&#128;&#153; has not been declared
+../backend/connection.h:419: error: &#226;&#128;&#152;_cmsg&#226;&#128;&#153; has not been declared
+../backend/connection.h:428: error: &#226;&#128;&#152;_cmsg&#226;&#128;&#153; has not been declared
+../backend/connection.h:438: error: &#226;&#128;&#152;_cmsg&#226;&#128;&#153; has not been declared
+../backend/connection.h:448: error: &#226;&#128;&#152;_cmsg&#226;&#128;&#153; has not been declared
+../backend/connection.h:458: error: &#226;&#128;&#152;_cmsg&#226;&#128;&#153; has not been declared
+../backend/connection.h:466: error: &#226;&#128;&#152;_cmsg&#226;&#128;&#153; has not been declared
+../backend/connection.h:474: error: &#226;&#128;&#152;_cmsg&#226;&#128;&#153; has not been declared
+../backend/connection.h:482: error: &#226;&#128;&#152;_cmsg&#226;&#128;&#153; has not been declared
+../backend/connection.h:493: error: &#226;&#128;&#152;_cmsg&#226;&#128;&#153; has not been declared
+../backend/connection.h:501: error: &#226;&#128;&#152;_cmsg&#226;&#128;&#153; has not been declared
+../backend/connection.h:509: error: &#226;&#128;&#152;_cmsg&#226;&#128;&#153; has not been declared
+../backend/connection.h:517: error: &#226;&#128;&#152;_cmsg&#226;&#128;&#153; has not been declared
+../backend/connection.h:535: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/connection.h:571: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; has not been declared
+../backend/connection.h:571: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/connection.h:571: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/connection.h:571: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; has not been declared
+../backend/connection.h:571: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/connection.h:571: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/connection.h:571: error: &#226;&#128;&#152;_cstruct&#226;&#128;&#153; has not been declared
+../backend/connection.h:620: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; does not name a type
+../backend/connection.h:621: error: &#226;&#128;&#152;_cdword&#226;&#128;&#153; does not name a type
+../backend/connection.h:625: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; does not name a type
+../backend/connection.h:627: error: &#226;&#128;&#152;_cword&#226;&#128;&#153; does not name a type
+capisuite.cpp: In constructor &#226;&#128;&#152;CapiSuite::CapiSuite(int, char**)&#226;&#128;&#153;:
+capisuite.cpp:96: warning: deprecated conversion from string constant to &#226;&#128;&#152;char*&#226;&#128;&#153;
+capisuite.cpp:96: warning: deprecated conversion from string constant to &#226;&#128;&#152;char*&#226;&#128;&#153;
+make[3]: *** [capisuite.o] Error 1
+make[3]: Leaving directory `/usr/src/packages/BUILD/capisuite-0.5.cvs/src/application'
+make[2]: *** [all-recursive] Error 1
+make[2]: Leaving directory `/usr/src/packages/BUILD/capisuite-0.5.cvs/src'
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory `/usr/src/packages/BUILD/capisuite-0.5.cvs'
+make: *** [all] Error 2
+error: Bad exit status from /var/tmp/rpm-tmp.35207 (%build)
+
+
+RPM build errors:
+    InstallSourcePackage: Header V3 DSA signature: NOKEY, key ID 236c1aff
+    Bad exit status from /var/tmp/rpm-tmp.35207 (%build)
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000019.html">[FaxGate-users] FaxGate unter openSUSE 11.0
+</A></li>
+	<LI>Next message: <A HREF="000018.html">[FaxGate-users]  FaxGate unter openSUSE 11.0
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#20">[ date ]</a>
+              <a href="thread.html#20">[ thread ]</a>
+              <a href="subject.html#20">[ subject ]</a>
+              <a href="author.html#20">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/faxgate-users">More information about the FaxGate-users
+mailing list</a><br>
+</body></html>

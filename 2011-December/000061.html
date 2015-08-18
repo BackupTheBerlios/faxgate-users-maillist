@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [FaxGate-users] FG Version
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/faxgate-users/2011-December/index.html" >
+   <LINK REL="made" HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20FG%20Version&In-Reply-To=%3C4EF72070.30000%40googlemail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000060.html">
+   <LINK REL="Next"  HREF="000062.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[FaxGate-users] FG Version</H1>
+    <B>Stefan K&#246;nig</B> 
+    <A HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20FG%20Version&In-Reply-To=%3C4EF72070.30000%40googlemail.com%3E"
+       TITLE="[FaxGate-users] FG Version">montiburns at googlemail.com
+       </A><BR>
+    <I>Sun Dec 25 14:09:04 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000060.html">[FaxGate-users] FG Version
+</A></li>
+        <LI>Next message: <A HREF="000062.html">[FaxGate-users] FG Version
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#61">[ date ]</a>
+              <a href="thread.html#61">[ thread ]</a>
+              <a href="subject.html#61">[ subject ]</a>
+              <a href="author.html#61">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+&gt;&gt;&gt;<i> da w&#228;ren es dann also schon zwei....
+</I>&gt;&gt;&gt;<i> Ich habe das FG allerdings schon laufen bei mir.
+</I>&gt;&gt;&gt;<i> Hab aus dem src rpm einen rebuild f&#252;r opensuse 11.1-64 gemacht und dann
+</I>&gt;&gt;&gt;<i> den 0.14er client auf einem windows 7-64 angeworfen.
+</I>&gt;&gt;&gt;<i> l&#228;uft soweit es aussieht auch, allerdings vermisse ich die multiuser
+</I>&gt;&gt;&gt;<i> f&#228;higkeiten von LISA... sprich, wenn ich mich im client per sftp
+</I>&gt;&gt;&gt;<i> anmelde, sehe ich den kompletten fax eingang aller user...
+</I>&gt;<i>
+</I>&gt;<i> Hallo Stefan,
+</I>&gt;<i>
+</I>&gt;<i> k&#246;nntest Du mir diese Version als Source dann zur Verf&#252;gung stellen
+</I>&gt;<i> oder vielleicht eine Quelle angeben, die nicht in ein paar Tagen
+</I>&gt;<i> abgeschaltet wird?
+</I>&gt;<i> Jetzt bin ich doch auch sehr neugierig geworden, wer das Ganze
+</I>&gt;<i> weiterbetreut. Ich h&#228;tte ja auch schon Lust dazu, allein an der Zeit
+</I>&gt;<i> hapert es wahrscheinlich.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>Hi,
+
+also das src-rpm habe ich aus den invis-server repositories:
+<A HREF="http://software.opensuse.org/download.html?project=spins:invis&amp;package=faxgate">http://software.opensuse.org/download.html?project=spins:invis&amp;package=faxgate</A>
+da openSUSE ausw&#228;hlen, dann bin&#228;rpakete herunterladen, und f&#252;r 11.1 habe
+ich dann das &#228;lteste (also 11.3er) paket heruntergeladen:
+<A HREF="http://download.opensuse.org/repositories/spins:/invis/openSUSE_11.3/src/capisuite-0.5.cvs-5.1.src.rpm">http://download.opensuse.org/repositories/spins:/invis/openSUSE_11.3/src/capisuite-0.5.cvs-5.1.src.rpm</A>
+
+je nachdem welche version du hast, brauchst du dann ein anderes src rpm.
+aber von 11.3-12.1 ist bei invis alles dabei.
+dann brauchst du nur mit rpmbuild einen rebuild zu machen und hast ein
+fertiges opensuse rpm f&#252;r dein system:
+
+&quot;rpmbuild --rebuild capisuite-0.5.cvs-5.1.src.rpm&quot;
+und das fertige rpm sollte dann unter /usr/src/packages/RPMS/{arch} zu
+finden sein.
+
+ich kann dir auch das 11.1er rpm f&#252;r x86-64 per email schicken, wenn du
+keine rpmbuild umgebung hast.
+
+tschau
+SK
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000060.html">[FaxGate-users] FG Version
+</A></li>
+	<LI>Next message: <A HREF="000062.html">[FaxGate-users] FG Version
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#61">[ date ]</a>
+              <a href="thread.html#61">[ thread ]</a>
+              <a href="subject.html#61">[ subject ]</a>
+              <a href="author.html#61">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/faxgate-users">More information about the FaxGate-users
+mailing list</a><br>
+</body></html>

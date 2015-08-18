@@ -1,0 +1,293 @@
+From ralf_muschall at yahoo.de  Fri Aug 22 00:14:43 2008
+From: ralf_muschall at yahoo.de (Ralf Muschall)
+Date: Fri, 22 Aug 2008 00:14:43 +0200 (CEST)
+Subject: [FaxGate-users] Kein Faxempfang
+Message-ID: <742184.37244.qm@web23103.mail.ird.yahoo.com>
+
+Kurzbeschreibung meiner HW/SW:
+
+AMD-PC mit Suse 10.2/64, Kernel wie unten im Treibername
+
+Fritz!Card-USB verbunden mit internem Bus der TA mit Nummer 54.
+TA so eingestellt, dass an diesem Bus keine Extern-Null gew?hlt
+werden muss.  Der Bus hat keine Einschr?nkung auf Audio
+(insbesondere kann ich mich ?ber denselben Kanal per PPP in
+den Rechner einw?hlen), Faxe senden geht auch.
+
+fcusb2-kmp-default-0.1_2.6.18.8_0.10-0
+capi4linux-2006.11.14-6
+capisuite-0.5.cvs-34.1
+
+Die Umlaute aus incoming.py habe ich manuell entfernt (und dabei
+gleich mal C-x h M-x untabify gesagt - Tabs sind bei mir b?se).
+
+Wenn ich mir ein Fax (von einem anderen PC im Haus mit Windows)
+schicke,
+kommt in /var/log/messages das hier:
+
+Aug 21 22:49:28 mammut2 isdnlog: Aug 21 22:49:28 Call to tei 127 from
++49 vvvvv/aaaaa, ooooo on +49 vvvvv/ee, ooooo  HANGUP (Timeout)
+Aug 21 22:49:29 mammut2 isdnlog: Aug 21 22:49:29 * Call to tei 127 from
++49 vvvvv/aaaaa, ooooo on +49 vvvvv/ee, Liebertwolkwitz  RING (3.1 kHz
+audio)
+Aug 21 22:49:29 mammut2 kernel: capidrv-1: incoming call
+vvvvvaaaaa,1,2,54
+Aug 21 22:49:29 mammut2 kernel: capidrv-1: patching si2=2 to 0 for VBOX
+Aug 21 22:49:29 mammut2 kernel: isdn_net: call from vvvvvaaaaa -> 0 ee
+ignored
+Aug 21 22:49:29 mammut2 kernel: isdn_tty: call from vvvvvaaaaa -> ee
+ignored
+Aug 21 22:49:29 mammut2 kernel: capidrv-1: incoming call
+vvvvvaaaaa,1,0,ee ignored
+Aug 21 22:49:33 mammut2 isdnlog: Aug 21 22:49:33 * Call to tei 127 from
++49 vvvvv/aaaaa, ooooo on +49 vvvvv/ee, ooooo  RING (3.1 kHz audio)
+Aug 21 22:50:32 mammut2 isdnlog: Aug 21 22:50:32 Call to tei 127 from
++49 vvvvv/aaaaa, ooooo on +49 vvvvv/aa, ooooo  HANGUP (Timeout)
+
+vvvvv=Vorwahl, aaaaa=Absender (Hauptnummer der TA), ee=Internnummer
+meiner Fritz-USB,
+ooooo=Name der Stadt
+
+Daraufhin habe ich (um wenigstens etwas zu sehen)
+in incoming.py am Anfang der Funktion callIncoming
+(noch vor dem "try:") die Zeilen eingef?gt:
+
+        capisuite.log("call=%s, service=%s, call_from=%s, call_to=%s" %
+(
+                        call,service,call_from,call_to),1,call)
+
+Diese erzeugen allerdings keine Spur im Logeile.
+
+capisuite.log bekommt das hier:
+
+Thu Aug 21 23:29:39 2008 Capi 0x780e10: <CONNECT_IND PLCI 0x501 CIP 0x4
+Thu Aug 21 23:29:39 2008 Connection 0x81d300: Connection object created
+for incoming call PLCI 501 from vvvvvaaaaa to ee CIP 0x4
+Thu Aug 21 23:29:39 2008 Pythonscript
+/usr/lib64/capisuite/incoming.py,callIncoming,0x7ff560: Connection
+0x81d300 created IncomingScript
+Thu Aug 21 23:29:39 2008 Connection 0x81d300: call=<PyCObject object at
+0x2aaaaaacb2d8>, service=0, call_from=vvvvvaaaaa, call_to=ee
+Thu Aug 21 23:29:49 2008 Capi 0x780e10: <DISCONNECT_IND PLCI 0x501
+Reason 0x0
+Thu Aug 21 23:29:49 2008 Capi 0x780e10: >DISCONNECT_RESP ApplId 0x2
+MsgNum 0xf1 PLCI 0x501
+Thu Aug 21 23:29:49 2008 Capi 0x780e10: info: 0
+
+Die 4. Zeile hiervon scheint mein Befehl zu sein., Ersetzungen wie oben
+(aber das aaaaa in den Hexzahlen ist echt).
+
+In capisuite.error steht nichts bedeutsames (au?er dass capisuite
+?fters mal gestartet wurde, und vor Entfernen der Umlaute kam da der
+altbekannte Syntaxerror).
+
+Leider scheint "import capisuite" die C-Module zu meinen, sodass
+ich tiefergehende Forschungen erstmal abgebrochen habe (die passende
+Stelle in der Quelldoku scheint
+http://docs.capisuite.frankedata.de/reference-en/classConnection.html#w10
+zu sein).
+
+Wei? jemand, wo mein Fehler liegt?
+
+Ralf
+
+
+GS d->? s:++>+++ a+ C++++$ UL+++$ UH+ P++ L++ E+++ W- N++ o-- K- w--- !O M- V-
+PS+>++ PE Y+>++ PGP+ !t !5 !X !R !tv  b+++ DI+++ D?  G+ e++++ h+ r? y?
+
+__________________________________________________
+Do You Yahoo!?
+Sie sind Spam leid? Yahoo! Mail verf?gt ?ber einen herausragenden Schutz gegen Massenmails. 
+http://mail.yahoo.com 
+
+
+From ralf_muschall at yahoo.de  Fri Aug 22 16:12:39 2008
+From: ralf_muschall at yahoo.de (Ralf Muschall)
+Date: Fri, 22 Aug 2008 16:12:39 +0200 (CEST)
+Subject: [FaxGate-users] Kein Faxempfang
+In-Reply-To: <48AE9D70.8050505@gmx.de>
+Message-ID: <405883.86343.qm@web23102.mail.ird.yahoo.com>
+
+Hallo Ingo,
+
+> Installiere bitte die capisuite die bei deiner Distri dabei ist
+> und pr?fe damit ob der Empfang bei deiner Installation
+> funktioniert. Mit der von mir und von dir ver?nderten
+
+Mag sein, aber ich denke, dass zumindest meine ?nderung
+irrelevant war (und vorher ging es ja auch nicht, nur
+kam eine Meldung weniger).  Interessanterweise ist der
+Umlaut (H?bner in Zeile 422) jetzt noch drin, und es geht
+trotzdem (vermutlich, weil oben die coding-Konvention
+nicht mehr fehlt).
+
+> capisuite sind das zu viele Unbekannte um dir vern?nftig
+> helfen zu k?nnen.
+
+Gerade gemacht, und die empf?ngt Faxe (in der fax.conf habe ich
+gegen?ber dem Suse-Original outgoing_MSN und fax_stationID
+angepasst und unten die 3 Userbl?cke ankopiert, die ich vorher
+auch hatte, die aber vermutlich jetzt nicht viel machen),
+capisuite.conf ist noch original.
+
+Zugeh?rige Log-Eintr?ge (jeweils so ausgeschnitten, dass
+Ereignisse vor dem Anfang und hinter dem Ende mehrere Minuten
+weg sind, damit nichts fehlt):
+
+/var/log/messages:
+
+Aug 22 15:27:55 mammut2 kernel: capidrv-1: incoming call
+vvvvvaaaaa,1,2,ee
+Aug 22 15:27:55 mammut2 kernel: capidrv-1: patching si2=2 to 0 for VBOX
+Aug 22 15:27:55 mammut2 kernel: isdn_net: call from vvvvvaaaaa -> 0 ee
+ignored
+Aug 22 15:27:55 mammut2 kernel: isdn_tty: call from vvvvvaaaaa -> ee
+ignored
+Aug 22 15:27:55 mammut2 kernel: capidrv-1: incoming call
+vvvvvaaaaa,1,0,ee ignored
+Aug 22 15:28:06 mammut2 kernel: capilib_new_ncci: kcapi: appl 2 ncci
+0x10401 up
+Aug 22 15:28:15 mammut2 kernel: kcapi: appl 2 ncci 0x10401 down
+
+
+capisuite.log:
+
+Fri Aug 22 15:27:55 2008 Connection 0x83dac0: Connection object created
+for incoming call PLCI 401 from vvvvvaaaaa t
+o ee CIP 0x4
+Fri Aug 22 15:27:56 2008 Connection 0x83dac0: call from vvvvvaaaaa to
+ee for ralf connecting with fax
+Fri Aug 22 15:27:56 2008 Connection 0x83dac0: accepting with service 1
+Fri Aug 22 15:28:15 2008 Connection 0x83dac0: disconnect initiated
+Fri Aug 22 15:28:16 2008 Connection 0x83dac0: connection lost with
+cause 0x3400,0x0
+Fri Aug 22 15:28:16 2008 Connection 0x83dac0: Connection object deleted
+
+
+capisuite.error: nur das hier, dann nichts mehr:
+
+Fri Aug 22 15:05:16 2008 CapiSuite 0x7fffb4f32830: CapiSuite 0.4.5
+started.
+
+Konventionen (ee, vvvvv, aaaaa) wie gestern.
+
+Sch?nen Dank schonmal,
+Ralf
+
+
+GS d->? s:++>+++ a+ C++++$ UL+++$ UH+ P++ L++ E+++ W- N++ o-- K- w--- !O M- V-
+PS+>++ PE Y+>++ PGP+ !t !5 !X !R !tv  b+++ DI+++ D?  G+ e++++ h+ r? y?
+
+__________________________________________________
+Do You Yahoo!?
+Sie sind Spam leid? Yahoo! Mail verf?gt ?ber einen herausragenden Schutz gegen Massenmails. 
+http://mail.yahoo.com 
+
+
+From ingo.goeppert at gmx.de  Sun Aug 24 13:40:07 2008
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-1?q?G=F6ppert?=)
+Date: Sun, 24 Aug 2008 13:40:07 +0200
+Subject: [FaxGate-users] Kein Faxempfang
+In-Reply-To: <405883.86343.qm@web23102.mail.ird.yahoo.com>
+References: <405883.86343.qm@web23102.mail.ird.yahoo.com>
+Message-ID: <200808241340.11123.ingo.goeppert@gmx.de>
+
+Hallo Ralf,
+
+Am Freitag, 22. August 2008 schrieb Ralf Muschall:
+> Hallo Ingo,
+>
+> > Installiere bitte die capisuite die bei deiner Distri dabei ist
+> > und pr?fe damit ob der Empfang bei deiner Installation
+> > funktioniert. Mit der von mir und von dir ver?nderten
+>
+> Mag sein, aber ich denke, dass zumindest meine ?nderung
+> irrelevant war (und vorher ging es ja auch nicht, nur
+> kam eine Meldung weniger).  Interessanterweise ist der
+> Umlaut (H?bner in Zeile 422) jetzt noch drin, und es geht
+> trotzdem (vermutlich, weil oben die coding-Konvention
+> nicht mehr fehlt).
+
+in einem Python-Script die Einr?ckungen zu ver?ndern ist alles andere 
+als irrelevant. Ich habe keine Ahnung wie gut du dich damit auskennst 
+und du schreibst nichts ?ber deine Kenntnisse. Ich h?tte ?brigens 
+nichts dagegen wenn jemand die zur Zeit stillstehende Entwicklung 
+wieder vorantreiben w?rde.
+
+Ich hab die Dateien aus meiner ehemaligen opensuse 10.2 Installation 
+schon vor einiger Zeit hochgeladen, aber erst jetzt auf der 
+Downloadseite verlinkt. Probiers mal mit
+http://home.arcor.de/ingo.goeppert/faxgate/server/faxgate_opensuse102x64.0.14_anonym.tar.gz
+
+>
+> > capisuite sind das zu viele Unbekannte um dir vern?nftig
+> > helfen zu k?nnen.
+>
+> Gerade gemacht, und die empf?ngt Faxe (in der fax.conf habe ich
+> gegen?ber dem Suse-Original outgoing_MSN und fax_stationID
+> angepasst und unten die 3 Userbl?cke ankopiert, die ich vorher
+> auch hatte, die aber vermutlich jetzt nicht viel machen),
+> capisuite.conf ist noch original.
+>
+> Zugeh?rige Log-Eintr?ge (jeweils so ausgeschnitten, dass
+> Ereignisse vor dem Anfang und hinter dem Ende mehrere Minuten
+> weg sind, damit nichts fehlt):
+>
+> /var/log/messages:
+>
+> Aug 22 15:27:55 mammut2 kernel: capidrv-1: incoming call
+> vvvvvaaaaa,1,2,ee
+> Aug 22 15:27:55 mammut2 kernel: capidrv-1: patching si2=2 to 0 for
+> VBOX Aug 22 15:27:55 mammut2 kernel: isdn_net: call from vvvvvaaaaa
+> -> 0 ee ignored
+> Aug 22 15:27:55 mammut2 kernel: isdn_tty: call from vvvvvaaaaa -> ee
+> ignored
+> Aug 22 15:27:55 mammut2 kernel: capidrv-1: incoming call
+> vvvvvaaaaa,1,0,ee ignored
+> Aug 22 15:28:06 mammut2 kernel: capilib_new_ncci: kcapi: appl 2 ncci
+> 0x10401 up
+> Aug 22 15:28:15 mammut2 kernel: kcapi: appl 2 ncci 0x10401 down
+>
+>
+> capisuite.log:
+>
+> Fri Aug 22 15:27:55 2008 Connection 0x83dac0: Connection object
+> created for incoming call PLCI 401 from vvvvvaaaaa t
+> o ee CIP 0x4
+> Fri Aug 22 15:27:56 2008 Connection 0x83dac0: call from vvvvvaaaaa to
+> ee for ralf connecting with fax
+> Fri Aug 22 15:27:56 2008 Connection 0x83dac0: accepting with service
+> 1 Fri Aug 22 15:28:15 2008 Connection 0x83dac0: disconnect initiated
+> Fri Aug 22 15:28:16 2008 Connection 0x83dac0: connection lost with
+> cause 0x3400,0x0
+> Fri Aug 22 15:28:16 2008 Connection 0x83dac0: Connection object
+> deleted
+>
+>
+> capisuite.error: nur das hier, dann nichts mehr:
+>
+> Fri Aug 22 15:05:16 2008 CapiSuite 0x7fffb4f32830: CapiSuite 0.4.5
+> started.
+>
+> Konventionen (ee, vvvvv, aaaaa) wie gestern.
+>
+> Sch?nen Dank schonmal,
+> Ralf
+
+Ich geb mein bestes ;-) 
+
+Gru?
+Ingo
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20080824/f9f90671/attachment.pgp>
+

@@ -1,0 +1,235 @@
+From linux-isdn at kerstan-informatik.de  Fri Jun  1 09:28:55 2007
+From: linux-isdn at kerstan-informatik.de (Torsten Kerstan)
+Date: Fri, 01 Jun 2007 09:28:55 +0200
+Subject: [FaxGate-users] opensuse102x64 / Capisuite Desaster
+Message-ID: <1180682935.6373.13.camel@ki01.Pulvernetz.de>
+
+Hallo Ingo, hallo Liste,
+
+ich habe die von Ingo bereitgestellten Dateien
+faxgate_opensuse102x64...auf meinem System installiert, dabei bin ich
+wie folgt vorgegangen:
+
+zun?chst habe ich nur die *.py Dateien entpackt und die anderen alten
+erhalten, da dieses nichts ver?ndert hat habe ich dann alle Dateien
+entpackt. 
+
+Der Status vor dieser Aktion war, dass folgendes funktioniet hatte:
+- Empfang von Faxen f?r die eingerichteten user von capisuite
+- Versenden von Faxen via capisuitefax von der Komandozeile
+
+Einziges Problem war eigentlich noch das Versenden von Faxen via CUPS
+und im weiteren das Ansprechen ?ber einen zentralen Faxdrucker per
+Samba. (Der Job wurde jeweils an CUPS ?bergeben und dann aber
+abgebrochen, weil keine Faxnummer gefunden wurde, obwohl diese im
+Dokument stand oder auch das Dokument entsprechend benannt war).
+
+Nun liegt das Problem aber wieder bei der Capisuite, die gar keine Faxe
+mehr durchl??t, dazu das Protokoll der capisuite.log:
+
+Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: *
+Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: <CONNECT_IND PLCI 0x101 CIP
+0x11
+Fri Jun  1 08:53:50 2007 Connection 0x8242cf8: Connection object created
+for incoming call PLCI 101 from **8302127797954 to 24 CIP 0x11
+Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: **
+Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: *
+Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: <INFO_IND: Controller/PLCI
+0x101, InfoNumber 1e (ignoring)
+Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: >INFO_RESP ApplId 0x1, MsgNr
+0x64, Address 0x101
+Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: info: 0
+Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: **
+Fri Jun  1 08:53:51 2007
+Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8270948:
+PythonScript created.
+Fri Jun  1 08:53:51 2007
+Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8270948:
+Connection 0x8242cf8 created IncomingScript
+Fri Jun  1 08:53:51 2007 Connection 0x8242cf8: call from **8302127797954
+to 24 ignoring
+Fri Jun  1 08:53:51 2007 Connection 0x8242cf8: rejecting with cause 1
+Fri Jun  1 08:53:51 2007 Capi 0x81a6a20: >CONNECT_RESP ApplId 0x1,
+msgNum 0x63, PLCI 0x101, Reject 0x1, B1proto 0x0, B2proto 0x0, B3proto
+0x0
+Fri Jun  1 08:53:51 2007 Capi 0x81a6a20: *
+Fri Jun  1 08:53:51 2007 Capi 0x81a6a20: <DISCONNECT_IND PLCI 0x101
+Reason 0x0
+Fri Jun  1 08:53:51 2007 Capi 0x81a6a20: >DISCONNECT_RESP ApplId 0x1
+MsgNum 0x65 PLCI 0x101
+Fri Jun  1 08:53:51 2007 Capi 0x81a6a20: info: 0
+Fri Jun  1 08:53:51 2007 Capi 0x81a6a20: **
+Fri Jun  1 08:53:51 2007 Capi 0x81a6a20: info: 0
+Fri Jun  1 08:53:51 2007 Connection 0x8242cf8: Python: deleting
+connection object
+Fri Jun  1 08:53:51 2007 Connection 0x8242cf8: stop_file_transmission
+initiated
+Fri Jun  1 08:53:51 2007 Connection 0x8242cf8: stop_file_transmission
+finished
+Fri Jun  1 08:53:51 2007 Connection 0x8242cf8: stop_file_reception
+finished
+Fri Jun  1 08:53:51 2007 Connection 0x8242cf8: Connection object deleted
+Fri Jun  1 08:53:51 2007
+Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8270948:
+IncomingScript deleted
+Fri Jun  1 08:53:51 2007
+Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8270948:
+PythonScript deleted.
+Fri Jun  1 08:53:53 2007 Capi 0x81a6a20: *
+Fri Jun  1 08:53:53 2007 Capi 0x81a6a20: <CONNECT_IND PLCI 0x101 CIP
+0x11
+Fri Jun  1 08:53:53 2007 Connection 0x8242cf8: Connection object created
+for incoming call PLCI 101 from **8302127797954 to 24 CIP 0x11
+Fri Jun  1 08:53:53 2007 Capi 0x81a6a20: **
+Fri Jun  1 08:53:53 2007 Capi 0x81a6a20: *
+Fri Jun  1 08:53:53 2007 Capi 0x81a6a20: <INFO_IND: Controller/PLCI
+0x101, InfoNumber 1e (ignoring)
+Fri Jun  1 08:53:53 2007 Capi 0x81a6a20: >INFO_RESP ApplId 0x1, MsgNr
+0x67, Address 0x101
+Fri Jun  1 08:53:53 2007 Capi 0x81a6a20: info: 0
+Fri Jun  1 08:53:53 2007 Capi 0x81a6a20: **
+Fri Jun  1 08:53:54 2007
+Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x82411f0:
+PythonScript created.
+Fri Jun  1 08:53:54 2007
+Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x82411f0:
+Connection 0x8242cf8 created IncomingScript
+Fri Jun  1 08:53:54 2007 Connection 0x8242cf8: call from **8302127797954
+to 24 ignoring
+Fri Jun  1 08:53:54 2007 Connection 0x8242cf8: rejecting with cause 1
+Fri Jun  1 08:53:54 2007 Capi 0x81a6a20: >CONNECT_RESP ApplId 0x1,
+msgNum 0x66, PLCI 0x101, Reject 0x1, B1proto 0x0, B2proto 0x0, B3proto
+0x0
+Fri Jun  1 08:53:54 2007 Capi 0x81a6a20: *
+Fri Jun  1 08:53:54 2007 Capi 0x81a6a20: <DISCONNECT_IND PLCI 0x101
+Reason 0x0
+Fri Jun  1 08:53:54 2007 Capi 0x81a6a20: >DISCONNECT_RESP ApplId 0x1
+MsgNum 0x68 PLCI 0x101
+Fri Jun  1 08:53:54 2007 Capi 0x81a6a20: info: 0
+Fri Jun  1 08:53:54 2007 Capi 0x81a6a20: **
+Fri Jun  1 08:53:54 2007 Capi 0x81a6a20: info: 0
+Fri Jun  1 08:53:54 2007 Connection 0x8242cf8: Python: deleting
+connection object
+Fri Jun  1 08:53:54 2007 Connection 0x8242cf8: stop_file_transmission
+initiated
+Fri Jun  1 08:53:54 2007 Connection 0x8242cf8: stop_file_transmission
+finished
+Fri Jun  1 08:53:54 2007 Connection 0x8242cf8: stop_file_reception
+finished
+Fri Jun  1 08:53:54 2007 Connection 0x8242cf8: Connection object deleted
+Fri Jun  1 08:53:54 2007
+Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x82411f0:
+IncomingScript deleted
+Fri Jun  1 08:53:54 2007
+Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x82411f0:
+PythonScript deleted.
+Fri Jun  1 08:54:22 2007
+Pythonscript /usr/lib/capisuite/idle.py,idle,0x81eb8e8: executing
+idlescript...
+Fri Jun  1 08:54:22 2007
+Pythonscript /usr/lib/capisuite/idle.py,idle,0x81eb8e8: idlescript
+finished...
+Fri Jun  1 08:54:54 2007
+Pythonscript /usr/lib/capisuite/idle.py,idle,0x81eb8e8: executing
+idlescript...
+Fri Jun  1 08:54:54 2007
+Pythonscript /usr/lib/capisuite/idle.py,idle,0x81eb8e8: idlescript
+finished...
+
+F?r L?sungshinweise bin ich wie immer sehr dankbar.
+
+Gru?
+Torsten
+
+
+
+From ingo.goeppert at gmx.de  Fri Jun  1 13:45:06 2007
+From: ingo.goeppert at gmx.de (=?UTF-8?B?SW5nbyBHw7ZwcGVydA==?=)
+Date: Fri, 01 Jun 2007 13:45:06 +0200
+Subject: [FaxGate-users] opensuse102x64 / Capisuite Desaster
+In-Reply-To: <1180682935.6373.13.camel@ki01.Pulvernetz.de>
+References: <1180682935.6373.13.camel@ki01.Pulvernetz.de>
+Message-ID: <466006C2.5080609@gmx.de>
+
+Hallo Torsten,
+
+On 01.06.2007 09:28, Torsten Kerstan wrote:
+> Hallo Ingo, hallo Liste,
+> 
+> ich habe die von Ingo bereitgestellten Dateien
+> faxgate_opensuse102x64...auf meinem System installiert, dabei bin ich
+> wie folgt vorgegangen:
+> 
+> zun?chst habe ich nur die *.py Dateien entpackt und die anderen alten
+> erhalten, da dieses nichts ver?ndert hat habe ich dann alle Dateien
+> entpackt. 
+> 
+> Der Status vor dieser Aktion war, dass folgendes funktioniet hatte:
+> - Empfang von Faxen f?r die eingerichteten user von capisuite
+> - Versenden von Faxen via capisuitefax von der Komandozeile
+
+aber nicht mit dem derzeitigen RPM. Weil in den Quelltexten Umlaute
+vorhanden sind bricht python mit syntax-error ab.
+
+> 
+> Einziges Problem war eigentlich noch das Versenden von Faxen via CUPS
+> und im weiteren das Ansprechen ?ber einen zentralen Faxdrucker per
+> Samba. (Der Job wurde jeweils an CUPS ?bergeben und dann aber
+> abgebrochen, weil keine Faxnummer gefunden wurde, obwohl diese im
+> Dokument stand oder auch das Dokument entsprechend benannt war).
+
+Dann h?ttest du zuerst nur die ../backend/faxgate austauschen sollen.
+
+> 
+> Nun liegt das Problem aber wieder bei der Capisuite, die gar keine Faxe
+> mehr durchl??t, dazu das Protokoll der capisuite.log:
+
+Hats du Fehler in der Konfiguration? Weil:
+
+> 
+> Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: *
+> Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: <CONNECT_IND PLCI 0x101 CIP
+> 0x11
+> Fri Jun  1 08:53:50 2007 Connection 0x8242cf8: Connection object created
+> for incoming call PLCI 101 from **8302127797954 to 24 CIP 0x11
+> Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: **
+> Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: *
+> Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: <INFO_IND: Controller/PLCI
+> 0x101, InfoNumber 1e (ignoring)
+> Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: >INFO_RESP ApplId 0x1, MsgNr
+> 0x64, Address 0x101
+> Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: info: 0
+> Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: **
+> Fri Jun  1 08:53:51 2007
+> Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8270948:
+> PythonScript created.
+> Fri Jun  1 08:53:51 2007
+> Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8270948:
+> Connection 0x8242cf8 created IncomingScript
+> Fri Jun  1 08:53:51 2007 Connection 0x8242cf8: call from **8302127797954
+> to 24 ignoring
+
+hier steht "ignoring". Schau deine Dateien unter /etc/capisuite nochmal
+genau an.
+
+
+> F?r L?sungshinweise bin ich wie immer sehr dankbar.
+
+Config pr?fen und mit der deiner Telefonanlage abgleichen.
+
+Gru?
+Ingo
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 187 bytes
+Desc: OpenPGP digital signature
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20070601/44faef77/attachment.pgp>
+

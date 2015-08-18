@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/faxgate-users/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Seltsamer%20Javaclient-Anmeldefehler&In-Reply-To=%3C450475.81863.qm%40web28504.mail.ukl.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000036.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[FaxGate-users] Seltsamer Javaclient-Anmeldefehler</H1>
+    <B>Ralf Muschall</B> 
+    <A HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Seltsamer%20Javaclient-Anmeldefehler&In-Reply-To=%3C450475.81863.qm%40web28504.mail.ukl.yahoo.com%3E"
+       TITLE="[FaxGate-users] Seltsamer Javaclient-Anmeldefehler">ralf_muschall at yahoo.de
+       </A><BR>
+    <I>Tue Nov 25 00:37:44 CET 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000036.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#35">[ date ]</a>
+              <a href="thread.html#35">[ thread ]</a>
+              <a href="subject.html#35">[ subject ]</a>
+              <a href="author.html#35">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo,
+
+auf einem anderen Rechner (Suse 10.3/32), frisch
+gezogene capisuite-suse-10.3-0.5.cvs-61.1.i586.rpm
+(von <A HREF="http://download.opensuse.org/repositories/home:/ingogoeppert/">http://download.opensuse.org/repositories/home:/ingogoeppert/</A>),
+bekomme ich im Client folgende Fehler:
+
+1. Im Netzwerkmen&#252; beim ersten Testknopf (dem bei der IP)
+   &quot;kein CUPS&quot;
+2. beim Anmeldeversuch: SFTP aus unbekanntem Grund fehlgeschlagen
+
+(Der Test auf Port 50000 ist OK).
+
+sshd, sftp und CUPS laufen und funktionieren (d.h. als
+Nebenwirkung des Tests ist der known_hosts-Kram erledigt),
+Susefirewall ist aus, das ganze soll eh erstmal auf localhost
+spielen.
+Sicherheitsprobleme sind nicht zu erwarten (es ist eine
+gegen physischen Feindzugriff gesicherte Arztpraxis), ich
+kann also bei Bedarf Ports aufmachen, Rechte vergr&#246;&#223;ern usw.,
+falls das hilft.
+
+In der o.g. IP habe ich sowohl die wahre (192.168.10.10)
+als auch 127.0.0.1 probiert.
+In der sshd-Konfiguration ist Passwort erlaubt (eine
+funktionierende authorized_keys2 habe ich auch, und keins
+der Symptome &#228;ndert sich, wenn ich die verstecke).
+Es ist momentan nur ein Nutzer geplant, also sollten
+Rechteprobleme auch ausscheiden (er muss sich ja im Prinzip
+nur als der, der er schon ist dorthin, wo er schon ist anmelden).
+
+Falls das weiterhilft:
+telnet localhost 50000
+l&#228;uft los und bewirkt das Erscheinen von Meldungen im
+FaxgateClient (die mir so sinnvoll wie m&#246;glich erscheinen,
+d.h. er meckert &#252;ber die vom Telnet-Protokoll eingestreuten
+unverstandenen Bin&#228;rzeichen).
+
+Eine Besonderheit hat die Kiste: Das Homeverzeichnis des
+Nutzers ist gruppenschreibbar, und das muss so sein, weil
+sonst die Produktionssoftware (ein Arztprogramm) nicht
+funktioniert (Strictmodes=no in sshd ist gesetzt und getestet).
+Leider kann ich das nicht mal tempor&#228;r abstellen, da der
+Rechner benutzt wird (ich kann *nur* installieren, wenn dort
+gearbeitet wird, sonst ist er aus).
+
+Im allerschlimmsten Fall konnte ich allerdings einen
+Hilfsuser anlegen und dann sagen
+ssh -X -l hilfuser 'java -jar /pfad/zu/FaxgateClient.jar'
+falls es daran liegen sollte (noch nicht probiert).
+
+Ralf
+
+
+
+      
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000036.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#35">[ date ]</a>
+              <a href="thread.html#35">[ thread ]</a>
+              <a href="subject.html#35">[ subject ]</a>
+              <a href="author.html#35">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/faxgate-users">More information about the FaxGate-users
+mailing list</a><br>
+</body></html>

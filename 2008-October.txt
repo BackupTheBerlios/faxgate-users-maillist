@@ -1,0 +1,35 @@
+From frisch at vr-web.de  Fri Oct  3 17:57:28 2008
+From: frisch at vr-web.de (Markus Frisch)
+Date: Fri, 03 Oct 2008 17:57:28 +0200
+Subject: [FaxGate-users] FaxGate unter openSUSE 11.0
+In-Reply-To: <200809302351.06935.ingo.goeppert@gmx.de>
+References: <4889F698.1020907@vr-web.de>	<200809290815.18405.ingo.goeppert@gmx.de>	<48E27F56.4060405@vr-web.de>
+	<200809302351.06935.ingo.goeppert@gmx.de>
+Message-ID: <48E640E8.3010908@vr-web.de>
+
+Mist, ging an die private Mailadresse, also noch mal f?r alle...
+
+Hallo Ingo,
+
+Ingo G?ppert schrieb:
+>> traceback: NameError: global name 'os' is not defined
+>>     
+>
+> da fehlt zu Beginn der cs_helpers ein:
+> import os
+>
+> Ist in Build 61 drin. Build service war grad im Leerlauf :-)
+>   
+Der Build-Service scheint nicht schlecht zu sein :-) , Build 61 war ja
+ruckzuck da - und siehe da. es funzt :-)  - die Ingo-Capisuite versendet
+und empf?ngt Faxe incl. Konvertierung ins PDF-Format unter openSuSE 11
+wie eh und je!!
+    EINFACH SUPER!!
+
+VIELEN HERZLICHEN DANK F?R DEINE GANZE M?HEN!
+
+Gr??e
+Markus
+
+
+

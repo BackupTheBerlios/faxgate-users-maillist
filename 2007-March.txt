@@ -1,0 +1,46 @@
+From info at starkmedien.de  Thu Mar  1 21:08:06 2007
+From: info at starkmedien.de (Thomas Stark)
+Date: Thu, 01 Mar 2007 21:08:06 +0100
+Subject: [FaxGate-users] Problem Versand nach eingang in queue
+Message-ID: <45E732A6.5090200@starkmedien.de>
+
+Hallo liebes Forum,
+
+ich habe ein Problem beim tats?chlichen versenden von Faxen ?ber die
+FaxGate-Schnittstelle.
+
+Bisher war zum Faxempfang capusiute 0.4 installiert und hat faxe
+entgegengenommen und per pdf-mail weiterversendet.
+
+Ich m?chte nun auch Faxe per Netzwerk-Drucker (Samba) verschicken. Es
+ist so, dass Faxe auf den Drucker eingehen und in der queue liegen.
+Jedoch bekomme ich folgende Fehlermeldungen aus der capisiute.error..
+
+
+Thu Mar  1 20:36:58 2007 Pythonscript
+/usr/lib/capisuite/idle.py,idle,0x81a58b8: A python error occured. See
+traceback below.
+Thu Mar  1 20:36:58 2007 Pythonscript
+/usr/lib/capisuite/idle.py,idle,0x81a58b8: Python traceback: Traceback
+(most recent call last):
+Thu Mar  1 20:36:58 2007 Pythonscript
+/usr/lib/capisuite/idle.py,idle,0x81a58b8: Python traceback:   File
+"/usr/lib/capisuite/idle.py", line 37, in idle
+Thu Mar  1 20:36:58 2007 Pythonscript
+/usr/lib/capisuite/idle.py,idle,0x81a58b8: Python traceback:
+userdata=pwd.getpwnam(user)
+Thu Mar  1 20:36:58 2007 Pythonscript
+/usr/lib/capisuite/idle.py,idle,0x81a58b8: Python traceback: KeyError:
+'getpwnam(): name not found'
+
+Wo es l?uft:
+
+OS: Suse 9.1
+Capisiute-Version CapiSuite 0.5.cvs (c) by Gernot Hillier
+<gernot at hillier.de>
+
+Danke f?r jede Hilfe,
+Tom
+
+
+

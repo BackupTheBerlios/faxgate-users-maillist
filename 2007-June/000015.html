@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [FaxGate-users] opensuse102x64 / Capisuite Desaster
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/faxgate-users/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20opensuse102x64%20/%20Capisuite%20Desaster&In-Reply-To=%3C1180682935.6373.13.camel%40ki01.Pulvernetz.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000016.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[FaxGate-users] opensuse102x64 / Capisuite Desaster</H1>
+    <B>Torsten Kerstan</B> 
+    <A HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20opensuse102x64%20/%20Capisuite%20Desaster&In-Reply-To=%3C1180682935.6373.13.camel%40ki01.Pulvernetz.de%3E"
+       TITLE="[FaxGate-users] opensuse102x64 / Capisuite Desaster">linux-isdn at kerstan-informatik.de
+       </A><BR>
+    <I>Fri Jun  1 09:28:55 CEST 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000016.html">[FaxGate-users] opensuse102x64 / Capisuite Desaster
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Ingo, hallo Liste,
+
+ich habe die von Ingo bereitgestellten Dateien
+faxgate_opensuse102x64...auf meinem System installiert, dabei bin ich
+wie folgt vorgegangen:
+
+zun&#228;chst habe ich nur die *.py Dateien entpackt und die anderen alten
+erhalten, da dieses nichts ver&#228;ndert hat habe ich dann alle Dateien
+entpackt. 
+
+Der Status vor dieser Aktion war, dass folgendes funktioniet hatte:
+- Empfang von Faxen f&#252;r die eingerichteten user von capisuite
+- Versenden von Faxen via capisuitefax von der Komandozeile
+
+Einziges Problem war eigentlich noch das Versenden von Faxen via CUPS
+und im weiteren das Ansprechen &#252;ber einen zentralen Faxdrucker per
+Samba. (Der Job wurde jeweils an CUPS &#252;bergeben und dann aber
+abgebrochen, weil keine Faxnummer gefunden wurde, obwohl diese im
+Dokument stand oder auch das Dokument entsprechend benannt war).
+
+Nun liegt das Problem aber wieder bei der Capisuite, die gar keine Faxe
+mehr durchl&#228;&#223;t, dazu das Protokoll der capisuite.log:
+
+Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: *
+Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: &lt;CONNECT_IND PLCI 0x101 CIP
+0x11
+Fri Jun  1 08:53:50 2007 Connection 0x8242cf8: Connection object created
+for incoming call PLCI 101 from **8302127797954 to 24 CIP 0x11
+Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: **
+Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: *
+Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: &lt;INFO_IND: Controller/PLCI
+0x101, InfoNumber 1e (ignoring)
+Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: &gt;INFO_RESP ApplId 0x1, MsgNr
+0x64, Address 0x101
+Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: info: 0
+Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: **
+Fri Jun  1 08:53:51 2007
+Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8270948:
+PythonScript created.
+Fri Jun  1 08:53:51 2007
+Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8270948:
+Connection 0x8242cf8 created IncomingScript
+Fri Jun  1 08:53:51 2007 Connection 0x8242cf8: call from **8302127797954
+to 24 ignoring
+Fri Jun  1 08:53:51 2007 Connection 0x8242cf8: rejecting with cause 1
+Fri Jun  1 08:53:51 2007 Capi 0x81a6a20: &gt;CONNECT_RESP ApplId 0x1,
+msgNum 0x63, PLCI 0x101, Reject 0x1, B1proto 0x0, B2proto 0x0, B3proto
+0x0
+Fri Jun  1 08:53:51 2007 Capi 0x81a6a20: *
+Fri Jun  1 08:53:51 2007 Capi 0x81a6a20: &lt;DISCONNECT_IND PLCI 0x101
+Reason 0x0
+Fri Jun  1 08:53:51 2007 Capi 0x81a6a20: &gt;DISCONNECT_RESP ApplId 0x1
+MsgNum 0x65 PLCI 0x101
+Fri Jun  1 08:53:51 2007 Capi 0x81a6a20: info: 0
+Fri Jun  1 08:53:51 2007 Capi 0x81a6a20: **
+Fri Jun  1 08:53:51 2007 Capi 0x81a6a20: info: 0
+Fri Jun  1 08:53:51 2007 Connection 0x8242cf8: Python: deleting
+connection object
+Fri Jun  1 08:53:51 2007 Connection 0x8242cf8: stop_file_transmission
+initiated
+Fri Jun  1 08:53:51 2007 Connection 0x8242cf8: stop_file_transmission
+finished
+Fri Jun  1 08:53:51 2007 Connection 0x8242cf8: stop_file_reception
+finished
+Fri Jun  1 08:53:51 2007 Connection 0x8242cf8: Connection object deleted
+Fri Jun  1 08:53:51 2007
+Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8270948:
+IncomingScript deleted
+Fri Jun  1 08:53:51 2007
+Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8270948:
+PythonScript deleted.
+Fri Jun  1 08:53:53 2007 Capi 0x81a6a20: *
+Fri Jun  1 08:53:53 2007 Capi 0x81a6a20: &lt;CONNECT_IND PLCI 0x101 CIP
+0x11
+Fri Jun  1 08:53:53 2007 Connection 0x8242cf8: Connection object created
+for incoming call PLCI 101 from **8302127797954 to 24 CIP 0x11
+Fri Jun  1 08:53:53 2007 Capi 0x81a6a20: **
+Fri Jun  1 08:53:53 2007 Capi 0x81a6a20: *
+Fri Jun  1 08:53:53 2007 Capi 0x81a6a20: &lt;INFO_IND: Controller/PLCI
+0x101, InfoNumber 1e (ignoring)
+Fri Jun  1 08:53:53 2007 Capi 0x81a6a20: &gt;INFO_RESP ApplId 0x1, MsgNr
+0x67, Address 0x101
+Fri Jun  1 08:53:53 2007 Capi 0x81a6a20: info: 0
+Fri Jun  1 08:53:53 2007 Capi 0x81a6a20: **
+Fri Jun  1 08:53:54 2007
+Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x82411f0:
+PythonScript created.
+Fri Jun  1 08:53:54 2007
+Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x82411f0:
+Connection 0x8242cf8 created IncomingScript
+Fri Jun  1 08:53:54 2007 Connection 0x8242cf8: call from **8302127797954
+to 24 ignoring
+Fri Jun  1 08:53:54 2007 Connection 0x8242cf8: rejecting with cause 1
+Fri Jun  1 08:53:54 2007 Capi 0x81a6a20: &gt;CONNECT_RESP ApplId 0x1,
+msgNum 0x66, PLCI 0x101, Reject 0x1, B1proto 0x0, B2proto 0x0, B3proto
+0x0
+Fri Jun  1 08:53:54 2007 Capi 0x81a6a20: *
+Fri Jun  1 08:53:54 2007 Capi 0x81a6a20: &lt;DISCONNECT_IND PLCI 0x101
+Reason 0x0
+Fri Jun  1 08:53:54 2007 Capi 0x81a6a20: &gt;DISCONNECT_RESP ApplId 0x1
+MsgNum 0x68 PLCI 0x101
+Fri Jun  1 08:53:54 2007 Capi 0x81a6a20: info: 0
+Fri Jun  1 08:53:54 2007 Capi 0x81a6a20: **
+Fri Jun  1 08:53:54 2007 Capi 0x81a6a20: info: 0
+Fri Jun  1 08:53:54 2007 Connection 0x8242cf8: Python: deleting
+connection object
+Fri Jun  1 08:53:54 2007 Connection 0x8242cf8: stop_file_transmission
+initiated
+Fri Jun  1 08:53:54 2007 Connection 0x8242cf8: stop_file_transmission
+finished
+Fri Jun  1 08:53:54 2007 Connection 0x8242cf8: stop_file_reception
+finished
+Fri Jun  1 08:53:54 2007 Connection 0x8242cf8: Connection object deleted
+Fri Jun  1 08:53:54 2007
+Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x82411f0:
+IncomingScript deleted
+Fri Jun  1 08:53:54 2007
+Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x82411f0:
+PythonScript deleted.
+Fri Jun  1 08:54:22 2007
+Pythonscript /usr/lib/capisuite/idle.py,idle,0x81eb8e8: executing
+idlescript...
+Fri Jun  1 08:54:22 2007
+Pythonscript /usr/lib/capisuite/idle.py,idle,0x81eb8e8: idlescript
+finished...
+Fri Jun  1 08:54:54 2007
+Pythonscript /usr/lib/capisuite/idle.py,idle,0x81eb8e8: executing
+idlescript...
+Fri Jun  1 08:54:54 2007
+Pythonscript /usr/lib/capisuite/idle.py,idle,0x81eb8e8: idlescript
+finished...
+
+F&#252;r L&#246;sungshinweise bin ich wie immer sehr dankbar.
+
+Gru&#223;
+Torsten
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000016.html">[FaxGate-users] opensuse102x64 / Capisuite Desaster
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/faxgate-users">More information about the FaxGate-users
+mailing list</a><br>
+</body></html>

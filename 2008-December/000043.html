@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [FaxGate-users] Restprobleme FaxgateClient
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/faxgate-users/2008-December/index.html" >
+   <LINK REL="made" HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Restprobleme%20FaxgateClient&In-Reply-To=%3C278916.78788.qm%40web28504.mail.ukl.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000044.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[FaxGate-users] Restprobleme FaxgateClient</H1>
+    <B>Ralf Muschall</B> 
+    <A HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Restprobleme%20FaxgateClient&In-Reply-To=%3C278916.78788.qm%40web28504.mail.ukl.yahoo.com%3E"
+       TITLE="[FaxGate-users] Restprobleme FaxgateClient">ralf_muschall at yahoo.de
+       </A><BR>
+    <I>Mon Dec  8 18:24:10 CET 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000044.html">[FaxGate-users] Restprobleme FaxgateClient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#43">[ date ]</a>
+              <a href="thread.html#43">[ thread ]</a>
+              <a href="subject.html#43">[ subject ]</a>
+              <a href="author.html#43">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>[ich]
+&gt;<i> &gt; Ich baue mir jetzt erstmal Scripte, die das per KDE und
+</I>&gt;<i> &gt; ssh -X -l faxuser localhost &quot;machwas&quot;
+</I>&gt;<i> &gt; erschlagen, damit ich
+</I>&gt;<i> &gt; weiterkomme.
+</I>
+Dabei werde ich es wohl belassen, das hat den (fuer mich
+positiven, aber sicher nicht intendierten) Nebeneffekt,
+dass der Client an allen Plaetzen mit den gleichen Rechten
+aufgerufen werden kann (gleichzeitig an mehreren ist nicht
+erforderlich, ginge wohl auch nicht, weil es nur eine
+50000 gibt)).  D.h. dieses Problem ist erstmal nicht
+akut.  Zur Information dennoch die prefs.xml:
+
+&gt;<i> Nur die Einstellungen. Java legt die unter Win in der
+</I>&gt;<i> Registry und unter
+</I>&gt;<i> Lin/Mac im Home in einem versteckten Verzeichnis als xml
+</I>&gt;<i> ab. Falls die
+</I>&gt;<i> Einstellungen das Problem sind bitte mir posten BEVOR du
+</I>&gt;<i> sie l?schst. Danke.
+</I>
+Loeschen werde ich sie wohl nicht, ich lasse sie einfach
+ungenutzt liegen.
+Erstmal die Differenz (Uaser david ist schlecht, faxuser
+ist gut, .=='/home/david/.java'):
+
+|<i>diff &lt;(sed -e 's/&gt;&lt;/&gt;\x0a&lt;/g' .userPrefs/faxgateclient/prefs.xml) &lt;(sed -e 's/&gt;&lt;/&gt;\x0a&lt;/g' /home/faxuser/.java/.userPrefs/faxgateclient/prefs.xml)
+</I>|<i>6c6
+</I>|<i>&lt; &lt;entry key=&quot;autoshow_info&quot; value=&quot;false&quot;/&gt;
+</I>|<i>---
+</I>|&gt;<i> &lt;entry key=&quot;autoshow_info&quot; value=&quot;true&quot;/&gt;
+</I>|<i>9c9
+</I>|<i>&lt; &lt;entry key=&quot;autostart_file&quot; value=&quot;false&quot;/&gt;
+</I>|<i>---
+</I>|&gt;<i> &lt;entry key=&quot;autostart_file&quot; value=&quot;true&quot;/&gt;
+</I>|<i>17c17
+</I>|<i>&lt; &lt;entry key=&quot;downpath&quot; value=&quot;/home/david&quot;/&gt;
+</I>|<i>---
+</I>|&gt;<i> &lt;entry key=&quot;downpath&quot; value=&quot;/home/faxuser&quot;/&gt;
+</I>|<i>20c20,21
+</I>|<i>&lt; &lt;entry key=&quot;faxserverip&quot; value=&quot;localhost&quot;/&gt;
+</I>|<i>---
+</I>|&gt;<i> &lt;entry key=&quot;faxserverip&quot; value=&quot;127.0.0.1&quot;/&gt;
+</I>|&gt;<i> &lt;entry key=&quot;faxserverport&quot; value=&quot;22&quot;/&gt;
+</I>|<i>37c38
+</I>|<i>&lt; &lt;entry key=&quot;viewer_lin&quot; value=&quot;sffview&quot;/&gt;
+</I>|<i>---
+</I>|&gt;<i> &lt;entry key=&quot;viewer_lin&quot; value=&quot;/home/david/faxwork.sh&quot;/&gt;
+</I>
+(faxwork.sh ist mein Script, welches das Bild anzeigt und
+dann zum Patienten verschiebt.)
+
+Gutes prefs.xml:
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;!DOCTYPE map SYSTEM &quot;<A HREF="http://java..sun.com/dtd/preferences.dtd">http://java..sun.com/dtd/preferences.dtd</A>&quot;&gt;
+&lt;map MAP_XML_VERSION=&quot;1.0&quot;&gt;&lt;entry key=&quot;ask_number&quot; value=&quot;true&quot;/&gt;&lt;entry key=&quot;autohide_onstartup&quot; value=&quot;false&quot;/&gt;&lt;entry key=&quot;autoshow_info&quot; value=&quot;false&quot;/&gt;&lt;entry key=&quot;autoshow_log&quot; value=&quot;false&quot;/&gt;&lt;entry key=&quot;autoshow_toolbar&quot; value=&quot;true&quot;/&gt;&lt;entry key=&quot;autostart_file&quot; value=&quot;true&quot;/&gt;&lt;entry key=&quot;autostart_messages&quot; value=&quot;true&quot;/&gt;&lt;entry key=&quot;browser_lin&quot; value=&quot;konqueror&quot;/&gt;&lt;entry key=&quot;browser_mac&quot; value=&quot;open&quot;/&gt;&lt;entry key=&quot;browser_param&quot; value=&quot;&quot;/&gt;&lt;entry key=&quot;browser_win&quot; value=&quot;explorer.exe&quot;/&gt;&lt;entry key=&quot;def_user&quot; value=&quot;&quot;/&gt;&lt;entry key=&quot;del&quot; value=&quot;true&quot;/&gt;&lt;entry key=&quot;downpath&quot; value=&quot;/home/tlwartg&quot;/&gt;&lt;entry key=&quot;fai&quot; value=&quot;true&quot;/&gt;&lt;entry key=&quot;fan&quot; value=&quot;true&quot;/&gt;&lt;entry key=&quot;faxserverip&quot; value=&quot;localhost&quot;/&gt;&lt;entry key=&quot;fbr&quot; value=&quot;true&quot;/&gt;&lt;entry key=&quot;fem&quot; value=&quot;true&quot;/&gt;&lt;entry key=&quot;fwa&quot; value=&quot;true&quot;/&gt;&lt;entry key=&quot;ign&quot; value=&quot;true&quot;/&gt;&lt;entry key=&quot;ini&quot; value=&quot;true&quot;/&gt;&lt;entry key=&quot;laf&quot; value=&quot;javax.swing.plaf.metal.MetalLookAndFeel&quot;/&gt;&lt;entry key=&quot;port&quot; value=&quot;50000&quot;/&gt;&lt;entry
+ key=&quot;preferences_set&quot; value=&quot;true&quot;/&gt;&lt;entry key=&quot;res&quot; value=&quot;true&quot;/&gt;&lt;entry key=&quot;snd&quot; value=&quot;true&quot;/&gt;&lt;entry key=&quot;suc&quot; value=&quot;true&quot;/&gt;&lt;entry key=&quot;update_client_ip_port&quot; value=&quot;false&quot;/&gt;&lt;entry key=&quot;use_systray&quot; value=&quot;false&quot;/&gt;&lt;entry key=&quot;van&quot; value=&quot;false&quot;/&gt;&lt;entry key=&quot;vbr&quot; value=&quot;false&quot;/&gt;&lt;entry key=&quot;vem&quot; value=&quot;true&quot;/&gt;&lt;entry key=&quot;viewer_lin&quot; value=&quot;sffview&quot;/&gt;&lt;entry key=&quot;viewer_mac&quot; value=&quot;open&quot;/&gt;&lt;entry key=&quot;viewer_param&quot; value=&quot;&quot;/&gt;&lt;entry key=&quot;viewer_win&quot; value=&quot;sffview.exe&quot;/&gt;&lt;entry key=&quot;vwa&quot; value=&quot;false&quot;/&gt;&lt;/map&gt;
+
+Danach bekam ich in der Statusleiste des Client eine
+Meldung &quot;Verbindungsversuch vom falschen Rechner&quot; oder
+so aehnlich, nach Aendern der Server-IP von 127... auf
+die Ethernet-IP des Servers war auch dieses Problem weg.
+
+Neues Problem:
+==============
+Wenn ich auf eine Zeile im Eingangsreiter (oder woanders)
+doppelklicke und das Zielfile in /home/faxuser noch nicht
+existiert (also im Normalfall), kommt ein Javafehler:
+
+lava.lang.NullPointerException
+at java.awt.Container.createHierarchieEvents(Container.java:1335)
+at java.awt.Container.createHierarchieEvents(Container.java:1335)
+at java.awt.Container.createHierarchieEvents(Container.java:1335)
+at java.awt.Container.createHierarchieEvents(Container.java:1335)
+at java.awt.Container.createHierarchieEvents(Container.java:1335)
+at java.awt.Component.show(Component.java:1270)
+at java.awt.Windows.show(Windows.java:522)
+at java.awt.Component.show(Component.java:1302)
+at java.awt.Component.setVisible(Component.java:1255)
+at com.sshtools.shift.FileTransferDialog.getRemoteFiles(Unknown Source)
+af com.sshtools.shift.ShiftSessionPanel$7.run(Unknown Source)
+at java.land.Thread.run(Thread.java:595)
+
+(kann Tippfehler enthalten, musste ich abtippen mangels
+Markierbarkeit).
+Danach liegt das Zielfile am Ziel, aber mein Script 
+(faxwork.sh) wird nicht aufgerufen.
+
+Wenn das Zielfile schon daliegt (d.h. beim zweiten Versuch),
+fragt er, ob er es ueberschreiben soll und ruft danach mein
+Script auf.
+
+Ralf
+
+GS d-&gt;? s:++&gt;+++ a+ C++++$ UL+++$ UH+ P++ L++ E+++ W- N++ o-- K- w--- !O M- V-
+PS+&gt;++ PE Y+&gt;++ PGP+ !t !5 !X !R !tv  b+++ DI+++ D?  G+ e++++ h+ r? y?
+
+
+
+      
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000044.html">[FaxGate-users] Restprobleme FaxgateClient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#43">[ date ]</a>
+              <a href="thread.html#43">[ thread ]</a>
+              <a href="subject.html#43">[ subject ]</a>
+              <a href="author.html#43">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/faxgate-users">More information about the FaxGate-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/faxgate-users/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Seltsamer%20Javaclient-Anmeldefehler&In-Reply-To=%3C160756.9003.qm%40web28509.mail.ukl.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000040.html">
+   <LINK REL="Next"  HREF="000038.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[FaxGate-users] Seltsamer Javaclient-Anmeldefehler</H1>
+    <B>Ralf Muschall</B> 
+    <A HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Seltsamer%20Javaclient-Anmeldefehler&In-Reply-To=%3C160756.9003.qm%40web28509.mail.ukl.yahoo.com%3E"
+       TITLE="[FaxGate-users] Seltsamer Javaclient-Anmeldefehler">ralf_muschall at yahoo.de
+       </A><BR>
+    <I>Wed Nov 26 18:39:08 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000040.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+        <LI>Next message: <A HREF="000038.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#37">[ date ]</a>
+              <a href="thread.html#37">[ thread ]</a>
+              <a href="subject.html#37">[ subject ]</a>
+              <a href="author.html#37">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo und sch&#246;nen Dank f&#252;r die neuen Versionen, wenn ich
+auch noch keinen Unterschied im Verhalten finden konnte.
+
+&gt;<i> zieh dir die ..66.. von gestern, ein Fehler bei der
+</I>&gt;<i> Konvertierung der Sprachnachrichten wurde behoben.
+</I>
+Gerade gemacht und mit rccapisuite stop; rpm -U ....;
+rccapisuite start  eingespielt (das hat die
+..conf-Files nicht angefasst).  Mit &quot;rpm -qa | grep capi&quot;
+wird es auch gemeldet.
+
+&gt;<i> <A HREF="http://home.arcor.de/ingo.goeppert/faxgate/client/FaxgateClient0140.jar">http://home.arcor.de/ingo.goeppert/faxgate/client/FaxgateClient0140.jar</A>
+</I>
+Auch ausgetauscht, meldet sich auch als 0.14.0.
+
+&gt;<i> &gt; bekomme ich im Client folgende Fehler:
+</I>&gt;<i> &gt; 1. Im Netzwerkmen? beim ersten Testknopf (dem bei der IP)
+</I>&gt;<i> &gt;    &quot;kein CUPS&quot;
+</I>&gt;<i> &gt; 2. beim Anmeldeversuch: SFTP aus unbekanntem Grund
+</I>&gt;<i> fehlgeschlagen
+</I>
+&gt;<i> &gt; sshd, sftp und CUPS laufen und funktionieren (d.h. als
+</I>&gt;<i> &gt; Nebenwirkung des Tests ist der known_hosts-Kram
+</I>&gt;<i> &gt; erledigt),
+</I>
+&gt;<i> Geht den ssh auf der console? Schraub mal den Loglevel des
+</I>&gt;<i> sshd hoch und 
+</I>&gt;<i> schau in die messages. Ich vermute ein generelles Problem
+</I>&gt;<i> bei der 
+</I>&gt;<i> ssh-Anmeldung.
+</I>
+Mein o.g. gilt weiterhin, mit und ohne authorized_keys2
+kann ich mit den Daemonen sprechen.  Mit &quot;loglevel DEBUG2&quot;
+im sshd bekomme ich bei &quot;ssh localhost&quot; oder &quot;sftp localhost&quot;
+massenhaft Meldungen im Log, beim Dr&#252;cken des
+Verbindungsknopfes im Client dagegen absolut nichts.
+Leider kann ich den sshd nicht ganz ausmachen und durch
+&quot;netcat -l -p 22 | xxd&quot; ersetzen, da ich selber nur mit
+ssh per Fernwartung an den Rechner komme.  Ich habe aber
+den Eindruck, dass der Client die Verbindung gar nicht
+richtig versucht.
+
+Zum Test habe ich in den Optionen mal &quot;Standardeinstellung&quot;
+gedr&#252;ckt (damit als Server &quot;faxserver&quot; drinsteht, den es hier
+nicht gibt), danach ist die Fehlermeldung beim Verbindungsversuch
+identisch.
+Der einzige Unterschied ist der, dass dann der Testknopf
+nicht orange &quot;kein cups&quot;, sondern rot &quot;kein CUPS/SSH&quot;
+meldet (was IMHO sinnvoll ist), dasselbe passiert auch bei
+Eintragen einer nichtexistenten IP.  Wenn ich &quot;localhost&quot; als
+Wort eintrage, bekomme ich gr&#252;nes &quot;OK&quot;, 127.0.0.1 aber gibt
+weiterhin oranges &quot;kein CUPS&quot;.
+
+In messages kommt f&#252;r localhost beim Testknopf:
+Nov 26 18:26:36 linux sshd[12263]: debug1: rexec start in 4 out 4 newsock 4 pipe 6 sock 7
+Nov 26 18:26:36 linux sshd[11357]: debug1: Forked child 12263.
+Nov 26 18:26:36 linux sshd[12263]: debug1: inetd sockets after dupping: 3, 3
+Nov 26 18:26:36 linux sshd[12263]: Connection from ::1 port 43704
+Nov 26 18:26:36 linux sshd[12263]: Did not receive identification string from ::1
+
+und dasselbe (mit der IP statt ::1) mit eingegebener IP.
+
+Ich h&#228;nge mal die Log-Zeilen an, die sshd mit DEBUG2 bei
+&quot;sftp localhost&quot; erzeugt (ssh-key-Fingerprint (2*, identisch)
+hier sicherheitshalber durch xx: ersetzt).  Aufbau war
+18:00:05, Abbau 18:00:07 (ctrl-d am &quot;sftp&gt;&quot;-Prompt).
+
+&quot;sftp 192.168.10.10&quot; und &quot;sftp 127.0.0.1&quot; gehen auch
+(nur um die Vermutung auszuschlie&#223;en, dass der sshd nur IP6
+mag und localhost als einziger zu ::1 erkannt wird).
+
+PS: Die Shell, in der der Client gestartet wurde, bekommt
+massenhaft Java-Meldungen der folgenden Art.  Hat das etwas
+zu bedeuten?
+
+WARNUNG: Could not lock System prefs.Unix error code -1918810700.
+26.11.2008 18:11:35 java.util.prefs.FileSystemPreferences syncWorld
+WARNUNG: Couldn't flush system prefs: java.util.prefs.BackingStoreException: C
+ldn't get file lock.
+26.11.2008 18:12:05 java.util.prefs.FileSystemPreferences checkLockFile0ErrorC
+e
+WARNUNG: Could not lock System prefs.Unix error code -1918810700.
+26.11.2008 18:12:05 java.util.prefs.FileSystemPreferences syncWorld
+WARNUNG: Couldn't flush system prefs: java.util.prefs.BackingStoreException: C
+ldn't get file lock.
+26.11.2008 18:12:35 java.util.prefs.FileSystemPreferences checkLockFile0ErrorC
+e
+WARNUNG: Could not lock System prefs.Unix error code -1918810700.
+26.11.2008 18:12:35 java.util.prefs.FileSystemPreferences syncWorld
+WARNUNG: Couldn't flush system prefs: java.util.prefs.BackingStoreException: C
+ldn't get file lock.
+ 26.11.2008 18:13:05 java.util.prefs.FileSystemPreferences checkLockFile0ErrorCode
+WARNUNG: Could not lock System prefs.Unix error code -1918810700.
+26.11.2008 18:13:05 java.util.prefs.FileSystemPreferences syncWorld
+WARNUNG: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
+
+PPS: In /var/log/capisuite.* erschien seit 40 Minuten nichts
+(trotz diverser Versuche im Client), ich wei&#223; nicht, ob das
+etwas aussagt.
+
+Unmittelbar nach dem Start des Client kommt zwischen derartigen
+Meldungen noch
+
+&quot;Kein Schreibzugriff auf die systemweiten Einstellungen!
+&quot;
+
+Ralf
+
+%%%%%%%%%%%%%%%%% Anfang ssh-Log %%%%%%%%%%%%%%%%%%%%%%%%%%
+Nov 26 18:00:05 linux sshd[12042]: debug1: rexec start in 4 out 4 newsock 4 pipe 6 sock 7
+Nov 26 18:00:05 linux sshd[11357]: debug1: Forked child 12042.
+Nov 26 18:00:05 linux sshd[12042]: debug1: inetd sockets after dupping: 3, 3
+Nov 26 18:00:05 linux sshd[12042]: Connection from ::1 port 50137
+Nov 26 18:00:05 linux sshd[12042]: debug1: Client protocol version 2.0; client software version OpenSSH_4.6
+Nov 26 18:00:05 linux sshd[12042]: debug1: match: OpenSSH_4.6 pat OpenSSH*
+Nov 26 18:00:05 linux sshd[12042]: debug1: Enabling compatibility mode for protocol 2.0
+Nov 26 18:00:05 linux sshd[12042]: debug1: Local version string SSH-2.0-OpenSSH_4.6
+Nov 26 18:00:05 linux sshd[12042]: debug2: fd 3 setting O_NONBLOCK
+Nov 26 18:00:05 linux sshd[12042]: debug2: Network child is on pid 12043
+Nov 26 18:00:05 linux sshd[12042]: debug2: monitor_read: 0 used once, disabling now
+Nov 26 18:00:05 linux sshd[12042]: debug2: monitor_read: 4 used once, disabling now
+Nov 26 18:00:05 linux sshd[12042]: debug2: parse_server_config: config reprocess config len 437
+Nov 26 18:00:05 linux sshd[12042]: debug2: monitor_read: 6 used once, disabling now
+Nov 26 18:00:05 linux sshd[12042]: debug1: PAM: initializing for &quot;david&quot;
+Nov 26 18:00:05 linux sshd[12042]: debug1: PAM: setting PAM_RHOST to &quot;localhost&quot;
+Nov 26 18:00:05 linux sshd[12042]: debug1: PAM: setting PAM_TTY to &quot;ssh&quot;
+Nov 26 18:00:05 linux sshd[12042]: debug2: monitor_read: 45 used once, disabling now
+Nov 26 18:00:05 linux sshd[12042]: debug2: monitor_read: 3 used once, disabling now
+Nov 26 18:00:05 linux sshd[12042]: Failed none for david from ::1 port 50137 ssh2
+Nov 26 18:00:05 linux sshd[12042]: debug1: temporarily_use_uid: 1000/100 (e=0/0)
+Nov 26 18:00:05 linux sshd[12042]: debug1: trying public key file /home/david/.ssh/authorized_keys
+Nov 26 18:00:05 linux sshd[12042]: debug1: matching key found: file /home/david/.ssh/authorized_keys, line 1
+Nov 26 18:00:05 linux sshd[12042]: Found matching RSA key: xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx
+Nov 26 18:00:05 linux sshd[12042]: debug1: restore_uid: 0/0
+Nov 26 18:00:05 linux sshd[12042]: debug1: temporarily_use_uid: 1000/100 (e=0/0)
+Nov 26 18:00:05 linux sshd[12042]: debug1: trying public key file /home/david/.ssh/authorized_keys
+Nov 26 18:00:05 linux sshd[12042]: debug1: matching key found: file /home/david/.ssh/authorized_keys, line 1
+Nov 26 18:00:05 linux sshd[12042]: Found matching RSA key: xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx
+Nov 26 18:00:05 linux sshd[12042]: debug1: restore_uid: 0/0
+Nov 26 18:00:05 linux sshd[12042]: debug1: ssh_rsa_verify: signature correct
+Nov 26 18:00:05 linux sshd[12042]: debug1: do_pam_account: called
+Nov 26 18:00:05 linux sshd[12042]: Accepted publickey for david from ::1 port 50137 ssh2
+Nov 26 18:00:05 linux sshd[12042]: debug1: monitor_child_preauth: david has been authenticated by privileged process
+Nov 26 18:00:05 linux sshd[12042]: debug2: mac_init: found hmac-md5
+Nov 26 18:00:05 linux sshd[12042]: debug2: mac_init: found hmac-md5
+Nov 26 18:00:05 linux sshd[12044]: debug1: PAM: reinitializing credentials
+Nov 26 18:00:05 linux sshd[12044]: debug1: permanently_set_uid: 1000/100
+Nov 26 18:00:05 linux sshd[12044]: debug2: set_newkeys: mode 0
+Nov 26 18:00:05 linux sshd[12044]: debug2: set_newkeys: mode 1
+Nov 26 18:00:05 linux sshd[12044]: debug1: Entering interactive session for SSH2.
+Nov 26 18:00:05 linux sshd[12044]: debug2: fd 5 setting O_NONBLOCK
+Nov 26 18:00:05 linux sshd[12044]: debug2: fd 6 setting O_NONBLOCK
+Nov 26 18:00:05 linux sshd[12044]: debug1: server_init_dispatch_20
+Nov 26 18:00:05 linux sshd[12042]: debug2: User child is on pid 12044
+Nov 26 18:00:05 linux sshd[12044]: debug1: server_input_channel_open: ctype session rchan 0 win 131072 max 32768
+Nov 26 18:00:05 linux sshd[12044]: debug1: input_session_request
+Nov 26 18:00:05 linux sshd[12044]: debug1: channel 0: new [server-session]
+Nov 26 18:00:05 linux sshd[12044]: debug1: session_new: init
+Nov 26 18:00:05 linux sshd[12044]: debug1: session_new: session 0
+Nov 26 18:00:05 linux sshd[12044]: debug1: session_open: channel 0
+Nov 26 18:00:05 linux sshd[12044]: debug1: session_open: session 0: link with channel 0
+Nov 26 18:00:05 linux sshd[12044]: debug1: server_input_channel_open: confirm session
+Nov 26 18:00:05 linux sshd[12044]: debug1: server_input_channel_req: channel 0 request env reply 0
+Nov 26 18:00:05 linux sshd[12044]: debug1: session_by_channel: session 0 channel 0
+Nov 26 18:00:05 linux sshd[12044]: debug1: session_input_channel_req: session 0 req env
+Nov 26 18:00:05 linux sshd[12044]: debug2: Setting env 0: LANG=de_DE.ISO-8859-1
+Nov 26 18:00:05 linux sshd[12044]: debug1: server_input_channel_req: channel 0 request subsystem reply 1
+Nov 26 18:00:05 linux sshd[12044]: debug1: session_by_channel: session 0 channel 0
+Nov 26 18:00:05 linux sshd[12044]: debug1: session_input_channel_req: session 0 req subsystem
+Nov 26 18:00:05 linux sshd[12044]: subsystem request for sftp
+Nov 26 18:00:05 linux sshd[12044]: debug1: subsystem: exec() /usr/lib/ssh/sftp-server
+Nov 26 18:00:05 linux sshd[12044]: debug2: fd 3 setting TCP_NODELAY
+Nov 26 18:00:05 linux sshd[12044]: debug2: fd 8 setting O_NONBLOCK
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: rcvd eof
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: output open -&gt; drain
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: obuf empty
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: close_write
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: output drain -&gt; closed
+Nov 26 18:00:07 linux sshd[12044]: debug1: Received SIGCHLD.
+Nov 26 18:00:07 linux sshd[12044]: debug1: session_by_pid: pid 12045
+Nov 26 18:00:07 linux sshd[12044]: debug1: session_exit_message: session 0 channel 0 pid 12045
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: request exit-status confirm 0
+Nov 26 18:00:07 linux sshd[12044]: debug1: session_exit_message: release channel 0
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: read&lt;=0 rfd 8 len 0
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: read failed
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: close_read
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: input open -&gt; drain
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: ibuf empty
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: send eof
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: input drain -&gt; closed
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: send close
+Nov 26 18:00:07 linux sshd[12044]: debug2: notify_done: reading
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: rcvd close
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: is dead
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: gc: notify user
+Nov 26 18:00:07 linux sshd[12044]: debug1: session_by_channel: session 0 channel 0
+Nov 26 18:00:07 linux sshd[12044]: debug1: session_close_by_channel: channel 0 child 0
+Nov 26 18:00:07 linux sshd[12044]: debug1: session_close: session 0 pid 0
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: gc: user detached
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: is dead
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: garbage collecting
+Nov 26 18:00:07 linux sshd[12044]: debug1: channel 0: free: server-session, nchannels 1
+Nov 26 18:00:07 linux sshd[12044]: Connection closed by ::1
+Nov 26 18:00:07 linux sshd[12044]: debug1: do_cleanup
+Nov 26 18:00:07 linux sshd[12044]: debug1: PAM: cleanup
+Nov 26 18:00:07 linux sshd[12044]: PAM audit_log_acct_message() failed: Operation not permitted
+Nov 26 18:00:07 linux sshd[12044]: Closing connection to ::1
+Nov 26 18:00:07 linux sshd[12044]: debug1: PAM: cleanup
+%%%%%%%%%%%%%%%%% Anfang ssh-Log %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+      
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000040.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+	<LI>Next message: <A HREF="000038.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#37">[ date ]</a>
+              <a href="thread.html#37">[ thread ]</a>
+              <a href="subject.html#37">[ subject ]</a>
+              <a href="author.html#37">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/faxgate-users">More information about the FaxGate-users
+mailing list</a><br>
+</body></html>

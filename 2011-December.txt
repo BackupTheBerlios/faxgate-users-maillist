@@ -1,0 +1,625 @@
+From montiburns at googlemail.com  Sat Dec 24 09:59:45 2011
+From: montiburns at googlemail.com (=?ISO-8859-15?Q?Stefan_K=F6nig?=)
+Date: Sat, 24 Dec 2011 09:59:45 +0100
+Subject: [FaxGate-users] FG Version
+Message-ID: <4EF59481.6020408@googlemail.com>
+
+Hallo zusammen,
+
+ich hoffe die Liste lebt noch, das Archiv hat als letzte Nachricht
+irgendwas aus 2009... :D
+Was ist denn die neueste FG Client Version? AUf der Website scheint es
+0.12 zu sein, in der Liste wurde mal eine 0.14 verlinkt...
+Lebt das Projekt denn noch? DIe Website ist ja schon etwas l?nger nicht
+mehr aktualisiert worden, wie es scheint....
+
+Gr??e
+Sk
+
+
+From Martin.Deppe at web.de  Sat Dec 24 10:21:34 2011
+From: Martin.Deppe at web.de (Martin Deppe)
+Date: Sat, 24 Dec 2011 10:21:34 +0100
+Subject: [FaxGate-users] FG Version
+In-Reply-To: <4EF59481.6020408@googlemail.com>
+References: <4EF59481.6020408@googlemail.com>
+Message-ID: <4EF5999E.2000701@web.de>
+
+Am 24.12.2011 09:59, schrieb Stefan K?nig:
+> Hallo zusammen,
+>
+> ich hoffe die Liste lebt noch, das Archiv hat als letzte Nachricht
+> irgendwas aus 2009... :D
+> Was ist denn die neueste FG Client Version? AUf der Website scheint es
+> 0.12 zu sein, in der Liste wurde mal eine 0.14 verlinkt...
+> Lebt das Projekt denn noch? DIe Website ist ja schon etwas l?nger nicht
+> mehr aktualisiert worden, wie es scheint....
+>
+> Gr??e
+> Sk
+> _______________________________________________
+> FaxGate-users mailing list
+> FaxGate-users at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/faxgate-users
+>
+Hallo Stefan,
+
+tja, wie es aussieht "lebt" die Liste noch! Der letzte Beitrag, den ich aus der Liste habe, ist vom 25.02.2009 ;-)
+und da ich auch (seit langer Zeit) daran interessiert bin (endlich) ein FaxGate zu haben, h?tte ich auch gern diese Information(en).
+
+Gru?
+Martin
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20111224/1a2ee81e/attachment.html>
+
+From montiburns at googlemail.com  Sat Dec 24 11:18:16 2011
+From: montiburns at googlemail.com (=?ISO-8859-15?Q?Stefan_K=F6nig?=)
+Date: Sat, 24 Dec 2011 11:18:16 +0100
+Subject: [FaxGate-users] FG Version
+In-Reply-To: <4EF5999E.2000701@web.de>
+References: <4EF59481.6020408@googlemail.com> <4EF5999E.2000701@web.de>
+Message-ID: <4EF5A6E8.5010403@googlemail.com>
+
+
+
+Martin Deppe schrieb:
+> Am 24.12.2011 09:59, schrieb Stefan K?nig:
+>> Hallo zusammen,
+>>
+>> ich hoffe die Liste lebt noch, das Archiv hat als letzte Nachricht
+>> irgendwas aus 2009... :D
+>> Was ist denn die neueste FG Client Version? AUf der Website scheint es
+>> 0.12 zu sein, in der Liste wurde mal eine 0.14 verlinkt...
+>> Lebt das Projekt denn noch? DIe Website ist ja schon etwas l?nger nicht
+>> mehr aktualisiert worden, wie es scheint....
+>>
+>> Gr??e
+>> Sk
+>> _______________________________________________
+>> FaxGate-users mailing list
+>> FaxGate-users at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/faxgate-users
+>>
+>>     
+> Hallo Stefan,
+>
+> tja, wie es aussieht "lebt" die Liste noch! Der letzte Beitrag, den
+> ich aus der Liste habe, ist vom 25.02.2009 ;-)
+> und da ich auch (seit langer Zeit) daran interessiert bin (endlich)
+> ein FaxGate zu haben, h?tte ich auch gern diese Information(en).
+>
+> Gru?
+> Martin
+>   
+da w?ren es dann also schon zwei....
+Ich habe das FG allerdings schon laufen bei mir.
+Hab aus dem src rpm einen rebuild f?r opensuse 11.1-64 gemacht und dann
+den 0.14er client auf einem windows 7-64 angeworfen.
+l?uft soweit es aussieht auch, allerdings vermisse ich die multiuser
+f?higkeiten von LISA... sprich, wenn ich mich im client per sftp
+anmelde, sehe ich den kompletten fax eingang aller user...
+
+tschau
+SK
+
+
+
+From sascha.hirschfeld at cgrx.de  Sat Dec 24 11:56:31 2011
+From: sascha.hirschfeld at cgrx.de (Sascha Hirschfeld)
+Date: Sat, 24 Dec 2011 11:56:31 +0100
+Subject: [FaxGate-users] FG Version
+In-Reply-To: <4EF5A6E8.5010403@googlemail.com>
+References: <4EF59481.6020408@googlemail.com> <4EF5999E.2000701@web.de>
+	<4EF5A6E8.5010403@googlemail.com>
+Message-ID: <B2868663-7152-408A-81BD-99FDC21D916F@cgrx.de>
+
+Hi
+
+Ich verfolge die Liste auch noch. ?
+
+Frohe Weihnachten
+
+
+Am 24.12.2011 um 11:18 schrieb Stefan K?nig <montiburns at googlemail.com>:
+
+> 
+> 
+> Martin Deppe schrieb:
+>> Am 24.12.2011 09:59, schrieb Stefan K?nig:
+>>> Hallo zusammen,
+>>> 
+>>> ich hoffe die Liste lebt noch, das Archiv hat als letzte Nachricht
+>>> irgendwas aus 2009... :D
+>>> Was ist denn die neueste FG Client Version? AUf der Website scheint es
+>>> 0.12 zu sein, in der Liste wurde mal eine 0.14 verlinkt...
+>>> Lebt das Projekt denn noch? DIe Website ist ja schon etwas l?nger nicht
+>>> mehr aktualisiert worden, wie es scheint....
+>>> 
+>>> Gr??e
+>>> Sk
+>>> _______________________________________________
+>>> FaxGate-users mailing list
+>>> FaxGate-users at lists.berlios.de
+>>> https://lists.berlios.de/mailman/listinfo/faxgate-users
+>>> 
+>>> 
+>> Hallo Stefan,
+>> 
+>> tja, wie es aussieht "lebt" die Liste noch! Der letzte Beitrag, den
+>> ich aus der Liste habe, ist vom 25.02.2009 ;-)
+>> und da ich auch (seit langer Zeit) daran interessiert bin (endlich)
+>> ein FaxGate zu haben, h?tte ich auch gern diese Information(en).
+>> 
+>> Gru?
+>> Martin
+>> 
+> da w?ren es dann also schon zwei....
+> Ich habe das FG allerdings schon laufen bei mir.
+> Hab aus dem src rpm einen rebuild f?r opensuse 11.1-64 gemacht und dann
+> den 0.14er client auf einem windows 7-64 angeworfen.
+> l?uft soweit es aussieht auch, allerdings vermisse ich die multiuser
+> f?higkeiten von LISA... sprich, wenn ich mich im client per sftp
+> anmelde, sehe ich den kompletten fax eingang aller user...
+> 
+> tschau
+> SK
+> 
+> _______________________________________________
+> FaxGate-users mailing list
+> FaxGate-users at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/faxgate-users
+
+
+From ingo.goeppert at gmx.de  Sat Dec 24 14:03:13 2011
+From: ingo.goeppert at gmx.de (Ingo =?utf-8?q?G=C3=B6ppert?=)
+Date: Sat, 24 Dec 2011 14:03:13 +0100
+Subject: [FaxGate-users] FG Version
+In-Reply-To: <B2868663-7152-408A-81BD-99FDC21D916F@cgrx.de>
+References: <4EF59481.6020408@googlemail.com> <4EF5A6E8.5010403@googlemail.com>
+	<B2868663-7152-408A-81BD-99FDC21D916F@cgrx.de>
+Message-ID: <201112241403.17504.ingo.goeppert@gmx.de>
+
+Hallo,
+
+Am Samstag, 24. Dezember 2011 schrieb Sascha Hirschfeld:
+> Hi
+> 
+> Ich verfolge die Liste auch noch.
+
+ich auch noch :-)
+
+Wie lange es die Liste noch geben wird, steht meines Wissens noch nicht 
+fest. Urspr?nglich war geplant berlios am 31.12.2011 abzuschalten. Eine 
+anderslautende, offizielle Meldung habe ich bisher nicht erhalten. Es 
+kann also sein, dass ihr mich ab 1.1.2012 nicht mehr ?ber diese Liste 
+erreichen k?nnt. Anfragen ggf. dann halt per PM.
+
+gru?
+Ingo
+
+-- 
+## Open & free -- http://www.invis-server.org/
+## Windows, Linux und Mac Office-Suite -- http://www.libreoffice.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20111224/da148066/attachment.pgp>
+
+From ingo.goeppert at gmx.de  Sat Dec 24 14:07:50 2011
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-15?q?G=F6ppert?=)
+Date: Sat, 24 Dec 2011 14:07:50 +0100
+Subject: [FaxGate-users] FG Version
+In-Reply-To: <4EF5A6E8.5010403@googlemail.com>
+References: <4EF59481.6020408@googlemail.com> <4EF5999E.2000701@web.de>
+	<4EF5A6E8.5010403@googlemail.com>
+Message-ID: <201112241407.50523.ingo.goeppert@gmx.de>
+
+Hallo Stefan,
+
+Am Samstag, 24. Dezember 2011 schrieb Stefan K?nig:
+[...]
+> da w?ren es dann also schon zwei....
+> Ich habe das FG allerdings schon laufen bei mir.
+> Hab aus dem src rpm einen rebuild f?r opensuse 11.1-64 gemacht und
+> dann den 0.14er client auf einem windows 7-64 angeworfen.
+> l?uft soweit es aussieht auch, allerdings vermisse ich die multiuser
+> f?higkeiten von LISA... sprich, wenn ich mich im client per sftp
+> anmelde, sehe ich den kompletten fax eingang aller user...
+
+das hat nix mit den F?higkeiten des Clients zu tun, da l?uft 
+grunds?tzlich was schief. Capisuite sortiert die Faxe immer nach 
+Benutzername und mit den entsprechenden Rechten bzw. Beschr?nkungen auf 
+Dateisystemebene ein. Welche Nutzer hast du in Capisuite eingerichtet 
+und unter welchem Namen greifst du per SFTP zu? In welchem Verzeichnis 
+auf dem Server siehst du alle Faxe?
+
+Gru?
+Ingo
+
+-- 
+## Open & free -- http://www.invis-server.org/
+## Windows, Linux und Mac Office-Suite -- http://www.libreoffice.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20111224/2375910b/attachment.pgp>
+
+From montiburns at googlemail.com  Sat Dec 24 14:37:31 2011
+From: montiburns at googlemail.com (=?UTF-8?B?U3RlZmFuIEvDtm5pZw==?=)
+Date: Sat, 24 Dec 2011 14:37:31 +0100
+Subject: [FaxGate-users] FG Version
+In-Reply-To: <201112241407.50523.ingo.goeppert@gmx.de>
+References: <4EF59481.6020408@googlemail.com>
+	<4EF5999E.2000701@web.de>	<4EF5A6E8.5010403@googlemail.com>
+	<201112241407.50523.ingo.goeppert@gmx.de>
+Message-ID: <4EF5D59B.1040101@googlemail.com>
+
+
+
+Ingo G?ppert schrieb:
+> Hallo Stefan,
+>
+> Am Samstag, 24. Dezember 2011 schrieb Stefan K?nig:
+> [...]
+>   
+>> da w?ren es dann also schon zwei....
+>> Ich habe das FG allerdings schon laufen bei mir.
+>> Hab aus dem src rpm einen rebuild f?r opensuse 11.1-64 gemacht und
+>> dann den 0.14er client auf einem windows 7-64 angeworfen.
+>> l?uft soweit es aussieht auch, allerdings vermisse ich die multiuser
+>> f?higkeiten von LISA... sprich, wenn ich mich im client per sftp
+>> anmelde, sehe ich den kompletten fax eingang aller user...
+>>     
+>
+> das hat nix mit den F?higkeiten des Clients zu tun, da l?uft 
+> grunds?tzlich was schief. Capisuite sortiert die Faxe immer nach 
+> Benutzername und mit den entsprechenden Rechten bzw. Beschr?nkungen auf 
+> Dateisystemebene ein. Welche Nutzer hast du in Capisuite eingerichtet 
+> und unter welchem Namen greifst du per SFTP zu? In welchem Verzeichnis 
+> auf dem Server siehst du alle Faxe?
+>   
+Hi Ingo,
+
+das war eine Fehlinformation meinerseits, der Client macht das richtig!
+Ich sehe unter "Gesendet" und "Fehlgeschlagen" die Faxe von allen Usern,
+das liegt aber an Capisuite.
+R?ckblickend hat mein Hirn hat das auf alle anderen Reiter ?bertragen :)
+
+Jetzt wo ich Dich mal "dran" habe:
+-Wie schaut es mit FaxGate aus? Ist der 0.14er Client der aktuellste?
+-Wird noch entwickelt?
+-Kommt noch was au?erhalb des Invis Servers f?r openSUSE? Die "alten"
+Repos sind down...
+-Aktualisierst Du deine Webseite nochmal ? :)
+
+Danke und frohe Festtage
+SK
+
+
+
+
+From Martin.Deppe at web.de  Sun Dec 25 13:47:06 2011
+From: Martin.Deppe at web.de (Martin Deppe)
+Date: Sun, 25 Dec 2011 13:47:06 +0100
+Subject: [FaxGate-users] FG Version
+In-Reply-To: <B2868663-7152-408A-81BD-99FDC21D916F@cgrx.de>
+References: <4EF59481.6020408@googlemail.com> <4EF5999E.2000701@web.de>
+	<4EF5A6E8.5010403@googlemail.com>
+	<B2868663-7152-408A-81BD-99FDC21D916F@cgrx.de>
+Message-ID: <4EF71B4A.5060009@web.de>
+
+Am 24.12.2011 11:56, schrieb Sascha Hirschfeld:
+> Hi
+>
+> Ich verfolge die Liste auch noch. ?
+>
+> Frohe Weihnachten
+>
+>
+> Am 24.12.2011 um 11:18 schrieb Stefan K?nig<montiburns at googlemail.com>:
+>
+>> Martin Deppe schrieb:
+>>> Am 24.12.2011 09:59, schrieb Stefan K?nig:
+>>>> Hallo zusammen,
+>>>>
+>>>> ich hoffe die Liste lebt noch, das Archiv hat als letzte Nachricht
+>>>> irgendwas aus 2009... :D
+>>>> Was ist denn die neueste FG Client Version? AUf der Website scheint es
+>>>> 0.12 zu sein, in der Liste wurde mal eine 0.14 verlinkt...
+>>>> Lebt das Projekt denn noch? DIe Website ist ja schon etwas l?nger nicht
+>>>> mehr aktualisiert worden, wie es scheint....
+>>>>
+>>>> Gr??e
+>>>> Sk
+>>>> _______________________________________________
+>>>> FaxGate-users mailing list
+>>>> FaxGate-users at lists.berlios.de
+>>>> https://lists.berlios.de/mailman/listinfo/faxgate-users
+>>>>
+>>>>
+>>> .
+>>> .
+>>> .
+>> da w?ren es dann also schon zwei....
+>> Ich habe das FG allerdings schon laufen bei mir.
+>> Hab aus dem src rpm einen rebuild f?r opensuse 11.1-64 gemacht und dann
+>> den 0.14er client auf einem windows 7-64 angeworfen.
+>> l?uft soweit es aussieht auch, allerdings vermisse ich die multiuser
+>> f?higkeiten von LISA... sprich, wenn ich mich im client per sftp
+>> anmelde, sehe ich den kompletten fax eingang aller user...
+
+Hallo Stefan,
+
+k?nntest Du mir diese Version als Source dann zur Verf?gung stellen oder vielleicht eine Quelle angeben, die nicht in ein paar Tagen abgeschaltet wird?
+Jetzt bin ich doch auch sehr neugierig geworden, wer das Ganze weiterbetreut. Ich h?tte ja auch schon Lust dazu, allein an der Zeit hapert es wahrscheinlich.
+
+Sch?ne Feiertage allen.
+Martin
+
+
+From montiburns at googlemail.com  Sun Dec 25 14:09:04 2011
+From: montiburns at googlemail.com (=?UTF-8?B?U3RlZmFuIEvDtm5pZw==?=)
+Date: Sun, 25 Dec 2011 14:09:04 +0100
+Subject: [FaxGate-users] FG Version
+In-Reply-To: <4EF71B4A.5060009@web.de>
+References: <4EF59481.6020408@googlemail.com>
+	<4EF5999E.2000701@web.de>	<4EF5A6E8.5010403@googlemail.com>	<B2868663-7152-408A-81BD-99FDC21D916F@cgrx.de>
+	<4EF71B4A.5060009@web.de>
+Message-ID: <4EF72070.30000@googlemail.com>
+
+
+>>> da w?ren es dann also schon zwei....
+>>> Ich habe das FG allerdings schon laufen bei mir.
+>>> Hab aus dem src rpm einen rebuild f?r opensuse 11.1-64 gemacht und dann
+>>> den 0.14er client auf einem windows 7-64 angeworfen.
+>>> l?uft soweit es aussieht auch, allerdings vermisse ich die multiuser
+>>> f?higkeiten von LISA... sprich, wenn ich mich im client per sftp
+>>> anmelde, sehe ich den kompletten fax eingang aller user...
+>
+> Hallo Stefan,
+>
+> k?nntest Du mir diese Version als Source dann zur Verf?gung stellen
+> oder vielleicht eine Quelle angeben, die nicht in ein paar Tagen
+> abgeschaltet wird?
+> Jetzt bin ich doch auch sehr neugierig geworden, wer das Ganze
+> weiterbetreut. Ich h?tte ja auch schon Lust dazu, allein an der Zeit
+> hapert es wahrscheinlich.
+>
+>
+Hi,
+
+also das src-rpm habe ich aus den invis-server repositories:
+http://software.opensuse.org/download.html?project=spins:invis&package=faxgate
+da openSUSE ausw?hlen, dann bin?rpakete herunterladen, und f?r 11.1 habe
+ich dann das ?lteste (also 11.3er) paket heruntergeladen:
+http://download.opensuse.org/repositories/spins:/invis/openSUSE_11.3/src/capisuite-0.5.cvs-5.1.src.rpm
+
+je nachdem welche version du hast, brauchst du dann ein anderes src rpm.
+aber von 11.3-12.1 ist bei invis alles dabei.
+dann brauchst du nur mit rpmbuild einen rebuild zu machen und hast ein
+fertiges opensuse rpm f?r dein system:
+
+"rpmbuild --rebuild capisuite-0.5.cvs-5.1.src.rpm"
+und das fertige rpm sollte dann unter /usr/src/packages/RPMS/{arch} zu
+finden sein.
+
+ich kann dir auch das 11.1er rpm f?r x86-64 per email schicken, wenn du
+keine rpmbuild umgebung hast.
+
+tschau
+SK
+
+
+
+
+
+From ingo.goeppert at gmx.de  Sun Dec 25 19:29:28 2011
+From: ingo.goeppert at gmx.de (Ingo =?utf-8?q?G=C3=B6ppert?=)
+Date: Sun, 25 Dec 2011 19:29:28 +0100
+Subject: [FaxGate-users] FG Version
+In-Reply-To: <4EF71B4A.5060009@web.de>
+References: <4EF59481.6020408@googlemail.com>
+	<B2868663-7152-408A-81BD-99FDC21D916F@cgrx.de>
+	<4EF71B4A.5060009@web.de>
+Message-ID: <201112251929.32098.ingo.goeppert@gmx.de>
+
+Hallo Martin,
+
+Am Sonntag, 25. Dezember 2011 schrieb Martin Deppe:
+[...]
+> Hallo Stefan,
+> 
+> k?nntest Du mir diese Version als Source dann zur Verf?gung stellen
+> oder vielleicht eine Quelle angeben, die nicht in ein paar Tagen
+> abgeschaltet wird? Jetzt bin ich doch auch sehr neugierig geworden,
+> wer das Ganze weiterbetreut. Ich h?tte ja auch schon Lust dazu,
+> allein an der Zeit hapert es wahrscheinlich.
+
+die Gefahr abgeschaltet zu werden besteht nur f?r berlios, d.h. die 
+Mailingliste, mehr nutze ich da eh nicht mehr.
+
+Online bleibt, weil von mir privat betrieben:
+http://backup.faxgate.org/
+http://www.faxgate.org/
+
+Aktuelle rpm's gibts derzeit auf:
+http://download.opensuse.org/repositories/spins:/invis/
+
+Gru?
+Ingo
+
+-- 
+## Open & free -- http://www.invis-server.org/
+## Windows, Linux und Mac Office-Suite -- http://www.libreoffice.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20111225/1db94898/attachment.pgp>
+
+From ingo.goeppert at gmx.de  Sun Dec 25 19:39:57 2011
+From: ingo.goeppert at gmx.de (Ingo =?utf-8?q?G=C3=B6ppert?=)
+Date: Sun, 25 Dec 2011 19:39:57 +0100
+Subject: [FaxGate-users] FG Version
+In-Reply-To: <4EF5D59B.1040101@googlemail.com>
+References: <4EF59481.6020408@googlemail.com>
+	<201112241407.50523.ingo.goeppert@gmx.de>
+	<4EF5D59B.1040101@googlemail.com>
+Message-ID: <201112251940.01305.ingo.goeppert@gmx.de>
+
+Hallo Stefan,
+
+Am Samstag, 24. Dezember 2011 schrieb Stefan K?nig:
+[...]
+> Jetzt wo ich Dich mal "dran" habe:
+> -Wie schaut es mit FaxGate aus? Ist der 0.14er Client der aktuellste?
+
+Ja. Hast du den schon? Auf die Liste will ich den nicht posten, als 
+bitte nochmal anfragen falls du oder sonst jemand ihn braucht.
+
+> -Wird noch entwickelt?
+
+Eher weniger, mehr nur noch auf die neueste Distri angepasst, falls 
+notwendig.
+
+> -Kommt noch was au?erhalb des Invis Servers f?r openSUSE? Die "alten"
+> Repos sind down...
+
+Nein. Man muss sich aber kein Invis installieren um faxgate zu nutzen, 
+das geht nach wie vor auch auf ner ganz normalen Installation. Lediglich 
+die rpm's sind nicht mehr in meinem Home-Projekt sondern im Invis-
+Serverprojekt zu finden.
+
+> -Aktualisierst Du deine Webseite nochmal ? :)
+
+Ich will die Seite schon lange auf nen Wiki umstellen um mir die html-
+Hackerei zu ersparen und einfacher was neues online stellen zu k?nnen, 
+kam aber bisher nicht dazu.
+
+> 
+> Danke und frohe Festtage
+
+Danke ebenfalls.
+
+Gru?
+Ingo
+
+-- 
+## Open & free -- http://www.invis-server.org/
+## Windows, Linux und Mac Office-Suite -- http://www.libreoffice.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20111225/b9dc5a9f/attachment.pgp>
+
+From montiburns at googlemail.com  Mon Dec 26 01:31:32 2011
+From: montiburns at googlemail.com (=?UTF-8?B?U3RlZmFuIEvDtm5pZw==?=)
+Date: Mon, 26 Dec 2011 01:31:32 +0100
+Subject: [FaxGate-users] FG Version
+In-Reply-To: <201112251940.01305.ingo.goeppert@gmx.de>
+References: <4EF59481.6020408@googlemail.com>	<201112241407.50523.ingo.goeppert@gmx.de>	<4EF5D59B.1040101@googlemail.com>
+	<201112251940.01305.ingo.goeppert@gmx.de>
+Message-ID: <4EF7C064.8050803@googlemail.com>
+
+Hallo Ingo,
+
+
+>> Jetzt wo ich Dich mal "dran" habe:
+>> -Wie schaut es mit FaxGate aus? Ist der 0.14er Client der aktuellste?
+>>     
+>
+> Ja. Hast du den schon? Auf die Liste will ich den nicht posten, als 
+> bitte nochmal anfragen falls du oder sonst jemand ihn braucht.
+>
+>   
+Ja, den habe ich. Den hattest Du mal auf der Liste verlinkt und ich habs
+im Archiv gefunden.
+
+
+Gr??e
+SK
+
+
+From montiburns at googlemail.com  Mon Dec 26 10:07:33 2011
+From: montiburns at googlemail.com (=?UTF-8?B?U3RlZmFuIEvDtm5pZw==?=)
+Date: Mon, 26 Dec 2011 10:07:33 +0100
+Subject: [FaxGate-users] FG Version
+In-Reply-To: <201112251940.01305.ingo.goeppert@gmx.de>
+References: <4EF59481.6020408@googlemail.com>	<201112241407.50523.ingo.goeppert@gmx.de>	<4EF5D59B.1040101@googlemail.com>
+	<201112251940.01305.ingo.goeppert@gmx.de>
+Message-ID: <4EF83955.7070605@googlemail.com>
+
+Hi Ingo, vlt eine Sache noch:
+>   
+>> -Wird noch entwickelt?
+>>     
+>
+> Eher weniger, mehr nur noch auf die neueste Distri angepasst, falls 
+> notwendig.
+>
+>   
+
+Ich h?tte da einen kleinen Verbesserungsvorschlag.
+Im sFTP Browser f?r die Queues, da w?re es sch?n, wenn man nach Datum
+oder Dateiname oder so sortieren k?nnte.
+Beim Klick auf die einzelnen Spalten passiert leider nichts und man muss
+mit der doofen Windowssortierung leben.
+
+Gr??e
+Stefan
+
+
+From ingo.goeppert at gmx.de  Sat Dec 31 09:55:49 2011
+From: ingo.goeppert at gmx.de (Ingo =?utf-8?q?G=C3=B6ppert?=)
+Date: Sat, 31 Dec 2011 09:55:49 +0100
+Subject: [FaxGate-users] Sortierung im SFTP-Browser (was: Re:  FG Version)
+In-Reply-To: <4EF83955.7070605@googlemail.com>
+References: <4EF59481.6020408@googlemail.com>
+	<201112251940.01305.ingo.goeppert@gmx.de>
+	<4EF83955.7070605@googlemail.com>
+Message-ID: <201112310955.53748.ingo.goeppert@gmx.de>
+
+Hallo Stefan,
+
+Am Montag, 26. Dezember 2011 schrieb Stefan K?nig:
+> Hi Ingo, vlt eine Sache noch:
+[...]
+> Ich h?tte da einen kleinen Verbesserungsvorschlag.
+> Im sFTP Browser f?r die Queues, da w?re es sch?n, wenn man nach Datum
+> oder Dateiname oder so sortieren k?nnte.
+> Beim Klick auf die einzelnen Spalten passiert leider nichts und man
+> muss mit der doofen Windowssortierung leben.
+
+hab ich mir eben angeschaut. Ich konnte es selbst kaum glauben, aber: 
+Die verwendete Tabelle kann das nicht. Ich m?sste die Sortierung selbst 
+programmieren, in der verwendeten Swing-Komponente in Java 1.5 ist das 
+schlicht nicht vorgesehen. Ab 1.6 gibts ne M?glichkeit daf?r, einfach so 
+l?sst sich das sftp-Paket aber nicht mit 1.6 compilieren.
+Fazit: Auf die Schnelle kann ich daran leider nichts ?ndern :-(
+
+Gru?
+Ingo
+
+-- 
+## Open & free -- http://www.invis-server.org/
+## Windows, Linux und Mac Office-Suite -- http://www.libreoffice.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20111231/6e790ecc/attachment.pgp>
+

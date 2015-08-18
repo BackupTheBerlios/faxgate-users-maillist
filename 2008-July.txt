@@ -1,0 +1,344 @@
+From frisch at vr-web.de  Fri Jul 25 17:51:52 2008
+From: frisch at vr-web.de (Markus Frisch)
+Date: Fri, 25 Jul 2008 17:51:52 +0200
+Subject: [FaxGate-users] FaxGate unter openSUSE 11.0
+Message-ID: <4889F698.1020907@vr-web.de>
+
+Hallo Ingo,
+
+ist denn geplant, FaxGate f?r openSUSE 11.0 zur Verf?gung zu stellen?
+
+Als begeisterter FaxGate-Nutzer musste ich leider feststellen, dass mit 
+der (FaxGate-) capisuite-0.5.cvs-29.1. unter der neuen opensuse keine 
+Faxe mehr verschickt werden k?nnen.
+
+Gru?
+Markus
+
+
+From frisch at vr-web.de  Sun Jul 27 00:12:27 2008
+From: frisch at vr-web.de (Markus Frisch)
+Date: Sun, 27 Jul 2008 00:12:27 +0200
+Subject: [FaxGate-users]  FaxGate unter openSUSE 11.0
+Message-ID: <488BA14B.8080607@vr-web.de>
+
+Nachtrag:
+die capisuite-0.5.cvs-34.1 l?sst sich auch nicht unter openSUSE 11.0 in 
+Betrieb nehmen.
+
+Markus
+
+
+
+Hallo Ingo,
+
+ist denn geplant, FaxGate f?r openSUSE 11.0 zur Verf?gung zu stellen?
+
+Als begeisterter FaxGate-Nutzer musste ich leider feststellen, dass mit
+der (FaxGate-) capisuite-0.5.cvs-29.1. unter der neuen opensuse keine
+Faxe mehr verschickt werden k?nnen.
+
+Gru?
+Markus
+_______________________________________________
+FaxGate-users mailing list
+FaxGate-users at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/faxgate-users
+
+
+
+From ingo.goeppert at gmx.de  Sun Jul 27 20:31:13 2008
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-15?q?G=F6ppert?=)
+Date: Sun, 27 Jul 2008 20:31:13 +0200
+Subject: [FaxGate-users] FaxGate unter openSUSE 11.0
+In-Reply-To: <4889F698.1020907@vr-web.de>
+References: <4889F698.1020907@vr-web.de>
+Message-ID: <200807272031.17260.ingo.goeppert@gmx.de>
+
+Hallo Markus,
+
+Am Freitag, 25. Juli 2008 schrieb Markus Frisch:
+> Hallo Ingo,
+>
+> ist denn geplant, FaxGate f?r openSUSE 11.0 zur Verf?gung zu stellen?
+
+geplant ja, aber wann kann ich dir nicht sagen. Aktuell gibt es nicht 
+mal ein komplettes Paket f?r opensuse 10.3...
+
+>
+> Als begeisterter FaxGate-Nutzer musste ich leider feststellen, dass
+> mit der (FaxGate-) capisuite-0.5.cvs-29.1. unter der neuen opensuse
+> keine Faxe mehr verschickt werden k?nnen.
+
+Verschicken ging mit der 10.3 glaub noch, beim Empfang gabs aber diverse 
+Probleme. Was passiert den genau beim Versand bei der 11.0?
+
+Gru?
+Ingo
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20080727/b1ef448a/attachment.pgp>
+
+From frisch at vr-web.de  Mon Jul 28 18:28:29 2008
+From: frisch at vr-web.de (Markus Frisch)
+Date: Mon, 28 Jul 2008 18:28:29 +0200
+Subject: [FaxGate-users] FaxGate unter openSUSE 11.0
+In-Reply-To: <200807272031.17260.ingo.goeppert@gmx.de>
+References: <4889F698.1020907@vr-web.de>
+	<200807272031.17260.ingo.goeppert@gmx.de>
+Message-ID: <488DF3AD.6000203@vr-web.de>
+
+Hallo Ingo,
+
+Ingo G?ppert schrieb:
+> geplant ja, aber wann kann ich dir nicht sagen. Aktuell gibt es nicht 
+> mal ein komplettes Paket f?r opensuse 10.3...
+>   
+Hmm, das ist ja schon mal Licht am Horizont..
+
+>> Als begeisterter FaxGate-Nutzer musste ich leider feststellen, dass
+>> mit der (FaxGate-) capisuite-0.5.cvs-29.1. unter der neuen opensuse
+>> keine Faxe mehr verschickt werden k?nnen.
+>>     
+>
+> Verschicken ging mit der 10.3 glaub noch, beim Empfang gabs aber diverse 
+> Probleme. 
+Stimmt, der Empfang funktionierte nicht, deshalb lief (und l?uft) unser 
+Server noch unter SuSE 10.1.
+Jetzt wird aber ein dringend n?tiger Hardwarewechsel f?llig, und da 
+wirds schwierig, die neue Hardware unter der alten SuSE zum laufen zu 
+bekommen, wenn nicht sogar unm?glich  :'(
+Aber einen Server (mit Win-Clients) ohne FaxGate kann ich mir gar nicht 
+vorstellen :'(
+> Was passiert den genau beim Versand bei der 11.0?
+>   
+Ich habe die capisuite-0.5.cvs-34.1.rpm unter der 11.0 installiert
+
+Im Anhang habe ich eine Textdatei mit 3 Abschnitten:
+- Fehlermeldung in der "capisuite.log" mit loglevel=3 bei Versuch ein 
+Fax zu senden
+- Fehlermeldung in der "capisuite.error" mit loglevel=3 bei Versuch ein 
+Fax zu senden
+- Fehlermeldung in der Konsole beim Versuch, aus dem src.rpm ein rpm zu 
+bauen.
+
+Ich hoffe, die Textdatei wird nicht rausgefiltert von berlios..
+
+Gru?
+Markus
+
+
+
+-------------- next part --------------
+### capisuite.log ###
+
+Mon Jul 28 17:54:52 2008 CapiSuite 0xbf831c68: job fax-3.sff from markus to 5214725 initiated
+Mon Jul 28 17:54:52 2008 CapiSuite 0xbf831c68: No integer value for port given!
+Mon Jul 28 17:54:52 2008 Connection 0x8257b10: Connection object created for outgoing call from 5214725 to 5214725 service 1
+Mon Jul 28 17:54:52 2008 Connection 0x8257b10: using faxStationID +49 821 5214725 faxHeadline Markus Frisch - sent by CapiSuite CLIR 0
+Mon Jul 28 17:54:52 2008 Capi 0x81a2850: >CONNECT_REQ: ApplId 0x2, MsgNr 0x4, Controller 0x1 CIPValue 0x11, B1proto 0x4, B2proto 0x4, B3proto 0x5
+Mon Jul 28 17:54:52 2008 Capi 0x81a2850: *
+Mon Jul 28 17:54:52 2008 Capi 0x81a2850: <CONNECT_CONF, PLCI: 0x101, Info 0x0
+Mon Jul 28 17:54:52 2008 Capi 0x81a2850: info: 0
+Mon Jul 28 17:54:52 2008 Connection 0x8257b10: got PLCI 101
+Mon Jul 28 17:54:52 2008 Capi 0x81a2850: **
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: *
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: <INFO_IND: Controller/PLCI 0x101, InfoNumber 800d (ignoring)
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: >INFO_RESP ApplId 0x2, MsgNr 0x0, Address 0x101
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: info: 0
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: **
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: *
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: <CONNECT_IND PLCI 0x201 CIP 0x11
+Mon Jul 28 17:54:55 2008 Connection 0x825b398: Connection object created for incoming call PLCI 201 from - to 5214725 CIP 0x11
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: **
+Mon Jul 28 17:54:55 2008 Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8219528: PythonScript created.
+Mon Jul 28 17:54:55 2008 Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8219528: Connection 0x825b398 created IncomingScript
+Mon Jul 28 17:54:55 2008 Connection 0x825b398: Python: deleting connection object
+Mon Jul 28 17:54:55 2008 Connection 0x825b398: rejecting with cause 34a9
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: >CONNECT_RESP ApplId 0x2, msgNum 0x1, PLCI 0x201, Reject 0x34a9, B1proto 0x0, B2proto 0x0, B3proto 0x0
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: *
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: <DISCONNECT_IND PLCI 0x201 Reason 0x0
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: >DISCONNECT_RESP ApplId 0x2 MsgNum 0x4 PLCI 0x201
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: info: 0
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: **
+Mon Jul 28 17:54:55 2008 Capi 0x81a2850: info: 0
+Mon Jul 28 17:54:55 2008 Connection 0x825b398: stop_file_transmission initiated
+Mon Jul 28 17:54:55 2008 Connection 0x825b398: stop_file_transmission finished
+Mon Jul 28 17:54:55 2008 Connection 0x825b398: stop_file_reception finished
+Mon Jul 28 17:54:55 2008 Connection 0x825b398: Connection object deleted
+Mon Jul 28 17:54:55 2008 Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8219528: IncomingScript deleted
+Mon Jul 28 17:54:55 2008 Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8219528: PythonScript deleted.
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: *
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: <INFO_IND: Controller/PLCI 0x101, InfoNumber 1e (ignoring)
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: >INFO_RESP ApplId 0x2, MsgNr 0x5, Address 0x101
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: info: 0
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: **
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: *
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: <DISCONNECT_IND PLCI 0x101 Reason 0x34a9
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: >DISCONNECT_RESP ApplId 0x2 MsgNum 0x6 PLCI 0x101
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: info: 0
+Mon Jul 28 17:54:59 2008 Capi 0x81a2850: **
+Mon Jul 28 17:54:59 2008 Connection 0x8257b10: Python: deleting connection object
+Mon Jul 28 17:54:59 2008 Connection 0x8257b10: stop_file_transmission initiated
+Mon Jul 28 17:54:59 2008 Connection 0x8257b10: stop_file_transmission finished
+Mon Jul 28 17:54:59 2008 Connection 0x8257b10: stop_file_reception finished
+Mon Jul 28 17:54:59 2008 Connection 0x8257b10: Connection object deleted
+Mon Jul 28 17:54:59 2008 CapiSuite 0xbf831c68: job fax-3.sff: result was 34a9,0
+Mon Jul 28 17:54:59 2008 CapiSuite 0xbf831c68: No integer value for port given!
+Mon Jul 28 17:54:59 2008 CapiSuite 0xbf831c68: job fax-3.sff: delayed for 60 seconds
+Mon Jul 28 17:54:59 2008 CapiSuite 0xbf831c68: No integer value for port given!
+Mon Jul 28 17:54:59 2008 Pythonscript /usr/lib/capisuite/idle.py,idle,0x81d7408: idlescript finished...
+ 
+
+### capisuite.error ###
+
+Mon Jul 28 17:49:26 2008 CapiSuite 0xbf93ee18: CapiSuite 0.5.cvs started.
+Mon Jul 28 17:51:22 2008 CapiSuite 0xbf831c68: CapiSuite 0.5.cvs started.
+Mon Jul 28 17:54:55 2008 Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8219528: Error occured. message was: ApplicationError: syntax error while executing python script occured in PythonScript::run()
+Mon Jul 28 17:54:55 2008 Connection 0x825b398: Warning: Connection still established in capisuitemodule_desctruct_conn(). Disconnecting.
+Mon Jul 28 17:56:02 2008 Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8256e78: Error occured. message was: ApplicationError: syntax error while executing python script occured in PythonScript::run()
+Mon Jul 28 17:56:02 2008 Connection 0x825b398: Warning: Connection still established in capisuitemodule_desctruct_conn(). Disconnecting.
+
+
+### Fehler bei rpmbuild --rebuild -bb capisuite-0.5.cvs-34.1.src.rpm  ###
+
+g++ -DHAVE_CONFIG_H -I. -I../..   -DLOCALSTATEDIR=\"/var\" -DPKGDATADIR=\"/usr/share/capisuite\" -DPKGSYSCONFDIR=\"/etc/capisuite\" -DPKGLIBDIR=\"/usr/lib/capisuite\" -I/usr/include/python2.5  -O2 -g -m32 -march=i586 -mtune=i686 -fmessage-length=0 -D_FORTIFY_SOURCE=2 -MT capisuite.o -MD -MP -MF .deps/capisuite.Tpo -c -o capisuite.o capisuite.cpp
+In file included from capisuite.cpp:27:
+../backend/capi.h:20:20: error: capi20.h: No such file or directory
+In file included from capisuite.cpp:27:
+../backend/capi.h:103: error: ???_cdword??? has not been declared
+../backend/capi.h:118: error: ???_cdword??? has not been declared
+../backend/capi.h:147: error: ???_cdword??? has not been declared
+../backend/capi.h:170: error: ???_cdword??? has not been declared
+../backend/capi.h:170: error: ???_cdword??? has not been declared
+../backend/capi.h:170: error: ???_cdword??? has not been declared
+../backend/capi.h:177: error: ???_cdword??? has not been declared
+../backend/capi.h:198: error: ???_cdword??? has not been declared
+../backend/capi.h:198: error: ???_cword??? has not been declared
+../backend/capi.h:198: error: ???_cstruct??? has not been declared
+../backend/capi.h:198: error: ???_cstruct??? has not been declared
+../backend/capi.h:198: error: ???_cword??? has not been declared
+../backend/capi.h:198: error: ???_cword??? has not been declared
+../backend/capi.h:198: error: ???_cword??? has not been declared
+../backend/capi.h:198: error: ???_cstruct??? has not been declared
+../backend/capi.h:198: error: ???_cstruct??? has not been declared
+../backend/capi.h:198: error: ???_cstruct??? has not been declared
+../backend/capi.h:211: error: ???_cdword??? has not been declared
+../backend/capi.h:211: error: ???_cword??? has not been declared
+../backend/capi.h:211: error: ???_cword??? has not been declared
+../backend/capi.h:211: error: ???_cword??? has not been declared
+../backend/capi.h:211: error: ???_cstruct??? has not been declared
+../backend/capi.h:211: error: ???_cstruct??? has not been declared
+../backend/capi.h:211: error: ???_cstruct??? has not been declared
+../backend/capi.h:218: error: ???_cdword??? has not been declared
+../backend/capi.h:229: error: ???_cdword??? has not been declared
+../backend/capi.h:229: error: ???_cword??? has not been declared
+../backend/capi.h:229: error: ???_cword??? has not been declared
+../backend/capi.h:229: error: ???_cword??? has not been declared
+../backend/capi.h:237: error: ???_cdword??? has not been declared
+../backend/capi.h:237: error: ???_cstruct??? has not been declared
+../backend/capi.h:247: error: ???_cdword??? has not been declared
+../backend/capi.h:247: error: ???_cstruct??? has not been declared
+../backend/capi.h:247: error: ???_cstruct??? has not been declared
+../backend/capi.h:247: error: ???_cstruct??? has not been declared
+../backend/capi.h:256: error: ???_cdword??? has not been declared
+../backend/capi.h:256: error: ???_cword??? has not been declared
+../backend/capi.h:256: error: ???_cstruct??? has not been declared
+../backend/capi.h:273: error: ???_cword??? has not been declared
+../backend/capi.h:273: error: ???_cdword??? has not been declared
+../backend/capi.h:273: error: ???_cword??? has not been declared
+../backend/capi.h:273: error: ???_cword??? has not been declared
+../backend/capi.h:273: error: ???_cword??? has not been declared
+../backend/capi.h:273: error: ???_cword??? has not been declared
+../backend/capi.h:273: error: ???_cstruct??? has not been declared
+../backend/capi.h:273: error: ???_cstruct??? has not been declared
+../backend/capi.h:273: error: ???_cstruct??? has not been declared
+../backend/capi.h:281: error: ???_cword??? has not been declared
+../backend/capi.h:281: error: ???_cdword??? has not been declared
+../backend/capi.h:291: error: ???_cword??? has not been declared
+../backend/capi.h:291: error: ???_cdword??? has not been declared
+../backend/capi.h:291: error: ???_cword??? has not been declared
+../backend/capi.h:291: error: ???_cstruct??? has not been declared
+../backend/capi.h:299: error: ???_cword??? has not been declared
+../backend/capi.h:299: error: ???_cdword??? has not been declared
+../backend/capi.h:308: error: ???_cword??? has not been declared
+../backend/capi.h:308: error: ???_cdword??? has not been declared
+../backend/capi.h:308: error: ???_cword??? has not been declared
+../backend/capi.h:318: error: ???_cword??? has not been declared
+../backend/capi.h:318: error: ???_cdword??? has not been declared
+../backend/capi.h:318: error: ???_cword??? has not been declared
+../backend/capi.h:318: error: ???_cstruct??? has not been declared
+../backend/capi.h:326: error: ???_cword??? has not been declared
+../backend/capi.h:326: error: ???_cdword??? has not been declared
+../backend/capi.h:334: error: ???_cword??? has not been declared
+../backend/capi.h:334: error: ???_cdword??? has not been declared
+../backend/capi.h:342: error: ???_cword??? has not been declared
+../backend/capi.h:342: error: ???_cdword??? has not been declared
+../backend/capi.h:422: error: ???_cdword??? was not declared in this scope
+../backend/capi.h:422: error: template argument 1 is invalid
+../backend/capi.h:422: error: template argument 3 is invalid
+../backend/capi.h:422: error: template argument 4 is invalid
+../backend/capi.h:425: error: ???_cword??? does not name a type
+../backend/capi.h:426: error: ???_cdword??? does not name a type
+../backend/capi.h:427: error: ???_cdword??? does not name a type
+In file included from capisuite.cpp:28:
+../backend/connection.h:87: error: ???_cdword??? has not been declared
+../backend/connection.h:216: error: ???_cword??? has not been declared
+../backend/connection.h:284: error: ???_cword??? does not name a type
+../backend/connection.h:293: error: ???_cword??? does not name a type
+../backend/connection.h:362: error: expected `)' before ???&??? token
+../backend/connection.h:379: error: ???_cmsg??? has not been declared
+../backend/connection.h:389: error: ???_cmsg??? has not been declared
+../backend/connection.h:399: error: ???_cmsg??? has not been declared
+../backend/connection.h:409: error: ???_cmsg??? has not been declared
+../backend/connection.h:419: error: ???_cmsg??? has not been declared
+../backend/connection.h:428: error: ???_cmsg??? has not been declared
+../backend/connection.h:438: error: ???_cmsg??? has not been declared
+../backend/connection.h:448: error: ???_cmsg??? has not been declared
+../backend/connection.h:458: error: ???_cmsg??? has not been declared
+../backend/connection.h:466: error: ???_cmsg??? has not been declared
+../backend/connection.h:474: error: ???_cmsg??? has not been declared
+../backend/connection.h:482: error: ???_cmsg??? has not been declared
+../backend/connection.h:493: error: ???_cmsg??? has not been declared
+../backend/connection.h:501: error: ???_cmsg??? has not been declared
+../backend/connection.h:509: error: ???_cmsg??? has not been declared
+../backend/connection.h:517: error: ???_cmsg??? has not been declared
+../backend/connection.h:535: error: ???_cstruct??? has not been declared
+../backend/connection.h:571: error: ???_cdword??? has not been declared
+../backend/connection.h:571: error: ???_cword??? has not been declared
+../backend/connection.h:571: error: ???_cword??? has not been declared
+../backend/connection.h:571: error: ???_cword??? has not been declared
+../backend/connection.h:571: error: ???_cstruct??? has not been declared
+../backend/connection.h:571: error: ???_cstruct??? has not been declared
+../backend/connection.h:571: error: ???_cstruct??? has not been declared
+../backend/connection.h:620: error: ???_cdword??? does not name a type
+../backend/connection.h:621: error: ???_cdword??? does not name a type
+../backend/connection.h:625: error: ???_cword??? does not name a type
+../backend/connection.h:627: error: ???_cword??? does not name a type
+capisuite.cpp: In constructor ???CapiSuite::CapiSuite(int, char**)???:
+capisuite.cpp:96: warning: deprecated conversion from string constant to ???char*???
+capisuite.cpp:96: warning: deprecated conversion from string constant to ???char*???
+make[3]: *** [capisuite.o] Error 1
+make[3]: Leaving directory `/usr/src/packages/BUILD/capisuite-0.5.cvs/src/application'
+make[2]: *** [all-recursive] Error 1
+make[2]: Leaving directory `/usr/src/packages/BUILD/capisuite-0.5.cvs/src'
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory `/usr/src/packages/BUILD/capisuite-0.5.cvs'
+make: *** [all] Error 2
+error: Bad exit status from /var/tmp/rpm-tmp.35207 (%build)
+
+
+RPM build errors:
+    InstallSourcePackage: Header V3 DSA signature: NOKEY, key ID 236c1aff
+    Bad exit status from /var/tmp/rpm-tmp.35207 (%build)
+
+

@@ -1,0 +1,732 @@
+From frisch at vr-web.de  Sat Sep 20 17:23:22 2008
+From: frisch at vr-web.de (Markus Frisch)
+Date: Sat, 20 Sep 2008 17:23:22 +0200
+Subject: [FaxGate-users] FaxGate unter openSUSE 11.0
+In-Reply-To: <488DF3AD.6000203@vr-web.de>
+References: <4889F698.1020907@vr-web.de>	<200807272031.17260.ingo.goeppert@gmx.de>
+	<488DF3AD.6000203@vr-web.de>
+Message-ID: <48D5156A.1030306@vr-web.de>
+
+Hallo Ingo,
+
+> Hallo Ingo,
+>
+> Ingo G?ppert schrieb:
+>> Was passiert den genau beim Versand bei der 11.0?
+>>   
+> Ich habe die capisuite-0.5.cvs-34.1.rpm unter der 11.0 installiert
+>
+> Im Anhang habe ich eine Textdatei mit 3 Abschnitten:
+> - Fehlermeldung in der "capisuite.log" mit loglevel=3 bei Versuch ein
+> Fax zu senden
+> - Fehlermeldung in der "capisuite.error" mit loglevel=3 bei Versuch
+> ein Fax zu senden
+> - Fehlermeldung in der Konsole beim Versuch, aus dem src.rpm ein rpm
+> zu bauen.
+>
+> Ich hoffe, die Textdatei wird nicht rausgefiltert von berlios..  
+
+Waren denn diese Ausschnitte aus den diversen Logdateien irgendwie
+hilfreich, bzw. kann man denn schon was sagen?
+
+Gru?
+Markus
+
+_________________________________________________________________
+Markus Frisch - Deutschenbaurstra?e 29b - 86157 Augsburg
+Tel: 52 98 17 - Fax: 52 14 725 - mail: frisch at vr-web.de
+
+
+
+From ingo.goeppert at gmx.de  Sun Sep 21 14:49:51 2008
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-15?q?G=F6ppert?=)
+Date: Sun, 21 Sep 2008 14:49:51 +0200
+Subject: [FaxGate-users] FaxGate unter openSUSE 11.0
+In-Reply-To: <48D5156A.1030306@vr-web.de>
+References: <4889F698.1020907@vr-web.de> <488DF3AD.6000203@vr-web.de>
+	<48D5156A.1030306@vr-web.de>
+Message-ID: <200809211449.56322.ingo.goeppert@gmx.de>
+
+Hallo Markus,
+
+Entschuldigung f?r die sp?te Antwort, ich hatte deine Mail vom 28.7. 
+?bersehen :-(
+
+Am Samstag, 20. September 2008 schrieb Markus Frisch:
+> Hallo Ingo,
+>
+> > Hallo Ingo,
+> >
+> > Ingo G?ppert schrieb:
+> >> Was passiert den genau beim Versand bei der 11.0?
+> >
+> > Ich habe die capisuite-0.5.cvs-34.1.rpm unter der 11.0 installiert
+> >
+> > Im Anhang habe ich eine Textdatei mit 3 Abschnitten:
+> > - Fehlermeldung in der "capisuite.log" mit loglevel=3 bei Versuch
+> > ein Fax zu senden
+> > - Fehlermeldung in der "capisuite.error" mit loglevel=3 bei Versuch
+> > ein Fax zu senden
+> > - Fehlermeldung in der Konsole beim Versuch, aus dem src.rpm ein
+> > rpm zu bauen.
+> >
+> > Ich hoffe, die Textdatei wird nicht rausgefiltert von berlios..
+>
+> Waren denn diese Ausschnitte aus den diversen Logdateien irgendwie
+> hilfreich, bzw. kann man denn schon was sagen?
+
+Das einfachste:
+"No integer value for port given!" l?sst sich beheben indem du eine 
+g?ltige Portnummer in der config angibst.
+
+Was auch bekannt ist (Probleme mit Umlauten):
+"syntax error while executing python script occured in 
+PythonScript::run()" l?sst sich mit den Files 
+http://home.arcor.de/ingo.goeppert/faxgate/server/faxgate_opensuse102x64.0.14_anonym.tar.gz 
+beheben. Entpacken und an die entsprechenden Stellen kopieren.
+
+Warum sich capisuite in meiner Version f?r opensuse 11.0 nicht 
+compilieren l?sst habe ich noch nicht weiter verfolgt.
+
+Gru?
+Ingo
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20080921/af0d0166/attachment.pgp>
+
+From frisch at vr-web.de  Tue Sep 23 22:15:39 2008
+From: frisch at vr-web.de (Markus Frisch)
+Date: Tue, 23 Sep 2008 22:15:39 +0200
+Subject: [FaxGate-users] FaxGate unter openSUSE 11.0
+In-Reply-To: <200809211449.56322.ingo.goeppert@gmx.de>
+References: <4889F698.1020907@vr-web.de>
+	<488DF3AD.6000203@vr-web.de>	<48D5156A.1030306@vr-web.de>
+	<200809211449.56322.ingo.goeppert@gmx.de>
+Message-ID: <48D94E6B.4000605@vr-web.de>
+
+Hallo Ingo,
+
+Ingo G?ppert schrieb:
+> Hallo Markus,
+>
+> Entschuldigung f?r die sp?te Antwort, ich hatte deine Mail vom 28.7. 
+> ?bersehen :-(
+>   
+Null Problemo :-)
+> Das einfachste:
+> "No integer value for port given!" l?sst sich beheben indem du eine 
+> g?ltige Portnummer in der config angibst.
+>   
+Ich habe da jetzt keine config-Datei gefunden, in welcher man eine
+Portnummer angeben kann (au?er der faxgate.conf - meine Versuche laufen
+bis jetzt aber noch direkt mit deiner ge?nderten capisuite) - also habe
+ich da mal nix gemacht.
+> Was auch bekannt ist (Probleme mit Umlauten):
+> "syntax error while executing python script occured in 
+> PythonScript::run()" l?sst sich mit den Files 
+> http://home.arcor.de/ingo.goeppert/faxgate/server/faxgate_opensuse102x64.0.14_anonym.tar.gz 
+> beheben. Entpacken und an die entsprechenden Stellen kopieren.
+>   
+Ich habe die Dateien mal alle kopiert - kann es sein, dass das Ganze f?r
+die 64Bit-Version gedacht ist? Ich habe hier n?mlich die x586-Variante
+installiert.
+Nichts desdo Trotz habe ich halt die Files unter .../lib64/.. bei mir
+unter .../lib/... reinkopiert und den Pfad in der capisuite.conf
+entsprechend abge?ndert...
+und siehe da, Faxe gehen raus UND wieder rein :-)
+allerdings mit dem kleinen Sch?nheitsfehler, dass das ankommende Fax
+nicht mehr ins PDF-Format konvertiert werden kann :'(
+
+Kann das an einem der kopierten 64Bit-Files liegen?
+
+Gru?
+Markus
+
+_________________________________________________________________
+Markus Frisch - Deutschenbaurstra?e 29b - 86157 Augsburg
+Tel: 52 98 17 - Fax: 52 14 725 - mail: frisch at vr-web.de
+
+
+
+From ingo.goeppert at gmx.de  Wed Sep 24 07:23:39 2008
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-15?q?G=F6ppert?=)
+Date: Wed, 24 Sep 2008 07:23:39 +0200
+Subject: [FaxGate-users] FaxGate unter openSUSE 11.0
+In-Reply-To: <48D94E6B.4000605@vr-web.de>
+References: <4889F698.1020907@vr-web.de>
+	<200809211449.56322.ingo.goeppert@gmx.de>
+	<48D94E6B.4000605@vr-web.de>
+Message-ID: <200809240723.42468.ingo.goeppert@gmx.de>
+
+Hallo Markus,
+
+Am Dienstag, 23. September 2008 schrieb Markus Frisch:
+> Hallo Ingo,
+>
+> Ingo G?ppert schrieb:
+> > Hallo Markus,
+> >
+> > Entschuldigung f?r die sp?te Antwort, ich hatte deine Mail vom
+> > 28.7. ?bersehen :-(
+>
+> Null Problemo :-)
+>
+> > Das einfachste:
+> > "No integer value for port given!" l?sst sich beheben indem du eine
+> > g?ltige Portnummer in der config angibst.
+>
+> Ich habe da jetzt keine config-Datei gefunden, in welcher man eine
+> Portnummer angeben kann (au?er der faxgate.conf - meine Versuche
+> laufen bis jetzt aber noch direkt mit deiner ge?nderten capisuite) -
+> also habe ich da mal nix gemacht.
+
+die steht in der faxgate.conf und beim Senden dann auch in der Textdatei 
+die zum Sende-Job geh?rt.
+
+>
+> > Was auch bekannt ist (Probleme mit Umlauten):
+> > "syntax error while executing python script occured in
+> > PythonScript::run()" l?sst sich mit den Files
+> > http://home.arcor.de/ingo.goeppert/faxgate/server/faxgate_opensuse1
+> >02x64.0.14_anonym.tar.gz beheben. Entpacken und an die
+> > entsprechenden Stellen kopieren.
+>
+> Ich habe die Dateien mal alle kopiert - kann es sein, dass das Ganze
+> f?r die 64Bit-Version gedacht ist? Ich habe hier n?mlich die
+> x586-Variante installiert.
+> Nichts desdo Trotz habe ich halt die Files unter .../lib64/.. bei mir
+> unter .../lib/... reinkopiert und den Pfad in der capisuite.conf
+> entsprechend abge?ndert...
+> und siehe da, Faxe gehen raus UND wieder rein :-)
+> allerdings mit dem kleinen Sch?nheitsfehler, dass das ankommende Fax
+> nicht mehr ins PDF-Format konvertiert werden kann :'(
+>
+> Kann das an einem der kopierten 64Bit-Files liegen?
+
+Die Programme zum Konvertieren werden (auf den ersten Blick) alle ohne 
+Pfadangabe aufgerufen, das sollte funktionieren. Was kommt als 
+Fehlermeldung? Es kann gut sein das neuere Versionen der Programme 
+andere Parameter erwarten.
+
+Gru?
+Ingo
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20080924/8aa56939/attachment.pgp>
+
+From frisch at vr-web.de  Wed Sep 24 19:02:53 2008
+From: frisch at vr-web.de (Markus Frisch)
+Date: Wed, 24 Sep 2008 19:02:53 +0200
+Subject: [FaxGate-users] FaxGate unter openSUSE 11.0
+In-Reply-To: <200809240723.42468.ingo.goeppert@gmx.de>
+References: <4889F698.1020907@vr-web.de>	<200809211449.56322.ingo.goeppert@gmx.de>	<48D94E6B.4000605@vr-web.de>
+	<200809240723.42468.ingo.goeppert@gmx.de>
+Message-ID: <48DA72BD.6040209@vr-web.de>
+
+
+
+Ingo G?ppert schrieb:
+> Hallo Markus,
+>
+> Am Dienstag, 23. September 2008 schrieb Markus Frisch:
+>   
+>> Hallo Ingo,
+>>     
+>> Ich habe da jetzt keine config-Datei gefunden, in welcher man eine
+>> Portnummer angeben kann (au?er der faxgate.conf - meine Versuche
+>> laufen bis jetzt aber noch direkt mit deiner ge?nderten capisuite) -
+>> also habe ich da mal nix gemacht.
+>>     
+>
+> die steht in der faxgate.conf und beim Senden dann auch in der Textdatei 
+> die zum Sende-Job geh?rt.
+>   
+>> Ich habe die Dateien mal alle kopiert - kann es sein, dass das Ganze
+>> f?r die 64Bit-Version gedacht ist? Ich habe hier n?mlich die
+>> x586-Variante installiert.
+>> Nichts desdo Trotz habe ich halt die Files unter .../lib64/.. bei mir
+>> unter .../lib/... reinkopiert und den Pfad in der capisuite.conf
+>> entsprechend abge?ndert...
+>> und siehe da, Faxe gehen raus UND wieder rein :-)
+>> allerdings mit dem kleinen Sch?nheitsfehler, dass das ankommende Fax
+>> nicht mehr ins PDF-Format konvertiert werden kann :'(
+>>
+>> Kann das an einem der kopierten 64Bit-Files liegen?
+>>     
+>
+> Die Programme zum Konvertieren werden (auf den ersten Blick) alle ohne 
+> Pfadangabe aufgerufen, das sollte funktionieren. Was kommt als 
+> Fehlermeldung? Es kann gut sein das neuere Versionen der Programme 
+> andere Parameter erwarten.
+>   
+In der capisuite.log und in der capisuite.error ist alles o.k. - kann da
+keine Fehlermeldung finden, auch in der /var/log/messages ist nichts.
+Nur in kmail, wo das Fax reinkommt, erscheint folgendes:
+
+Error occured while converting file: Error while converting sff to tif.
+File damaged or sfftobmp not installed?
+
+sfftobmp ist installiert und das Fax, welches korrekt unter
+/var/spool/capisuite/markus/received/fax1.sff liegt, l?sst sich mit
+sffview ansehen, und ist soweit in Ordnung.
+
+Gru?
+Markus
+
+_________________________________________________________________
+Markus Frisch - Deutschenbaurstra?e 29b - 86157 Augsburg
+Tel: 52 98 17 - Fax: 52 14 725 - mail: frisch at vr-web.de
+
+
+
+From ingo.goeppert at gmx.de  Wed Sep 24 23:54:28 2008
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-15?q?G=F6ppert?=)
+Date: Wed, 24 Sep 2008 23:54:28 +0200
+Subject: [FaxGate-users] FaxGate unter openSUSE 11.0
+In-Reply-To: <48DA72BD.6040209@vr-web.de>
+References: <4889F698.1020907@vr-web.de>
+	<200809240723.42468.ingo.goeppert@gmx.de>
+	<48DA72BD.6040209@vr-web.de>
+Message-ID: <200809242354.31846.ingo.goeppert@gmx.de>
+
+Hallo Markus,
+
+Am Mittwoch, 24. September 2008 schrieb Markus Frisch:
+>
+> Error occured while converting file: Error while converting sff to
+> tif. File damaged or sfftobmp not installed?
+>
+> sfftobmp ist installiert und das Fax, welches korrekt unter
+> /var/spool/capisuite/markus/received/fax1.sff liegt, l?sst sich mit
+> sffview ansehen, und ist soweit in Ordnung.
+
+l?sst es sich auch mit sfftobmp konvertieren?
+
+Falls der Build Service irgendwann auch mal Zeit hat die i586 Variante 
+zu bauen findest du aktuelle RPM's (Nummer 55)
+http://download.opensuse.org/repositories/home:/ingogoeppert/. Probier 
+die bitte mal aus. Achtung: Die sind von mir nicht getestet! Zus?tzlich 
+reinkopieren musst du KEINE Dateien.
+
+Gru?
+Ingo
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20080924/8a3c4c4d/attachment.pgp>
+
+From frisch at vr-web.de  Fri Sep 26 15:37:40 2008
+From: frisch at vr-web.de (Markus Frisch)
+Date: Fri, 26 Sep 2008 15:37:40 +0200
+Subject: [FaxGate-users] FaxGate unter openSUSE 11.0
+In-Reply-To: <200809242354.31846.ingo.goeppert@gmx.de>
+References: <4889F698.1020907@vr-web.de>	<200809240723.42468.ingo.goeppert@gmx.de>	<48DA72BD.6040209@vr-web.de>
+	<200809242354.31846.ingo.goeppert@gmx.de>
+Message-ID: <48DCE5A4.9050308@vr-web.de>
+
+Hallo Ingo,
+
+Ingo G?ppert schrieb:
+> Hallo Markus,
+>
+> Am Mittwoch, 24. September 2008 schrieb Markus Frisch:
+>   
+>> Error occured while converting file: Error while converting sff to
+>> tif. File damaged or sfftobmp not installed?
+>>
+>> sfftobmp ist installiert und das Fax, welches korrekt unter
+>> /var/spool/capisuite/markus/received/fax1.sff liegt, l?sst sich mit
+>> sffview ansehen, und ist soweit in Ordnung.
+>>     
+>
+> l?sst es sich auch mit sfftobmp konvertieren?
+>   
+Wenn man sfftobmp manuell auf das Fax-File losl?sst, funktioniert die
+Konvertierung einwandfrei :-)
+
+
+> Falls der Build Service irgendwann auch mal Zeit hat die i586 Variante 
+> zu bauen findest du aktuelle RPM's (Nummer 55)
+> http://download.opensuse.org/repositories/home:/ingogoeppert/. Probier 
+> die bitte mal aus. Achtung: Die sind von mir nicht getestet! Zus?tzlich 
+> reinkopieren musst du KEINE Dateien.
+>   
+Das Paket ist seit gestern drauf, auf dem Server.
+Ich habs vorhin installiert - funktioniert wie vorher mit der selben
+Fehlermeldung bez?glich sfftobmp :-(
+
+Gru?
+Markus
+
+
+
+From ingo.goeppert at gmx.de  Mon Sep 29 08:15:14 2008
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-15?q?G=F6ppert?=)
+Date: Mon, 29 Sep 2008 08:15:14 +0200
+Subject: [FaxGate-users] FaxGate unter openSUSE 11.0
+In-Reply-To: <48DCE5A4.9050308@vr-web.de>
+References: <4889F698.1020907@vr-web.de>
+	<200809242354.31846.ingo.goeppert@gmx.de>
+	<48DCE5A4.9050308@vr-web.de>
+Message-ID: <200809290815.18405.ingo.goeppert@gmx.de>
+
+Hallo Markus,
+
+Am Freitag, 26. September 2008 schrieb Markus Frisch:
+> Hallo Ingo,
+>
+> Ingo G?ppert schrieb:
+> > Hallo Markus,
+> >
+> > Am Mittwoch, 24. September 2008 schrieb Markus Frisch:
+> >> Error occured while converting file: Error while converting sff to
+> >> tif. File damaged or sfftobmp not installed?
+> >>
+> >> sfftobmp ist installiert und das Fax, welches korrekt unter
+> >> /var/spool/capisuite/markus/received/fax1.sff liegt, l?sst sich
+> >> mit sffview ansehen, und ist soweit in Ordnung.
+> >
+> > l?sst es sich auch mit sfftobmp konvertieren?
+>
+> Wenn man sfftobmp manuell auf das Fax-File losl?sst, funktioniert die
+> Konvertierung einwandfrei :-)
+
+sfftobmp Version 3 muss mit anderen Parametern als sfftobmp Version 2 
+aufgerufen werden. Ich hab die ?nderungen eben eingepflegt, Build 
+l?uft... Build 56 succeeded, probier bitte nochmal.
+
+Gru?
+Ingo
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20080929/8555f65a/attachment.pgp>
+
+From frisch at vr-web.de  Tue Sep 30 21:34:46 2008
+From: frisch at vr-web.de (Markus Frisch)
+Date: Tue, 30 Sep 2008 21:34:46 +0200
+Subject: [FaxGate-users] FaxGate unter openSUSE 11.0
+In-Reply-To: <200809290815.18405.ingo.goeppert@gmx.de>
+References: <4889F698.1020907@vr-web.de>	<200809242354.31846.ingo.goeppert@gmx.de>	<48DCE5A4.9050308@vr-web.de>
+	<200809290815.18405.ingo.goeppert@gmx.de>
+Message-ID: <48E27F56.4060405@vr-web.de>
+
+Hallo Ingo,
+
+Ingo G?ppert schrieb:
+> sfftobmp Version 3 muss mit anderen Parametern als sfftobmp Version 2 
+> aufgerufen werden. Ich hab die ?nderungen eben eingepflegt, Build 
+> l?uft... Build 56 succeeded, probier bitte nochmal.
+>   
+Habe jetzt Build 60 auf dem Server gefunden - und installiert.
+Faxe gehen raus, aber nun gar nicht mehr rein :'(
+
+
+Fehlermeldungen (bei loglevel = 2):
+- in capisuite.error:
+
+Tue Sep 30 21:24:25 2008 CapiSuite 0xbff0d348: CapiSuite 0.5.cvs started.
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: A python error
+occured. See traceback below.
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python traceback:
+Traceback (most recent call last):
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python
+traceback:   File "/usr/lib/capisuite/incoming.py", line 100, in
+callIncoming
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python
+traceback:     faxIncoming(call,call_from,call_to,curr_user,config,0)
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python
+traceback:   File "/usr/lib/capisuite/incoming.py", line 217, in faxIncoming
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python
+traceback:     faxFormat, mailText, filename)
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python
+traceback:   File "/usr/lib/python2.5/site-packages/cs_helpers.py", line
+205, in sendMIMEMail
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python
+traceback:     ret=sfftotiff(attachment,basename+"tif")
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python
+traceback:   File "/usr/lib/python2.5/site-packages/cs_helpers.py", line
+32, in sfftotiff
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python
+traceback:     return
+os.spawnlp(os.P_WAIT,"sfftobmp","sfftobmp",*parameters)
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python traceback:
+NameError: global name 'os' is not defined
+
+
+- in capisuite.log:
+
+Tue Sep 30 21:24:25 2008 CapiSuite 0xbff0d348: CapiSuite 0.5.cvs started.
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: Capi object created
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: >LISTEN_REQ ApplID 0x2 msgNum
+0x0 Controller 0x1 InfoMask 0x10 CIPMask 0x0 0x0 NULL NULL
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: <LISTEN_CONF Controller 0x1
+Info 0x0
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: Registered successful at CAPI
+with ApplId 2
+Tue Sep 30 21:24:25 2008 CapiSuite 0xbff0d348: 1 controllers found
+Tue Sep 30 21:24:25 2008 CapiSuite 0xbff0d348: Capi driver: AVM Berlin,
+version 2.0/1.16
+Tue Sep 30 21:24:25 2008 CapiSuite 0xbff0d348: Controller 1: AVM GmbH (2
+B channels, DTMF, SuppServ, transparent, FaxG3, FaxG3ext), driver
+version 2.0/49.23
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: >LISTEN_REQ ApplID 0x2 msgNum
+0x1 Controller 0x1 InfoMask 0x10 CIPMask 0x10012 0x0 NULL NULL
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: <LISTEN_CONF Controller 0x1
+Info 0x0
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: >LISTEN_REQ ApplID 0x2 msgNum
+0x2 Controller 0x1 InfoMask 0x10 CIPMask 0x30012 0x0 NULL NULL
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: <LISTEN_CONF Controller 0x1
+Info 0x0
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:25 2008 CapiSuite 0xbff0d348: job fax-8.sff from markus
+to 5214725 initiated
+Tue Sep 30 21:25:25 2008 CapiSuite 0xbff0d348: No integer value for port
+given!
+Tue Sep 30 21:25:25 2008 Connection 0x8260190: Connection object created
+for outgoing call from 5214725 to 5214725 service 1
+Tue Sep 30 21:25:25 2008 Connection 0x8260190: using faxStationID +49
+821 5214725 faxHeadline Markus Frisch - sent by CapiSuite CLIR 0
+Tue Sep 30 21:25:25 2008 Capi 0x81a9850: >CONNECT_REQ: ApplId 0x2, MsgNr
+0x4, Controller 0x1 CIPValue 0x11, B1proto 0x4, B2proto 0x4, B3proto 0x5
+Tue Sep 30 21:25:25 2008 Capi 0x81a9850: <CONNECT_CONF, PLCI: 0x101,
+Info 0x0
+Tue Sep 30 21:25:25 2008 Connection 0x8260190: got PLCI 101
+Tue Sep 30 21:25:25 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: <INFO_IND: Controller/PLCI
+0x101, InfoNumber 800d (ignoring)
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: >INFO_RESP ApplId 0x2, MsgNr
+0x59, Address 0x101
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: <CONNECT_IND PLCI 0x201 CIP 0x11
+Tue Sep 30 21:25:28 2008 Connection 0x8263a18: Connection object created
+for incoming call PLCI 201 from - to 5214725 CIP 0x11
+Tue Sep 30 21:25:28 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Connection
+0x8263a18 created IncomingScript
+Tue Sep 30 21:25:28 2008 Connection 0x8263a18: call from - to 5214725
+for markus connecting with fax
+Tue Sep 30 21:25:28 2008 Connection 0x8263a18: accepting with service 1
+Tue Sep 30 21:25:28 2008 Connection 0x8263a18: using faxStationID +49
+821 5214725 faxHeadline Markus Frisch - sent by CapiSuite
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: >CONNECT_RESP ApplId 0x2,
+msgNum 0x5a, PLCI 0x201, Reject 0x0, B1proto 0x4, B2proto 0x4, B3proto 0x5
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: <CONNECT_ACTIVE_IND PLCI 0x201
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: >CONNECT_ACTIVE_RESP ApplId 0x2
+MsgNum 0x5d PLCI 0x201
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: <CONNECT_ACTIVE_IND PLCI 0x101
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: >CONNECT_ACTIVE_RESP ApplId 0x2
+MsgNum 0x5e PLCI 0x101
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: >CONNECT_B3_REQ: ApplId 0x2,
+MsgNr 0x4, PLCI 0x101
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: <CONNECT_B3_CONF, NCCI:
+0x10101, Info 0x0
+Tue Sep 30 21:25:35 2008 Capi 0x81a9850: <CONNECT_B3_ACTIVE_IND NCCI 0x10101
+Tue Sep 30 21:25:35 2008 Capi 0x81a9850: >CONNECT_B3_ACTIVE_RESP ApplId
+0x2 MsgNum 0x5f NCCI 0x10101
+Tue Sep 30 21:25:35 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:35 2008 Connection 0x8260190: fax connected with rate
+64000, lowRes, JPEG, ID: +49 821 5214725
+Tue Sep 30 21:25:35 2008 Connection 0x8260190: start_file_transmission
+/var/spool/capisuite/users/markus/sendq/fax-8.sff
+Tue Sep 30 21:25:38 2008 Capi 0x81a9850: <CONNECT_B3_IND NCCI 0x20201
+Tue Sep 30 21:25:38 2008 Capi 0x81a9850: >CONNECT_B3_RESP ApplId 0x2
+MsgNum 0x60 NCCI 0x20201 Reject 0x0
+Tue Sep 30 21:25:38 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:38 2008 Capi 0x81a9850: <CONNECT_B3_ACTIVE_IND NCCI 0x20201
+Tue Sep 30 21:25:38 2008 Capi 0x81a9850: >CONNECT_B3_ACTIVE_RESP ApplId
+0x2 MsgNum 0x61 NCCI 0x20201
+Tue Sep 30 21:25:38 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:38 2008 Connection 0x8263a18: fax connected with rate
+64000, hiRes, ID: +49 821 5214725
+Tue Sep 30 21:25:38 2008 Connection 0x8263a18: start_file_reception
+/var/spool/capisuite/users/markus/received/fax-4.sff
+Tue Sep 30 21:25:51 2008 Connection 0x8260190: stop_file_transmission
+initiated
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: <DISCONNECT_B3_IND NCCI 0x10101
+Reason 0x0
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: fax finished with rate
+64000, hiRes, ID: +49 821 5214725, 3 pages
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: stop_file_transmission
+initiated
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: stop_file_transmission
+finished
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: stop_file_reception finished
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: >DISCONNECT_B3_RESP ApplId 0x2
+MsgNum 0xad NCCI 0x10101
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: stop_file_transmission
+finished
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: disconnect initiated
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: >DISCONNECT_REQ ApplId 0x2
+MsgNum 0x55 PLCI 0x101
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: <DISCONNECT_CONF PLCI 0x101
+Info 0x0
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: <DISCONNECT_B3_IND NCCI 0x20201
+Reason 0x0
+Tue Sep 30 21:25:55 2008 Connection 0x8263a18: fax finished with rate
+64000, hiRes, ID: +49 821 5214725, 3 pages
+Tue Sep 30 21:25:55 2008 Connection 0x8263a18: stop_file_transmission
+initiated
+Tue Sep 30 21:25:55 2008 Connection 0x8263a18: stop_file_transmission
+finished
+Tue Sep 30 21:25:55 2008 Connection 0x8263a18: stop_file_reception finished
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: >DISCONNECT_B3_RESP ApplId 0x2
+MsgNum 0xae NCCI 0x20201
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:55 2008 Connection 0x8263a18: stop_file_reception finished
+Tue Sep 30 21:25:55 2008 Connection 0x8263a18: disconnect initiated
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: >DISCONNECT_REQ ApplId 0x2
+MsgNum 0x56 PLCI 0x201
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: <DISCONNECT_CONF PLCI 0x201
+Info 0x0
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: <DISCONNECT_IND PLCI 0x101
+Reason 0x3400
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: >DISCONNECT_RESP ApplId 0x2
+MsgNum 0xaf PLCI 0x101
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: <INFO_IND: Controller/PLCI
+0x201, InfoNumber 1e (ignoring)
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: >INFO_RESP ApplId 0x2, MsgNr
+0xb0, Address 0x201
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: Python: deleting
+connection object
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: stop_file_transmission
+initiated
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: stop_file_transmission
+finished
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: stop_file_reception finished
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: Connection object deleted
+Tue Sep 30 21:25:55 2008 CapiSuite 0xbff0d348: job fax-8.sff: result was
+3400,0
+Tue Sep 30 21:25:55 2008 CapiSuite 0xbff0d348: No integer value for port
+given!
+Tue Sep 30 21:25:55 2008 CapiSuite 0xbff0d348: job fax-8.sff: finished
+successfully
+Tue Sep 30 21:25:55 2008 CapiSuite 0xbff0d348: No integer value for port
+given!
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: <DISCONNECT_IND PLCI 0x201
+Reason 0x3490
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: >DISCONNECT_RESP ApplId 0x2
+MsgNum 0xb1 PLCI 0x201
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:56 2008 Connection 0x8263a18: connection finished with
+cause 0x3490,0x0
+Tue Sep 30 21:25:56 2008 Connection 0x8263a18: Python: deleting
+connection object
+Tue Sep 30 21:25:56 2008 Connection 0x8263a18: stop_file_transmission
+initiated
+Tue Sep 30 21:25:56 2008 Connection 0x8263a18: stop_file_transmission
+finished
+Tue Sep 30 21:25:56 2008 Connection 0x8263a18: stop_file_reception finished
+Tue Sep 30 21:25:56 2008 Connection 0x8263a18: Connection object deleted
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: IncomingScript
+deleted
+
+
+
+From ingo.goeppert at gmx.de  Tue Sep 30 23:51:06 2008
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-15?q?G=F6ppert?=)
+Date: Tue, 30 Sep 2008 23:51:06 +0200
+Subject: [FaxGate-users] FaxGate unter openSUSE 11.0
+In-Reply-To: <48E27F56.4060405@vr-web.de>
+References: <4889F698.1020907@vr-web.de>
+	<200809290815.18405.ingo.goeppert@gmx.de>
+	<48E27F56.4060405@vr-web.de>
+Message-ID: <200809302351.06935.ingo.goeppert@gmx.de>
+
+Hallo Markus,
+
+Am Dienstag, 30. September 2008 schrieb Markus Frisch:
+> Hallo Ingo,
+>
+> Ingo G?ppert schrieb:
+> > sfftobmp Version 3 muss mit anderen Parametern als sfftobmp Version
+> > 2 aufgerufen werden. Ich hab die ?nderungen eben eingepflegt, Build
+> > l?uft... Build 56 succeeded, probier bitte nochmal.
+>
+> Habe jetzt Build 60 auf dem Server gefunden - und installiert.
+> Faxe gehen raus, aber nun gar nicht mehr rein :'(
+>
+>
+> Fehlermeldungen (bei loglevel = 2):
+> - in capisuite.error:
+[...]
+> traceback: NameError: global name 'os' is not defined
+
+da fehlt zu Beginn der cs_helpers ein:
+import os
+
+Ist in Build 61 drin. Build service war grad im Leerlauf :-)
+
+Gru?
+Ingo
+
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20080930/20630a2b/attachment.pgp>
+

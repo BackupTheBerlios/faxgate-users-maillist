@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [FaxGate-users] Kein Faxempfang
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/faxgate-users/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Kein%20Faxempfang&In-Reply-To=%3C200808241340.11123.ingo.goeppert%40gmx.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000022.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[FaxGate-users] Kein Faxempfang</H1>
+    <B>Ingo G&#246;ppert</B> 
+    <A HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Kein%20Faxempfang&In-Reply-To=%3C200808241340.11123.ingo.goeppert%40gmx.de%3E"
+       TITLE="[FaxGate-users] Kein Faxempfang">ingo.goeppert at gmx.de
+       </A><BR>
+    <I>Sun Aug 24 13:40:07 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000022.html">[FaxGate-users] Kein Faxempfang
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#23">[ date ]</a>
+              <a href="thread.html#23">[ thread ]</a>
+              <a href="subject.html#23">[ subject ]</a>
+              <a href="author.html#23">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Ralf,
+
+Am Freitag, 22. August 2008 schrieb Ralf Muschall:
+&gt;<i> Hallo Ingo,
+</I>&gt;<i>
+</I>&gt;<i> &gt; Installiere bitte die capisuite die bei deiner Distri dabei ist
+</I>&gt;<i> &gt; und pr&#252;fe damit ob der Empfang bei deiner Installation
+</I>&gt;<i> &gt; funktioniert. Mit der von mir und von dir ver&#228;nderten
+</I>&gt;<i>
+</I>&gt;<i> Mag sein, aber ich denke, dass zumindest meine &#196;nderung
+</I>&gt;<i> irrelevant war (und vorher ging es ja auch nicht, nur
+</I>&gt;<i> kam eine Meldung weniger).  Interessanterweise ist der
+</I>&gt;<i> Umlaut (H&#252;bner in Zeile 422) jetzt noch drin, und es geht
+</I>&gt;<i> trotzdem (vermutlich, weil oben die coding-Konvention
+</I>&gt;<i> nicht mehr fehlt).
+</I>
+in einem Python-Script die Einr&#252;ckungen zu ver&#228;ndern ist alles andere 
+als irrelevant. Ich habe keine Ahnung wie gut du dich damit auskennst 
+und du schreibst nichts &#252;ber deine Kenntnisse. Ich h&#228;tte &#252;brigens 
+nichts dagegen wenn jemand die zur Zeit stillstehende Entwicklung 
+wieder vorantreiben w&#252;rde.
+
+Ich hab die Dateien aus meiner ehemaligen opensuse 10.2 Installation 
+schon vor einiger Zeit hochgeladen, aber erst jetzt auf der 
+Downloadseite verlinkt. Probiers mal mit
+<A HREF="http://home.arcor.de/ingo.goeppert/faxgate/server/faxgate_opensuse102x64.0.14_anonym.tar.gz">http://home.arcor.de/ingo.goeppert/faxgate/server/faxgate_opensuse102x64.0.14_anonym.tar.gz</A>
+
+&gt;<i>
+</I>&gt;<i> &gt; capisuite sind das zu viele Unbekannte um dir vern&#252;nftig
+</I>&gt;<i> &gt; helfen zu k&#246;nnen.
+</I>&gt;<i>
+</I>&gt;<i> Gerade gemacht, und die empf&#228;ngt Faxe (in der fax.conf habe ich
+</I>&gt;<i> gegen&#252;ber dem Suse-Original outgoing_MSN und fax_stationID
+</I>&gt;<i> angepasst und unten die 3 Userbl&#246;cke ankopiert, die ich vorher
+</I>&gt;<i> auch hatte, die aber vermutlich jetzt nicht viel machen),
+</I>&gt;<i> capisuite.conf ist noch original.
+</I>&gt;<i>
+</I>&gt;<i> Zugeh&#246;rige Log-Eintr&#228;ge (jeweils so ausgeschnitten, dass
+</I>&gt;<i> Ereignisse vor dem Anfang und hinter dem Ende mehrere Minuten
+</I>&gt;<i> weg sind, damit nichts fehlt):
+</I>&gt;<i>
+</I>&gt;<i> /var/log/messages:
+</I>&gt;<i>
+</I>&gt;<i> Aug 22 15:27:55 mammut2 kernel: capidrv-1: incoming call
+</I>&gt;<i> vvvvvaaaaa,1,2,ee
+</I>&gt;<i> Aug 22 15:27:55 mammut2 kernel: capidrv-1: patching si2=2 to 0 for
+</I>&gt;<i> VBOX Aug 22 15:27:55 mammut2 kernel: isdn_net: call from vvvvvaaaaa
+</I>&gt;<i> -&gt; 0 ee ignored
+</I>&gt;<i> Aug 22 15:27:55 mammut2 kernel: isdn_tty: call from vvvvvaaaaa -&gt; ee
+</I>&gt;<i> ignored
+</I>&gt;<i> Aug 22 15:27:55 mammut2 kernel: capidrv-1: incoming call
+</I>&gt;<i> vvvvvaaaaa,1,0,ee ignored
+</I>&gt;<i> Aug 22 15:28:06 mammut2 kernel: capilib_new_ncci: kcapi: appl 2 ncci
+</I>&gt;<i> 0x10401 up
+</I>&gt;<i> Aug 22 15:28:15 mammut2 kernel: kcapi: appl 2 ncci 0x10401 down
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> capisuite.log:
+</I>&gt;<i>
+</I>&gt;<i> Fri Aug 22 15:27:55 2008 Connection 0x83dac0: Connection object
+</I>&gt;<i> created for incoming call PLCI 401 from vvvvvaaaaa t
+</I>&gt;<i> o ee CIP 0x4
+</I>&gt;<i> Fri Aug 22 15:27:56 2008 Connection 0x83dac0: call from vvvvvaaaaa to
+</I>&gt;<i> ee for ralf connecting with fax
+</I>&gt;<i> Fri Aug 22 15:27:56 2008 Connection 0x83dac0: accepting with service
+</I>&gt;<i> 1 Fri Aug 22 15:28:15 2008 Connection 0x83dac0: disconnect initiated
+</I>&gt;<i> Fri Aug 22 15:28:16 2008 Connection 0x83dac0: connection lost with
+</I>&gt;<i> cause 0x3400,0x0
+</I>&gt;<i> Fri Aug 22 15:28:16 2008 Connection 0x83dac0: Connection object
+</I>&gt;<i> deleted
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> capisuite.error: nur das hier, dann nichts mehr:
+</I>&gt;<i>
+</I>&gt;<i> Fri Aug 22 15:05:16 2008 CapiSuite 0x7fffb4f32830: CapiSuite 0.4.5
+</I>&gt;<i> started.
+</I>&gt;<i>
+</I>&gt;<i> Konventionen (ee, vvvvv, aaaaa) wie gestern.
+</I>&gt;<i>
+</I>&gt;<i> Sch&#246;nen Dank schonmal,
+</I>&gt;<i> Ralf
+</I>
+Ich geb mein bestes ;-) 
+
+Gru&#223;
+Ingo
+
+-- 
+## Registered Linux User #274727 -- <A HREF="http://counter.li.org/">http://counter.li.org/</A>
+## Windows, Linux und Mac Office-Suite -- <A HREF="http://de.openoffice.org/">http://de.openoffice.org/</A>
+## Die OpenOffice.org PrOOo-Box -- <A HREF="http://prooo-box.org/">http://prooo-box.org/</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/faxgate-users/attachments/20080824/f9f90671/attachment.pgp">https://lists.berlios.de/pipermail/faxgate-users/attachments/20080824/f9f90671/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000022.html">[FaxGate-users] Kein Faxempfang
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#23">[ date ]</a>
+              <a href="thread.html#23">[ thread ]</a>
+              <a href="subject.html#23">[ subject ]</a>
+              <a href="author.html#23">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/faxgate-users">More information about the FaxGate-users
+mailing list</a><br>
+</body></html>

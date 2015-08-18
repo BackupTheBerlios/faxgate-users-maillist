@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [FaxGate-users] FaxGate unter openSUSE 11.0
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/faxgate-users/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20FaxGate%20unter%20openSUSE%2011.0&In-Reply-To=%3C48E27F56.4060405%40vr-web.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000031.html">
+   <LINK REL="Next"  HREF="000033.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[FaxGate-users] FaxGate unter openSUSE 11.0</H1>
+    <B>Markus Frisch</B> 
+    <A HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20FaxGate%20unter%20openSUSE%2011.0&In-Reply-To=%3C48E27F56.4060405%40vr-web.de%3E"
+       TITLE="[FaxGate-users] FaxGate unter openSUSE 11.0">frisch at vr-web.de
+       </A><BR>
+    <I>Tue Sep 30 21:34:46 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000031.html">[FaxGate-users] FaxGate unter openSUSE 11.0
+</A></li>
+        <LI>Next message: <A HREF="000033.html">[FaxGate-users] FaxGate unter openSUSE 11.0
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Ingo,
+
+Ingo G&#246;ppert schrieb:
+&gt;<i> sfftobmp Version 3 muss mit anderen Parametern als sfftobmp Version 2 
+</I>&gt;<i> aufgerufen werden. Ich hab die &#196;nderungen eben eingepflegt, Build 
+</I>&gt;<i> l&#228;uft... Build 56 succeeded, probier bitte nochmal.
+</I>&gt;<i>   
+</I>Habe jetzt Build 60 auf dem Server gefunden - und installiert.
+Faxe gehen raus, aber nun gar nicht mehr rein :'(
+
+
+Fehlermeldungen (bei loglevel = 2):
+- in capisuite.error:
+
+Tue Sep 30 21:24:25 2008 CapiSuite 0xbff0d348: CapiSuite 0.5.cvs started.
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: A python error
+occured. See traceback below.
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python traceback:
+Traceback (most recent call last):
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python
+traceback:   File &quot;/usr/lib/capisuite/incoming.py&quot;, line 100, in
+callIncoming
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python
+traceback:     faxIncoming(call,call_from,call_to,curr_user,config,0)
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python
+traceback:   File &quot;/usr/lib/capisuite/incoming.py&quot;, line 217, in faxIncoming
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python
+traceback:     faxFormat, mailText, filename)
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python
+traceback:   File &quot;/usr/lib/python2.5/site-packages/cs_helpers.py&quot;, line
+205, in sendMIMEMail
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python
+traceback:     ret=sfftotiff(attachment,basename+&quot;tif&quot;)
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python
+traceback:   File &quot;/usr/lib/python2.5/site-packages/cs_helpers.py&quot;, line
+32, in sfftotiff
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python
+traceback:     return
+os.spawnlp(os.P_WAIT,&quot;sfftobmp&quot;,&quot;sfftobmp&quot;,*parameters)
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Python traceback:
+NameError: global name 'os' is not defined
+
+
+- in capisuite.log:
+
+Tue Sep 30 21:24:25 2008 CapiSuite 0xbff0d348: CapiSuite 0.5.cvs started.
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: Capi object created
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: &gt;LISTEN_REQ ApplID 0x2 msgNum
+0x0 Controller 0x1 InfoMask 0x10 CIPMask 0x0 0x0 NULL NULL
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: &lt;LISTEN_CONF Controller 0x1
+Info 0x0
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: Registered successful at CAPI
+with ApplId 2
+Tue Sep 30 21:24:25 2008 CapiSuite 0xbff0d348: 1 controllers found
+Tue Sep 30 21:24:25 2008 CapiSuite 0xbff0d348: Capi driver: AVM Berlin,
+version 2.0/1.16
+Tue Sep 30 21:24:25 2008 CapiSuite 0xbff0d348: Controller 1: AVM GmbH (2
+B channels, DTMF, SuppServ, transparent, FaxG3, FaxG3ext), driver
+version 2.0/49.23
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: &gt;LISTEN_REQ ApplID 0x2 msgNum
+0x1 Controller 0x1 InfoMask 0x10 CIPMask 0x10012 0x0 NULL NULL
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: &lt;LISTEN_CONF Controller 0x1
+Info 0x0
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: &gt;LISTEN_REQ ApplID 0x2 msgNum
+0x2 Controller 0x1 InfoMask 0x10 CIPMask 0x30012 0x0 NULL NULL
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: &lt;LISTEN_CONF Controller 0x1
+Info 0x0
+Tue Sep 30 21:24:25 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:25 2008 CapiSuite 0xbff0d348: job fax-8.sff from markus
+to 5214725 initiated
+Tue Sep 30 21:25:25 2008 CapiSuite 0xbff0d348: No integer value for port
+given!
+Tue Sep 30 21:25:25 2008 Connection 0x8260190: Connection object created
+for outgoing call from 5214725 to 5214725 service 1
+Tue Sep 30 21:25:25 2008 Connection 0x8260190: using faxStationID +49
+821 5214725 faxHeadline Markus Frisch - sent by CapiSuite CLIR 0
+Tue Sep 30 21:25:25 2008 Capi 0x81a9850: &gt;CONNECT_REQ: ApplId 0x2, MsgNr
+0x4, Controller 0x1 CIPValue 0x11, B1proto 0x4, B2proto 0x4, B3proto 0x5
+Tue Sep 30 21:25:25 2008 Capi 0x81a9850: &lt;CONNECT_CONF, PLCI: 0x101,
+Info 0x0
+Tue Sep 30 21:25:25 2008 Connection 0x8260190: got PLCI 101
+Tue Sep 30 21:25:25 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: &lt;INFO_IND: Controller/PLCI
+0x101, InfoNumber 800d (ignoring)
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: &gt;INFO_RESP ApplId 0x2, MsgNr
+0x59, Address 0x101
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: &lt;CONNECT_IND PLCI 0x201 CIP 0x11
+Tue Sep 30 21:25:28 2008 Connection 0x8263a18: Connection object created
+for incoming call PLCI 201 from - to 5214725 CIP 0x11
+Tue Sep 30 21:25:28 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: Connection
+0x8263a18 created IncomingScript
+Tue Sep 30 21:25:28 2008 Connection 0x8263a18: call from - to 5214725
+for markus connecting with fax
+Tue Sep 30 21:25:28 2008 Connection 0x8263a18: accepting with service 1
+Tue Sep 30 21:25:28 2008 Connection 0x8263a18: using faxStationID +49
+821 5214725 faxHeadline Markus Frisch - sent by CapiSuite
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: &gt;CONNECT_RESP ApplId 0x2,
+msgNum 0x5a, PLCI 0x201, Reject 0x0, B1proto 0x4, B2proto 0x4, B3proto 0x5
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: &lt;CONNECT_ACTIVE_IND PLCI 0x201
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: &gt;CONNECT_ACTIVE_RESP ApplId 0x2
+MsgNum 0x5d PLCI 0x201
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: &lt;CONNECT_ACTIVE_IND PLCI 0x101
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: &gt;CONNECT_ACTIVE_RESP ApplId 0x2
+MsgNum 0x5e PLCI 0x101
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: &gt;CONNECT_B3_REQ: ApplId 0x2,
+MsgNr 0x4, PLCI 0x101
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:28 2008 Capi 0x81a9850: &lt;CONNECT_B3_CONF, NCCI:
+0x10101, Info 0x0
+Tue Sep 30 21:25:35 2008 Capi 0x81a9850: &lt;CONNECT_B3_ACTIVE_IND NCCI 0x10101
+Tue Sep 30 21:25:35 2008 Capi 0x81a9850: &gt;CONNECT_B3_ACTIVE_RESP ApplId
+0x2 MsgNum 0x5f NCCI 0x10101
+Tue Sep 30 21:25:35 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:35 2008 Connection 0x8260190: fax connected with rate
+64000, lowRes, JPEG, ID: +49 821 5214725
+Tue Sep 30 21:25:35 2008 Connection 0x8260190: start_file_transmission
+/var/spool/capisuite/users/markus/sendq/fax-8.sff
+Tue Sep 30 21:25:38 2008 Capi 0x81a9850: &lt;CONNECT_B3_IND NCCI 0x20201
+Tue Sep 30 21:25:38 2008 Capi 0x81a9850: &gt;CONNECT_B3_RESP ApplId 0x2
+MsgNum 0x60 NCCI 0x20201 Reject 0x0
+Tue Sep 30 21:25:38 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:38 2008 Capi 0x81a9850: &lt;CONNECT_B3_ACTIVE_IND NCCI 0x20201
+Tue Sep 30 21:25:38 2008 Capi 0x81a9850: &gt;CONNECT_B3_ACTIVE_RESP ApplId
+0x2 MsgNum 0x61 NCCI 0x20201
+Tue Sep 30 21:25:38 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:38 2008 Connection 0x8263a18: fax connected with rate
+64000, hiRes, ID: +49 821 5214725
+Tue Sep 30 21:25:38 2008 Connection 0x8263a18: start_file_reception
+/var/spool/capisuite/users/markus/received/fax-4.sff
+Tue Sep 30 21:25:51 2008 Connection 0x8260190: stop_file_transmission
+initiated
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: &lt;DISCONNECT_B3_IND NCCI 0x10101
+Reason 0x0
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: fax finished with rate
+64000, hiRes, ID: +49 821 5214725, 3 pages
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: stop_file_transmission
+initiated
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: stop_file_transmission
+finished
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: stop_file_reception finished
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: &gt;DISCONNECT_B3_RESP ApplId 0x2
+MsgNum 0xad NCCI 0x10101
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: stop_file_transmission
+finished
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: disconnect initiated
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: &gt;DISCONNECT_REQ ApplId 0x2
+MsgNum 0x55 PLCI 0x101
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: &lt;DISCONNECT_CONF PLCI 0x101
+Info 0x0
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: &lt;DISCONNECT_B3_IND NCCI 0x20201
+Reason 0x0
+Tue Sep 30 21:25:55 2008 Connection 0x8263a18: fax finished with rate
+64000, hiRes, ID: +49 821 5214725, 3 pages
+Tue Sep 30 21:25:55 2008 Connection 0x8263a18: stop_file_transmission
+initiated
+Tue Sep 30 21:25:55 2008 Connection 0x8263a18: stop_file_transmission
+finished
+Tue Sep 30 21:25:55 2008 Connection 0x8263a18: stop_file_reception finished
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: &gt;DISCONNECT_B3_RESP ApplId 0x2
+MsgNum 0xae NCCI 0x20201
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:55 2008 Connection 0x8263a18: stop_file_reception finished
+Tue Sep 30 21:25:55 2008 Connection 0x8263a18: disconnect initiated
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: &gt;DISCONNECT_REQ ApplId 0x2
+MsgNum 0x56 PLCI 0x201
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: &lt;DISCONNECT_CONF PLCI 0x201
+Info 0x0
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: &lt;DISCONNECT_IND PLCI 0x101
+Reason 0x3400
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: &gt;DISCONNECT_RESP ApplId 0x2
+MsgNum 0xaf PLCI 0x101
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: &lt;INFO_IND: Controller/PLCI
+0x201, InfoNumber 1e (ignoring)
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: &gt;INFO_RESP ApplId 0x2, MsgNr
+0xb0, Address 0x201
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: Python: deleting
+connection object
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: stop_file_transmission
+initiated
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: stop_file_transmission
+finished
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: stop_file_reception finished
+Tue Sep 30 21:25:55 2008 Connection 0x8260190: Connection object deleted
+Tue Sep 30 21:25:55 2008 CapiSuite 0xbff0d348: job fax-8.sff: result was
+3400,0
+Tue Sep 30 21:25:55 2008 CapiSuite 0xbff0d348: No integer value for port
+given!
+Tue Sep 30 21:25:55 2008 CapiSuite 0xbff0d348: job fax-8.sff: finished
+successfully
+Tue Sep 30 21:25:55 2008 CapiSuite 0xbff0d348: No integer value for port
+given!
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: &lt;DISCONNECT_IND PLCI 0x201
+Reason 0x3490
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: &gt;DISCONNECT_RESP ApplId 0x2
+MsgNum 0xb1 PLCI 0x201
+Tue Sep 30 21:25:55 2008 Capi 0x81a9850: info: 0
+Tue Sep 30 21:25:56 2008 Connection 0x8263a18: connection finished with
+cause 0x3490,0x0
+Tue Sep 30 21:25:56 2008 Connection 0x8263a18: Python: deleting
+connection object
+Tue Sep 30 21:25:56 2008 Connection 0x8263a18: stop_file_transmission
+initiated
+Tue Sep 30 21:25:56 2008 Connection 0x8263a18: stop_file_transmission
+finished
+Tue Sep 30 21:25:56 2008 Connection 0x8263a18: stop_file_reception finished
+Tue Sep 30 21:25:56 2008 Connection 0x8263a18: Connection object deleted
+Tue Sep 30 21:25:56 2008 Pythonscript
+/usr/lib/capisuite/incoming.py,callIncoming,0x825f908: IncomingScript
+deleted
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000031.html">[FaxGate-users] FaxGate unter openSUSE 11.0
+</A></li>
+	<LI>Next message: <A HREF="000033.html">[FaxGate-users] FaxGate unter openSUSE 11.0
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/faxgate-users">More information about the FaxGate-users
+mailing list</a><br>
+</body></html>

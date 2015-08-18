@@ -1,0 +1,924 @@
+From ralf_muschall at yahoo.de  Tue Nov 25 00:37:44 2008
+From: ralf_muschall at yahoo.de (Ralf Muschall)
+Date: Mon, 24 Nov 2008 23:37:44 +0000 (GMT)
+Subject: [FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+Message-ID: <450475.81863.qm@web28504.mail.ukl.yahoo.com>
+
+Hallo,
+
+auf einem anderen Rechner (Suse 10.3/32), frisch
+gezogene capisuite-suse-10.3-0.5.cvs-61.1.i586.rpm
+(von http://download.opensuse.org/repositories/home:/ingogoeppert/),
+bekomme ich im Client folgende Fehler:
+
+1. Im Netzwerkmen? beim ersten Testknopf (dem bei der IP)
+   "kein CUPS"
+2. beim Anmeldeversuch: SFTP aus unbekanntem Grund fehlgeschlagen
+
+(Der Test auf Port 50000 ist OK).
+
+sshd, sftp und CUPS laufen und funktionieren (d.h. als
+Nebenwirkung des Tests ist der known_hosts-Kram erledigt),
+Susefirewall ist aus, das ganze soll eh erstmal auf localhost
+spielen.
+Sicherheitsprobleme sind nicht zu erwarten (es ist eine
+gegen physischen Feindzugriff gesicherte Arztpraxis), ich
+kann also bei Bedarf Ports aufmachen, Rechte vergr??ern usw.,
+falls das hilft.
+
+In der o.g. IP habe ich sowohl die wahre (192.168.10.10)
+als auch 127.0.0.1 probiert.
+In der sshd-Konfiguration ist Passwort erlaubt (eine
+funktionierende authorized_keys2 habe ich auch, und keins
+der Symptome ?ndert sich, wenn ich die verstecke).
+Es ist momentan nur ein Nutzer geplant, also sollten
+Rechteprobleme auch ausscheiden (er muss sich ja im Prinzip
+nur als der, der er schon ist dorthin, wo er schon ist anmelden).
+
+Falls das weiterhilft:
+telnet localhost 50000
+l?uft los und bewirkt das Erscheinen von Meldungen im
+FaxgateClient (die mir so sinnvoll wie m?glich erscheinen,
+d.h. er meckert ?ber die vom Telnet-Protokoll eingestreuten
+unverstandenen Bin?rzeichen).
+
+Eine Besonderheit hat die Kiste: Das Homeverzeichnis des
+Nutzers ist gruppenschreibbar, und das muss so sein, weil
+sonst die Produktionssoftware (ein Arztprogramm) nicht
+funktioniert (Strictmodes=no in sshd ist gesetzt und getestet).
+Leider kann ich das nicht mal tempor?r abstellen, da der
+Rechner benutzt wird (ich kann *nur* installieren, wenn dort
+gearbeitet wird, sonst ist er aus).
+
+Im allerschlimmsten Fall konnte ich allerdings einen
+Hilfsuser anlegen und dann sagen
+ssh -X -l hilfuser 'java -jar /pfad/zu/FaxgateClient.jar'
+falls es daran liegen sollte (noch nicht probiert).
+
+Ralf
+
+
+
+      
+
+
+
+From ingo.goeppert at gmx.de  Tue Nov 25 07:54:31 2008
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-1?q?G=F6ppert?=)
+Date: Tue, 25 Nov 2008 07:54:31 +0100
+Subject: [FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+In-Reply-To: <450475.81863.qm@web28504.mail.ukl.yahoo.com>
+References: <450475.81863.qm@web28504.mail.ukl.yahoo.com>
+Message-ID: <200811250754.34889.ingo.goeppert@gmx.de>
+
+Hallo Ralf,
+
+Am Dienstag, 25. November 2008 schrieb Ralf Muschall:
+> Hallo,
+>
+> auf einem anderen Rechner (Suse 10.3/32), frisch
+> gezogene capisuite-suse-10.3-0.5.cvs-61.1.i586.rpm
+> (von http://download.opensuse.org/repositories/home:/ingogoeppert/),
+
+zieh dir die ..66.. von gestern, ein Fehler bei der Konvertierung der 
+Sprachnachrichten wurde behoben.
+
+Den neuesten Client habe ich hier eben hochgeladen:
+http://home.arcor.de/ingo.goeppert/faxgate/client/FaxgateClient0140.jar
+
+> bekomme ich im Client folgende Fehler:
+>
+> 1. Im Netzwerkmen? beim ersten Testknopf (dem bei der IP)
+>    "kein CUPS"
+> 2. beim Anmeldeversuch: SFTP aus unbekanntem Grund fehlgeschlagen
+>
+> (Der Test auf Port 50000 ist OK).
+>
+> sshd, sftp und CUPS laufen und funktionieren (d.h. als
+> Nebenwirkung des Tests ist der known_hosts-Kram erledigt),
+> Susefirewall ist aus, das ganze soll eh erstmal auf localhost
+> spielen.
+> Sicherheitsprobleme sind nicht zu erwarten (es ist eine
+> gegen physischen Feindzugriff gesicherte Arztpraxis), ich
+> kann also bei Bedarf Ports aufmachen, Rechte vergr??ern usw.,
+> falls das hilft.
+
+CUPS wurde scheinbar nicht erkannt. Ist f?r den Client aber erst mal 
+nicht so wichtig. Der Client lauscht nur auf Port 50000 und baut eine 
+SFTP-Verbindung auf. Der SSH-Port ist in der neuesten Version 
+einstellbar (siehe Anhang). 
+
+>
+> In der o.g. IP habe ich sowohl die wahre (192.168.10.10)
+> als auch 127.0.0.1 probiert.
+> In der sshd-Konfiguration ist Passwort erlaubt (eine
+> funktionierende authorized_keys2 habe ich auch, und keins
+> der Symptome ?ndert sich, wenn ich die verstecke).
+> Es ist momentan nur ein Nutzer geplant, also sollten
+> Rechteprobleme auch ausscheiden (er muss sich ja im Prinzip
+> nur als der, der er schon ist dorthin, wo er schon ist anmelden).
+>
+> Falls das weiterhilft:
+> telnet localhost 50000
+> l?uft los und bewirkt das Erscheinen von Meldungen im
+> FaxgateClient (die mir so sinnvoll wie m?glich erscheinen,
+> d.h. er meckert ?ber die vom Telnet-Protokoll eingestreuten
+> unverstandenen Bin?rzeichen).
+
+Die Meldungen ?ber neue Faxe usw. sollten somit durchkommen. 
+
+>
+> Eine Besonderheit hat die Kiste: Das Homeverzeichnis des
+> Nutzers ist gruppenschreibbar, und das muss so sein, weil
+> sonst die Produktionssoftware (ein Arztprogramm) nicht
+> funktioniert (Strictmodes=no in sshd ist gesetzt und getestet).
+> Leider kann ich das nicht mal tempor?r abstellen, da der
+> Rechner benutzt wird (ich kann *nur* installieren, wenn dort
+> gearbeitet wird, sonst ist er aus).
+
+Geht den ssh auf der console? Schraub mal den Loglevel des sshd hoch und 
+schau in die messages. Ich vermute ein generelles Problem bei der 
+ssh-Anmeldung.
+
+>
+> Im allerschlimmsten Fall konnte ich allerdings einen
+> Hilfsuser anlegen und dann sagen
+> ssh -X -l hilfuser 'java -jar /pfad/zu/FaxgateClient.jar'
+> falls es daran liegen sollte (noch nicht probiert).
+
+Hat damit nix zu tun. Es ist unerheblich mit welchen Rechten der Client 
+gestartet wird.
+
+Gru?
+Ingo
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+Version 0.14.0 vom 17. Januar 2008
+
+- SSH-Port einstellbar ??ber versteckte Einstellung "faxserverport", default ist
+  Port 22
+
+Version 0.13.0 vom 15. Dezember 2007
+
+- KeyboardInteractive Auth funktioniert jetzt
+- Source f??r Java 5/6 angepasst
+- Crash beim Beenden ohne Nachrichtenverbindung behoben
+
+
+Version 0.11.2 vom 3. Dezember 2006
+
+- Mit Versteckter Einstellung "auth_methode" zwischen
+  0 = Passwort
+  1 = PublicKey
+  2 = KeyboardInteractive (noch nicht funktionsf??hig)
+  w??hlbar
+- Versteckte Einstellung "pk_keyfile" speichert automatisch Keyfile nach
+  erfolgreicher PublicKey Anmeldung
+
+
+Version 0.11.1 vom 9. November 2004
+
+- Benachrichtigung f??r neue Faxe/Anrufe enth??lt auch bei ausgeblendetem Log-
+und Infotab den Button zum ??ffnen des Faxes/Anrufes.
+
+- Versteckte Einstellung "def_user" setzt den Vorgabebenutzername f??r
+den SFTP-Login, bleibt die Einstellung leer wird wie bisher der Benutzername
+des aktuell am Client PC angemeldeten Benutzers verwendet.
+
+- Codierung der Quelltexte auf UTF-8 ge??ndert.
+
+- Nachrichten vom/zum Faxserver werden explizit in iso-8859-1
+gesendet/empfangen und ensprechend der aktuellen Client locale f??r die Anzeige
+am Client konvertiert.
+
+Version 0.11 vom 21. Oktober 2004
+
+- SFTP-Logindialog bleibt jetzt im Vordergrund.
+
+- SSH-Hostkeydialog bleibt jetzt im Vordergrund.
+
+- Hinweis f??r das Format Nummerneingabe entfernt (+49 ist in Deutschland nicht
+m??glich!).
+
+- Optionen- und Hauptfenster-Tabs werden anstatt gestaffelt jetzt bei
+Bedarf gescrollt.
+
+- Schaltfl??chen f??r wichtigsten Funktionen befinden sich in der neuen Toolbar.
+
+- Kurzinfo zur Bedienung des Clients wird in einem neuen Tab gleich nach dem
+Start des Clients angezeigt.
+
+- Das Log Tab ist als neue Vorgabe ausgeblendet.
+
+- Toolbar und Log Tab lassen sich ??ber das Men?? Anzeige ein-/ausschalten,
+dies beeiflusst aber nicht das Verhalten beim Programmstart.
+
+- Toolbar, Log Tab und Kurzinfo Tab lassen sich in den Optionen f??r den
+Programmstart ein- und ausschalten.
+
+- Abl??ufe beim SFTP-Verbindungsaufbau optimiert.
+
+- Wenn die SFTP-Verbindung vom Benutzer und nicht vom Sevrer
+getrennt wird, erfolgt eine erneute Abfrage von Benutzername und Passwort beim
+n??chsten Anmeldeversuch.
+
+- Beim Verbindungsaufbau zum SFTP-Server wird nach einem fehlerhaften Login
+gepr??ft welche Anmeldemethoden verf??gbar sind und eine Fehlermeldung erzeugt
+wenn die Password Authentication nicht m??glich ist (sshd_config muss dann
+ge??ndert werden).
+
+- Eine versteckten Einstellungen "spool_dir" mit value="/var/spool/capisuite/"
+und user_dir" mit value="/var/spool/capisuite/users/" wurden eingef??hrt um die
+Pfade anpassen zu k??nnen ohne den Client neu zu compilieren. Die Einstellungen
+sind nur systemweit einstellbar (/etc/.java/.systemPrefs/faxgateclient -> Linux,
+[HKEY_LOCAL_MACHINE\Software\JavaSoft\Prefs\faxgateclient] -> Windows). Damit
+die Vorgabewerte bei bestehenden Installationen neu geschrieben werden, muss der
+Wert "preferences_set" auf "false" gesetzt werden.
+
+- Die aktuelle Client IP, der Port und die Uhrzeit werden beim SFTP-Login auf
+dem Server in der Datei
+/var/spool/capisuite/users/<Benutzername>/clientdataupdate gespeichert. Dieses
+Verhalten ist einschaltbar, derzeit noch nicht ??ber ein GUI sondern nur ??ber die
+Einstellung "update_client_ip_port" mit "true". "false" schaltet die Funktion
+wieder ab (Voreinstellung).
+
+- M??glichkeit ein Trayicon mit SysTray for Java zu benutzen hinzugef??gt. Dank
+f??r Idee und erste Realisierung geht an Alexander Forschner <mail at forschi.de>.
+Zum Testen "use_systray" auf "true" setzen. "autohide_onstartup" auf "true" und
+das Hauptfenster wird beim Start nicht angezeigt. SysTray for Java stammt von
+http://systray.sourceforge.net/ (GPL/LGPL).
+Derzeit befindet sich die Trayintegration aber noch in der Testphase und ist per
+default nicht aktiviert.
+
+- Setup enth??lt die Dateien die f??r die Systrayintegreation notwendig sind.
+Unter Windows wird die dll automatisch gefunden, unter Linux muss das passende
+Script zum Starten des Clients verwendet werden (systray_lib oder systray_d).
+
+- Setup enth??lt die Quelltexte nicht mehr. Sie werden seperat zum Download
+bereitgestellt.
+
+- Setup auch mit VM verf??gbar
+(ftp://ftp.berlios.de/pub/faxgate/client/011/VM/setup.exe und
+ftp://ftp.berlios.de/pub/faxgate/client/011/VM/setup.bin).
+
+- Setup wird nicht mehr ??ber eine Webseite mit Applet sonder nur noch als
+direkter Dateidownload angeboten.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20081125/c149f3cb/attachment.pgp>
+
+From ralf_muschall at yahoo.de  Wed Nov 26 18:39:08 2008
+From: ralf_muschall at yahoo.de (Ralf Muschall)
+Date: Wed, 26 Nov 2008 17:39:08 +0000 (GMT)
+Subject: [FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+In-Reply-To: <mailman.19.1227610844.15685.faxgate-users@lists.berlios.de>
+Message-ID: <160756.9003.qm@web28509.mail.ukl.yahoo.com>
+
+Hallo und sch?nen Dank f?r die neuen Versionen, wenn ich
+auch noch keinen Unterschied im Verhalten finden konnte.
+
+> zieh dir die ..66.. von gestern, ein Fehler bei der
+> Konvertierung der Sprachnachrichten wurde behoben.
+
+Gerade gemacht und mit rccapisuite stop; rpm -U ....;
+rccapisuite start  eingespielt (das hat die
+..conf-Files nicht angefasst).  Mit "rpm -qa | grep capi"
+wird es auch gemeldet.
+
+> http://home.arcor.de/ingo.goeppert/faxgate/client/FaxgateClient0140.jar
+
+Auch ausgetauscht, meldet sich auch als 0.14.0.
+
+> > bekomme ich im Client folgende Fehler:
+> > 1. Im Netzwerkmen? beim ersten Testknopf (dem bei der IP)
+> >    "kein CUPS"
+> > 2. beim Anmeldeversuch: SFTP aus unbekanntem Grund
+> fehlgeschlagen
+
+> > sshd, sftp und CUPS laufen und funktionieren (d.h. als
+> > Nebenwirkung des Tests ist der known_hosts-Kram
+> > erledigt),
+
+> Geht den ssh auf der console? Schraub mal den Loglevel des
+> sshd hoch und 
+> schau in die messages. Ich vermute ein generelles Problem
+> bei der 
+> ssh-Anmeldung.
+
+Mein o.g. gilt weiterhin, mit und ohne authorized_keys2
+kann ich mit den Daemonen sprechen.  Mit "loglevel DEBUG2"
+im sshd bekomme ich bei "ssh localhost" oder "sftp localhost"
+massenhaft Meldungen im Log, beim Dr?cken des
+Verbindungsknopfes im Client dagegen absolut nichts.
+Leider kann ich den sshd nicht ganz ausmachen und durch
+"netcat -l -p 22 | xxd" ersetzen, da ich selber nur mit
+ssh per Fernwartung an den Rechner komme.  Ich habe aber
+den Eindruck, dass der Client die Verbindung gar nicht
+richtig versucht.
+
+Zum Test habe ich in den Optionen mal "Standardeinstellung"
+gedr?ckt (damit als Server "faxserver" drinsteht, den es hier
+nicht gibt), danach ist die Fehlermeldung beim Verbindungsversuch
+identisch.
+Der einzige Unterschied ist der, dass dann der Testknopf
+nicht orange "kein cups", sondern rot "kein CUPS/SSH"
+meldet (was IMHO sinnvoll ist), dasselbe passiert auch bei
+Eintragen einer nichtexistenten IP.  Wenn ich "localhost" als
+Wort eintrage, bekomme ich gr?nes "OK", 127.0.0.1 aber gibt
+weiterhin oranges "kein CUPS".
+
+In messages kommt f?r localhost beim Testknopf:
+Nov 26 18:26:36 linux sshd[12263]: debug1: rexec start in 4 out 4 newsock 4 pipe 6 sock 7
+Nov 26 18:26:36 linux sshd[11357]: debug1: Forked child 12263.
+Nov 26 18:26:36 linux sshd[12263]: debug1: inetd sockets after dupping: 3, 3
+Nov 26 18:26:36 linux sshd[12263]: Connection from ::1 port 43704
+Nov 26 18:26:36 linux sshd[12263]: Did not receive identification string from ::1
+
+und dasselbe (mit der IP statt ::1) mit eingegebener IP.
+
+Ich h?nge mal die Log-Zeilen an, die sshd mit DEBUG2 bei
+"sftp localhost" erzeugt (ssh-key-Fingerprint (2*, identisch)
+hier sicherheitshalber durch xx: ersetzt).  Aufbau war
+18:00:05, Abbau 18:00:07 (ctrl-d am "sftp>"-Prompt).
+
+"sftp 192.168.10.10" und "sftp 127.0.0.1" gehen auch
+(nur um die Vermutung auszuschlie?en, dass der sshd nur IP6
+mag und localhost als einziger zu ::1 erkannt wird).
+
+PS: Die Shell, in der der Client gestartet wurde, bekommt
+massenhaft Java-Meldungen der folgenden Art.  Hat das etwas
+zu bedeuten?
+
+WARNUNG: Could not lock System prefs.Unix error code -1918810700.
+26.11.2008 18:11:35 java.util.prefs.FileSystemPreferences syncWorld
+WARNUNG: Couldn't flush system prefs: java.util.prefs.BackingStoreException: C
+ldn't get file lock.
+26.11.2008 18:12:05 java.util.prefs.FileSystemPreferences checkLockFile0ErrorC
+e
+WARNUNG: Could not lock System prefs.Unix error code -1918810700.
+26.11.2008 18:12:05 java.util.prefs.FileSystemPreferences syncWorld
+WARNUNG: Couldn't flush system prefs: java.util.prefs.BackingStoreException: C
+ldn't get file lock.
+26.11.2008 18:12:35 java.util.prefs.FileSystemPreferences checkLockFile0ErrorC
+e
+WARNUNG: Could not lock System prefs.Unix error code -1918810700.
+26.11.2008 18:12:35 java.util.prefs.FileSystemPreferences syncWorld
+WARNUNG: Couldn't flush system prefs: java.util.prefs.BackingStoreException: C
+ldn't get file lock.
+ 26.11.2008 18:13:05 java.util.prefs.FileSystemPreferences checkLockFile0ErrorCode
+WARNUNG: Could not lock System prefs.Unix error code -1918810700.
+26.11.2008 18:13:05 java.util.prefs.FileSystemPreferences syncWorld
+WARNUNG: Couldn't flush system prefs: java.util.prefs.BackingStoreException: Couldn't get file lock.
+
+PPS: In /var/log/capisuite.* erschien seit 40 Minuten nichts
+(trotz diverser Versuche im Client), ich wei? nicht, ob das
+etwas aussagt.
+
+Unmittelbar nach dem Start des Client kommt zwischen derartigen
+Meldungen noch
+
+"Kein Schreibzugriff auf die systemweiten Einstellungen!
+"
+
+Ralf
+
+%%%%%%%%%%%%%%%%% Anfang ssh-Log %%%%%%%%%%%%%%%%%%%%%%%%%%
+Nov 26 18:00:05 linux sshd[12042]: debug1: rexec start in 4 out 4 newsock 4 pipe 6 sock 7
+Nov 26 18:00:05 linux sshd[11357]: debug1: Forked child 12042.
+Nov 26 18:00:05 linux sshd[12042]: debug1: inetd sockets after dupping: 3, 3
+Nov 26 18:00:05 linux sshd[12042]: Connection from ::1 port 50137
+Nov 26 18:00:05 linux sshd[12042]: debug1: Client protocol version 2.0; client software version OpenSSH_4.6
+Nov 26 18:00:05 linux sshd[12042]: debug1: match: OpenSSH_4.6 pat OpenSSH*
+Nov 26 18:00:05 linux sshd[12042]: debug1: Enabling compatibility mode for protocol 2.0
+Nov 26 18:00:05 linux sshd[12042]: debug1: Local version string SSH-2.0-OpenSSH_4.6
+Nov 26 18:00:05 linux sshd[12042]: debug2: fd 3 setting O_NONBLOCK
+Nov 26 18:00:05 linux sshd[12042]: debug2: Network child is on pid 12043
+Nov 26 18:00:05 linux sshd[12042]: debug2: monitor_read: 0 used once, disabling now
+Nov 26 18:00:05 linux sshd[12042]: debug2: monitor_read: 4 used once, disabling now
+Nov 26 18:00:05 linux sshd[12042]: debug2: parse_server_config: config reprocess config len 437
+Nov 26 18:00:05 linux sshd[12042]: debug2: monitor_read: 6 used once, disabling now
+Nov 26 18:00:05 linux sshd[12042]: debug1: PAM: initializing for "david"
+Nov 26 18:00:05 linux sshd[12042]: debug1: PAM: setting PAM_RHOST to "localhost"
+Nov 26 18:00:05 linux sshd[12042]: debug1: PAM: setting PAM_TTY to "ssh"
+Nov 26 18:00:05 linux sshd[12042]: debug2: monitor_read: 45 used once, disabling now
+Nov 26 18:00:05 linux sshd[12042]: debug2: monitor_read: 3 used once, disabling now
+Nov 26 18:00:05 linux sshd[12042]: Failed none for david from ::1 port 50137 ssh2
+Nov 26 18:00:05 linux sshd[12042]: debug1: temporarily_use_uid: 1000/100 (e=0/0)
+Nov 26 18:00:05 linux sshd[12042]: debug1: trying public key file /home/david/.ssh/authorized_keys
+Nov 26 18:00:05 linux sshd[12042]: debug1: matching key found: file /home/david/.ssh/authorized_keys, line 1
+Nov 26 18:00:05 linux sshd[12042]: Found matching RSA key: xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx
+Nov 26 18:00:05 linux sshd[12042]: debug1: restore_uid: 0/0
+Nov 26 18:00:05 linux sshd[12042]: debug1: temporarily_use_uid: 1000/100 (e=0/0)
+Nov 26 18:00:05 linux sshd[12042]: debug1: trying public key file /home/david/.ssh/authorized_keys
+Nov 26 18:00:05 linux sshd[12042]: debug1: matching key found: file /home/david/.ssh/authorized_keys, line 1
+Nov 26 18:00:05 linux sshd[12042]: Found matching RSA key: xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx
+Nov 26 18:00:05 linux sshd[12042]: debug1: restore_uid: 0/0
+Nov 26 18:00:05 linux sshd[12042]: debug1: ssh_rsa_verify: signature correct
+Nov 26 18:00:05 linux sshd[12042]: debug1: do_pam_account: called
+Nov 26 18:00:05 linux sshd[12042]: Accepted publickey for david from ::1 port 50137 ssh2
+Nov 26 18:00:05 linux sshd[12042]: debug1: monitor_child_preauth: david has been authenticated by privileged process
+Nov 26 18:00:05 linux sshd[12042]: debug2: mac_init: found hmac-md5
+Nov 26 18:00:05 linux sshd[12042]: debug2: mac_init: found hmac-md5
+Nov 26 18:00:05 linux sshd[12044]: debug1: PAM: reinitializing credentials
+Nov 26 18:00:05 linux sshd[12044]: debug1: permanently_set_uid: 1000/100
+Nov 26 18:00:05 linux sshd[12044]: debug2: set_newkeys: mode 0
+Nov 26 18:00:05 linux sshd[12044]: debug2: set_newkeys: mode 1
+Nov 26 18:00:05 linux sshd[12044]: debug1: Entering interactive session for SSH2.
+Nov 26 18:00:05 linux sshd[12044]: debug2: fd 5 setting O_NONBLOCK
+Nov 26 18:00:05 linux sshd[12044]: debug2: fd 6 setting O_NONBLOCK
+Nov 26 18:00:05 linux sshd[12044]: debug1: server_init_dispatch_20
+Nov 26 18:00:05 linux sshd[12042]: debug2: User child is on pid 12044
+Nov 26 18:00:05 linux sshd[12044]: debug1: server_input_channel_open: ctype session rchan 0 win 131072 max 32768
+Nov 26 18:00:05 linux sshd[12044]: debug1: input_session_request
+Nov 26 18:00:05 linux sshd[12044]: debug1: channel 0: new [server-session]
+Nov 26 18:00:05 linux sshd[12044]: debug1: session_new: init
+Nov 26 18:00:05 linux sshd[12044]: debug1: session_new: session 0
+Nov 26 18:00:05 linux sshd[12044]: debug1: session_open: channel 0
+Nov 26 18:00:05 linux sshd[12044]: debug1: session_open: session 0: link with channel 0
+Nov 26 18:00:05 linux sshd[12044]: debug1: server_input_channel_open: confirm session
+Nov 26 18:00:05 linux sshd[12044]: debug1: server_input_channel_req: channel 0 request env reply 0
+Nov 26 18:00:05 linux sshd[12044]: debug1: session_by_channel: session 0 channel 0
+Nov 26 18:00:05 linux sshd[12044]: debug1: session_input_channel_req: session 0 req env
+Nov 26 18:00:05 linux sshd[12044]: debug2: Setting env 0: LANG=de_DE.ISO-8859-1
+Nov 26 18:00:05 linux sshd[12044]: debug1: server_input_channel_req: channel 0 request subsystem reply 1
+Nov 26 18:00:05 linux sshd[12044]: debug1: session_by_channel: session 0 channel 0
+Nov 26 18:00:05 linux sshd[12044]: debug1: session_input_channel_req: session 0 req subsystem
+Nov 26 18:00:05 linux sshd[12044]: subsystem request for sftp
+Nov 26 18:00:05 linux sshd[12044]: debug1: subsystem: exec() /usr/lib/ssh/sftp-server
+Nov 26 18:00:05 linux sshd[12044]: debug2: fd 3 setting TCP_NODELAY
+Nov 26 18:00:05 linux sshd[12044]: debug2: fd 8 setting O_NONBLOCK
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: rcvd eof
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: output open -> drain
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: obuf empty
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: close_write
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: output drain -> closed
+Nov 26 18:00:07 linux sshd[12044]: debug1: Received SIGCHLD.
+Nov 26 18:00:07 linux sshd[12044]: debug1: session_by_pid: pid 12045
+Nov 26 18:00:07 linux sshd[12044]: debug1: session_exit_message: session 0 channel 0 pid 12045
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: request exit-status confirm 0
+Nov 26 18:00:07 linux sshd[12044]: debug1: session_exit_message: release channel 0
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: read<=0 rfd 8 len 0
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: read failed
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: close_read
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: input open -> drain
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: ibuf empty
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: send eof
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: input drain -> closed
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: send close
+Nov 26 18:00:07 linux sshd[12044]: debug2: notify_done: reading
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: rcvd close
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: is dead
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: gc: notify user
+Nov 26 18:00:07 linux sshd[12044]: debug1: session_by_channel: session 0 channel 0
+Nov 26 18:00:07 linux sshd[12044]: debug1: session_close_by_channel: channel 0 child 0
+Nov 26 18:00:07 linux sshd[12044]: debug1: session_close: session 0 pid 0
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: gc: user detached
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: is dead
+Nov 26 18:00:07 linux sshd[12044]: debug2: channel 0: garbage collecting
+Nov 26 18:00:07 linux sshd[12044]: debug1: channel 0: free: server-session, nchannels 1
+Nov 26 18:00:07 linux sshd[12044]: Connection closed by ::1
+Nov 26 18:00:07 linux sshd[12044]: debug1: do_cleanup
+Nov 26 18:00:07 linux sshd[12044]: debug1: PAM: cleanup
+Nov 26 18:00:07 linux sshd[12044]: PAM audit_log_acct_message() failed: Operation not permitted
+Nov 26 18:00:07 linux sshd[12044]: Closing connection to ::1
+Nov 26 18:00:07 linux sshd[12044]: debug1: PAM: cleanup
+%%%%%%%%%%%%%%%%% Anfang ssh-Log %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+      
+
+
+
+From ingo.goeppert at gmx.de  Wed Nov 26 19:08:35 2008
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-1?q?G=F6ppert?=)
+Date: Wed, 26 Nov 2008 19:08:35 +0100
+Subject: [FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+In-Reply-To: <160756.9003.qm@web28509.mail.ukl.yahoo.com>
+References: <160756.9003.qm@web28509.mail.ukl.yahoo.com>
+Message-ID: <200811261908.39249.ingo.goeppert@gmx.de>
+
+Hallo Ralf,
+
+Am Mittwoch, 26. November 2008 schrieb Ralf Muschall:
+[...wird sp?ter beantwortet]
+
+
+schicke bitte noch die Eintr?ge aus dem Logfenster des Clients.
+
+Gru?
+Ingo
+
+
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20081126/2f54052f/attachment.pgp>
+
+From ingo.goeppert at gmx.de  Wed Nov 26 19:45:20 2008
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-1?q?G=F6ppert?=)
+Date: Wed, 26 Nov 2008 19:45:20 +0100
+Subject: [FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+In-Reply-To: <160756.9003.qm@web28509.mail.ukl.yahoo.com>
+References: <160756.9003.qm@web28509.mail.ukl.yahoo.com>
+Message-ID: <200811261945.24524.ingo.goeppert@gmx.de>
+
+Hallo,
+
+Am Mittwoch, 26. November 2008 schrieb Ralf Muschall:
+[...]
+>
+> Mein o.g. gilt weiterhin, mit und ohne authorized_keys2
+> kann ich mit den Daemonen sprechen.  Mit "loglevel DEBUG2"
+> im sshd bekomme ich bei "ssh localhost" oder "sftp localhost"
+> massenhaft Meldungen im Log, beim Dr?cken des
+> Verbindungsknopfes im Client dagegen absolut nichts.
+> Leider kann ich den sshd nicht ganz ausmachen und durch
+> "netcat -l -p 22 | xxd" ersetzen, da ich selber nur mit
+> ssh per Fernwartung an den Rechner komme.  Ich habe aber
+> den Eindruck, dass der Client die Verbindung gar nicht
+> richtig versucht.
+>
+> Zum Test habe ich in den Optionen mal "Standardeinstellung"
+> gedr?ckt (damit als Server "faxserver" drinsteht, den es hier
+> nicht gibt), danach ist die Fehlermeldung beim Verbindungsversuch
+> identisch.
+> Der einzige Unterschied ist der, dass dann der Testknopf
+> nicht orange "kein cups", sondern rot "kein CUPS/SSH"
+> meldet (was IMHO sinnvoll ist), dasselbe passiert auch bei
+> Eintragen einer nichtexistenten IP.  Wenn ich "localhost" als
+> Wort eintrage, bekomme ich gr?nes "OK", 127.0.0.1 aber gibt
+> weiterhin oranges "kein CUPS".
+
+dann l?sst CUPS auf diesem Wege halt keine Verbindung zu, was aber hier 
+nicht das Problem ist.
+
+>
+> In messages kommt f?r localhost beim Testknopf:
+> Nov 26 18:26:36 linux sshd[12263]: debug1: rexec start in 4 out 4
+> newsock 4 pipe 6 sock 7 Nov 26 18:26:36 linux sshd[11357]: debug1:
+> Forked child 12263. Nov 26 18:26:36 linux sshd[12263]: debug1: inetd
+> sockets after dupping: 3, 3 Nov 26 18:26:36 linux sshd[12263]:
+> Connection from ::1 port 43704 Nov 26 18:26:36 linux sshd[12263]: Did
+> not receive identification string from ::1
+>
+> und dasselbe (mit der IP statt ::1) mit eingegebener IP.
+
+Komisch, bei mir (openSUSE 10.3 (X86-64)) kommt immer die IP.
+
+>
+> Ich h?nge mal die Log-Zeilen an, die sshd mit DEBUG2 bei
+> "sftp localhost" erzeugt (ssh-key-Fingerprint (2*, identisch)
+> hier sicherheitshalber durch xx: ersetzt).  Aufbau war
+> 18:00:05, Abbau 18:00:07 (ctrl-d am "sftp>"-Prompt).
+>
+> "sftp 192.168.10.10" und "sftp 127.0.0.1" gehen auch
+> (nur um die Vermutung auszuschlie?en, dass der sshd nur IP6
+> mag und localhost als einziger zu ::1 erkannt wird).
+
+Und wenn du es mit dem Faxgate-Client probierst passiert wird nix 
+geloggt? Dann kommt der Client nicht bis zum sshd. Schau dir das mal 
+mit Wireshark o.?. an. Irgendwohin muss der versuchen ne Verbindung 
+aufzubauen. Zu mir nach Hause sicher nicht ;-)
+
+>
+> PS: Die Shell, in der der Client gestartet wurde, bekommt
+> massenhaft Java-Meldungen der folgenden Art.  Hat das etwas
+> zu bedeuten?
+
+Das du den Client noch nie als root gestartet hast um die default 
+settings zu speichern. Hintergund: Nachdem ein Java-Programm einmalig 
+versucht hat auf die systemweiten Einstellungen zuzugreifen probiert 
+Java im Hintergrund st?ndig weiter die nicht gefundenen Einstellungen 
+neu anzulegen.
+
+>
+> PPS: In /var/log/capisuite.* erschien seit 40 Minuten nichts
+> (trotz diverser Versuche im Client), ich wei? nicht, ob das
+> etwas aussagt.
+
+Von sich aus kann der Client keine Verbindung zu Capisuite aufbauen, da 
+wird sich nix tun solange du keine Anrufe kriegst oder Faxe 
+verschickst.
+
+>
+> Unmittelbar nach dem Start des Client kommt zwischen derartigen
+> Meldungen noch
+>
+> "Kein Schreibzugriff auf die systemweiten Einstellungen!
+> "
+
+Siehe oben.
+
+>
+> Ralf
+>
+> %%%%%%%%%%%%%%%%% Anfang ssh-Log %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+H?tte halt gern gesehen was der FaxgateClient macht.
+
+> %%%%%%%%%%%%%%%%% Anfang ssh-Log %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Gru?
+Ingo
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20081126/55153b94/attachment.pgp>
+
+From frisch at vr-web.de  Wed Nov 26 20:17:34 2008
+From: frisch at vr-web.de (Markus Frisch)
+Date: Wed, 26 Nov 2008 20:17:34 +0100
+Subject: [FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+In-Reply-To: <450475.81863.qm@web28504.mail.ukl.yahoo.com>
+References: <450475.81863.qm@web28504.mail.ukl.yahoo.com>
+Message-ID: <492DA0CE.50408@vr-web.de>
+
+Hallo Ralf,
+
+Ralf Muschall schrieb:
+> Hallo,
+>
+> auf einem anderen Rechner (Suse 10.3/32), frisch
+> gezogene capisuite-suse-10.3-0.5.cvs-61.1.i586.rpm
+> (von http://download.opensuse.org/repositories/home:/ingogoeppert/),
+> bekomme ich im Client folgende Fehler:
+>
+> 1. Im Netzwerkmen? beim ersten Testknopf (dem bei der IP)
+>    "kein CUPS"
+> 2. beim Anmeldeversuch: SFTP aus unbekanntem Grund fehlgeschlagen
+>
+> (Der Test auf Port 50000 ist OK).
+>   
+Ich habe jetzt zwar keine konkrete Idee, wo dein Problem zu beheben ist,
+jedoch habe ich mir mal alles, was ich bei meiner Suse10.3 ?ndern bzw.
+einstellen muss, in eine kleine Textdatei als Anleitung geschrieben. Die
+h?nge ich hier mal an, vielleicht wirst Du ja f?ndig.
+
+Gru?
+Markus
+
+-- 
+_________________________________________________________________
+Markus Frisch - Deutschenbaurstra?e 29b - 86157 Augsburg
+Tel: 52 98 17 - Fax: 52 14 725 - mail: frisch at vr-web.de
+
+-------------- next part --------------
+########################################
+Installation von Faxgate:
+########################################
+
+
+1.
+Download der ge??nderten Capisuite und des Faxgate-Clients von www.faxgate.org
+
+2.
+Installation des rpm und kopieren des Clients nach /home/.../bin
+Erstellen eines Scripts zum Aufruf des Clients:
+	cd /home/.../bin
+	java -jar FaxgateClient.jar
+
+3. Testen, ob Faxen ??ber Capisuite (Konqueror - Drucken - An Fax weiterleiten) funktioniert
+
+4.
+??ndern der Datei /etc/sudoers - Erg??nzungen von www.faxgate.org eintragen:
+
+# Host alias specification
+Host_Alias	FAXSERVER=linux
+
+# User alias specification
+User_Alias	SPOOLSYSTEM=lp
+
+# Cmnd alias specification
+Cmnd_Alias	FAXSENDING=/usr/bin/capisuitefax
+Cmnd_Alias	FAXCHECK=/usr/bin/faxgate.py
+
+# cups can run the scripts as root without password
+SPOOLSYSTEM	FAXSERVER=NOPASSWD:FAXSENDING
+SPOOLSYSTEM	FAXSERVER=NOPASSWD:FAXCHECK
+
+5.
+??ndern der Datei sshd_config in /etc/ssh/
+	PasswordAuthentication yes (von "no" auf "yes" setzen)
+
+6.
+sffview von CD nachinstallieren
+
+7.
+Faxgate als Netzwerkdrucker einrichten: (FUNKTIONIERT NICHT BEI 11.0)
+- Yast -> Hardware -> Drucker -> Hinzuf??gen
+- "Netzwerkdrucker" -> "CUPS Netzwerkserver" -> "CUPS Broadcasting verwenden"
+- Fertigstellen
+- danach den Drucker anklicken -> Bearbeiten
+- UNNOWN MANUFACTURER -> Faxgate
+- diverse Einstellungen machen
+
+-> manuelle Installation bei openSuSE 11.0:
+erst Druckerdatenbank neu einlesen mit Yast -> Hardware -> Drucker, dann
+in root-shell eingeben:
+	"lpadmin -p Faxgate -v faxgate://capisuite -m Faxgate.ppd.gz"
+dann Test mit:
+	"lpstat -p Faxgate"
+
+
+From ralf_muschall at yahoo.de  Thu Nov 27 12:25:09 2008
+From: ralf_muschall at yahoo.de (Ralf Muschall)
+Date: Thu, 27 Nov 2008 11:25:09 +0000 (GMT)
+Subject: [FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+In-Reply-To: <mailman.954.1227727359.19311.faxgate-users@lists.berlios.de>
+Message-ID: <183996.3806.qm@web28514.mail.ukl.yahoo.com>
+
+Hallo,
+[Umlaute manuell ersetzt - kann sein, dass yahoo die zerbissen
+hat, ist aber jetzt egal.  Wahrscheinlich haben yahoo, der
+Mailinglistenserver und mein Rechner vier verschiedene
+Meinungen ?ber Codierung, meine eigenen kommen auch als
+Fragezeich an.]
+
+> schicke bitte noch die Eintraege aus dem Logfenster des
+> Clients.
+
+Ich habe es erstmal als root gestartet und wieder beendet,
+dann als einfacher Nutzer.  Beim Start sagt das Logfenster:
+
+| [27.11.2008 10:38:49] Faxgate Client gestartet...
+| [27.11.2008 10:38:50] Versuche Netzwerkschnittstelle zu aktivieren...
+| [27.11.2008 10:38:50] Benutze Port (50000)
+
+und beim Verbindungsversuch:
+
+| [27.11.2008 10:40:41] SFTP-Verbindungsaufbau zu (localhost) gestartet.
+| [27.11.2008 10:40:41] Der SFTP-Verbindungsaufbau zu (localhost) ist aus unbekanntem Grund fehlgeschlagen.
+| Unter "Datei" - "Optionen" - "Netzwerk" die Einstellung "Faxserver-IP/Hostname",
+| die Netzwerkeinstellungen ihres Betriebssystems, die physikalische Verbindung zum Server und 
+| die Funktion des Servers ?berpr?fen.
+| Dann bitte manuell neuen Verbindungsaufbau starten!
+| StackTrace: java.util.NoSuchElementException
+
+Die Java-Meldungen ins Shellfenster kommen jetzt nicht mehr.
+
+> mit Wireshark o.ae. an. Irgendwohin muss der versuchen ne
+> Verbindung aufzubauen. Zu mir nach Hause sicher nicht ;-)
+
+Das w?re aber einfacher, weil man dann die geetherealten
+Pakete besser sortieren k?nnte.  Ich dort mit NX drauf,
+d.h. jede Taste oder Mausbewegung erzeugt ein paar Hundert
+SSH-Pakete von localhost an localhost, und bis auf ACK
+ist alles verschl?sselt.
+
+Markus schrieb:
+
+> 3. Testen, ob Faxen ueber Capisuite (Konqueror - Drucken -
+> An Fax weiterleiten) funktioniert
+
+"capisuitefax -d nummer testfax.ps" funktioniert und kommt
+an, der Eintrag in /var/log/capisuite.log sieht gesund aus.
+
+Ich habe jetzt den Client mal als root gestartet und den
+Verbindungsknopf gedr?ckt, und er bekam Verbindung (fragte
+dumm rum nach Hostkey-Fingerprint, Name, Passwort, weil ich
+in ~root/.ssh nichts derartiges liegen hatte, aber ging
+und machte dann seine Tabs auf, in denen meine Sendeversuche
+(einschlie?lich des erfolgreichen von der o.g. Kommandozeile)
+erschienen.  Es scheint also doch irgendetwas seltsames
+mit Rechten (zuviel, weil der normale User zwingend ein
+gruppenschreibbares HOME haben muss, oder zuwenig, weil
+irgendetwas nicht will und ich nicht wei? was) zu sein.
+
+> Aendern der Datei /etc/sudoers - Ergaenzungen von
+> www.faxgate.org eintragen:
+
+Bei mir steht da noch eine ?ltere, hoffentlich ?quivalente
+einzeilige Version:
+
+lp ALL=(root) NOPASSWD: /usr/bin/faxgate.py
+
+capisuitefax ging ohne sudo aufzurufen, braucht also
+offenbar keine Zeile hier.
+
+> sffview von CD nachinstallieren
+
+Wird wohl durch ein Script vertreten, welches sff2pdf
+macht und das ins Patientenarchiv einsortiert (nach
+Sichtkontrolle).  Hier erwarte ich keine Mysterien.
+
+
+Inspiriert durch das Funktionieren als root habe ich
+jetzt folgendes gemacht
+
+useradd -m faxuser
+passwd faxuser
+ssh -X -l faxuser localhost
+java -jar dingens
+
+und es ging, auch die Verbindung.
+
+Ich baue mir jetzt erstmal Scripte, die das per KDE und
+ssh -X -l faxuser localhost "machwas" erschlagen, damit ich
+weiterkomme.  Woran es lag, kann ich dann sp?ter erforschen
+(vielleicht hat FaxgateClient.jar (oder dessen alte Version)
+irgendwelche giftigen Files im ersten User hinterlassen
+oder sonstwas).
+
+Ralf
+
+
+
+      
+
+
+
+From ingo.goeppert at gmx.de  Thu Nov 27 15:41:29 2008
+From: ingo.goeppert at gmx.de (=?ISO-8859-1?Q?Ingo_G=F6ppert?=)
+Date: Thu, 27 Nov 2008 15:41:29 +0100
+Subject: [FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+In-Reply-To: <183996.3806.qm@web28514.mail.ukl.yahoo.com>
+References: <183996.3806.qm@web28514.mail.ukl.yahoo.com>
+Message-ID: <492EB199.9070904@gmx.de>
+
+On 27.11.2008 12:25, Ralf Muschall wrote:
+[...]
+> 
+> und beim Verbindungsversuch:
+> 
+> | [27.11.2008 10:40:41] SFTP-Verbindungsaufbau zu (localhost) gestartet.
+> | [27.11.2008 10:40:41] Der SFTP-Verbindungsaufbau zu (localhost) ist aus unbekanntem Grund fehlgeschlagen.
+> | Unter "Datei" - "Optionen" - "Netzwerk" die Einstellung "Faxserver-IP/Hostname",
+> | die Netzwerkeinstellungen ihres Betriebssystems, die physikalische Verbindung zum Server und 
+> | die Funktion des Servers ?berpr?fen.
+> | Dann bitte manuell neuen Verbindungsaufbau starten!
+> | StackTrace: java.util.NoSuchElementException
+
+java.util.NoSuchElementException = Da gibts whl nix aufzulisten...
+
+> 
+> Die Java-Meldungen ins Shellfenster kommen jetzt nicht mehr.
+> 
+>> mit Wireshark o.ae. an. Irgendwohin muss der versuchen ne
+>> Verbindung aufzubauen. Zu mir nach Hause sicher nicht ;-)
+> 
+> Das w?re aber einfacher, weil man dann die geetherealten
+> Pakete besser sortieren k?nnte.  Ich dort mit NX drauf,
+> d.h. jede Taste oder Mausbewegung erzeugt ein paar Hundert
+> SSH-Pakete von localhost an localhost, und bis auf ACK
+> ist alles verschl?sselt.
+
+Jo, ich kenn das Problem...
+
+[...]
+> 
+> Inspiriert durch das Funktionieren als root habe ich
+> jetzt folgendes gemacht
+> 
+> useradd -m faxuser
+> passwd faxuser
+> ssh -X -l faxuser localhost
+> java -jar dingens
+> 
+> und es ging, auch die Verbindung.
+> 
+> Ich baue mir jetzt erstmal Scripte, die das per KDE und
+> ssh -X -l faxuser localhost "machwas" erschlagen, damit ich
+> weiterkomme.  Woran es lag, kann ich dann sp?ter erforschen
+> (vielleicht hat FaxgateClient.jar (oder dessen alte Version)
+> irgendwelche giftigen Files im ersten User hinterlassen
+> oder sonstwas).
+
+Nur die Einstellungen. Java legt die unter Win in der Registry und unter
+Lin/Mac im Home in einem versteckten Verzeichnis als xml ab. Falls die
+Einstellungen das Problem sind bitte mir posten BEVOR du sie l?schst. Danke.
+
+Gru?
+Ingo
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+
+

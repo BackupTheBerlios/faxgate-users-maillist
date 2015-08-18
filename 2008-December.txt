@@ -1,0 +1,174 @@
+From ralf_muschall at yahoo.de  Mon Dec  8 18:24:10 2008
+From: ralf_muschall at yahoo.de (Ralf Muschall)
+Date: Mon, 8 Dec 2008 17:24:10 +0000 (GMT)
+Subject: [FaxGate-users] Restprobleme FaxgateClient
+In-Reply-To: <mailman.19.1227870053.17544.faxgate-users@lists.berlios.de>
+Message-ID: <278916.78788.qm@web28504.mail.ukl.yahoo.com>
+
+[ich]
+> > Ich baue mir jetzt erstmal Scripte, die das per KDE und
+> > ssh -X -l faxuser localhost "machwas"
+> > erschlagen, damit ich
+> > weiterkomme.
+
+Dabei werde ich es wohl belassen, das hat den (fuer mich
+positiven, aber sicher nicht intendierten) Nebeneffekt,
+dass der Client an allen Plaetzen mit den gleichen Rechten
+aufgerufen werden kann (gleichzeitig an mehreren ist nicht
+erforderlich, ginge wohl auch nicht, weil es nur eine
+50000 gibt)).  D.h. dieses Problem ist erstmal nicht
+akut.  Zur Information dennoch die prefs.xml:
+
+> Nur die Einstellungen. Java legt die unter Win in der
+> Registry und unter
+> Lin/Mac im Home in einem versteckten Verzeichnis als xml
+> ab. Falls die
+> Einstellungen das Problem sind bitte mir posten BEVOR du
+> sie l?schst. Danke.
+
+Loeschen werde ich sie wohl nicht, ich lasse sie einfach
+ungenutzt liegen.
+Erstmal die Differenz (Uaser david ist schlecht, faxuser
+ist gut, .=='/home/david/.java'):
+
+|diff <(sed -e 's/></>\x0a</g' .userPrefs/faxgateclient/prefs.xml) <(sed -e 's/></>\x0a</g' /home/faxuser/.java/.userPrefs/faxgateclient/prefs.xml)
+|6c6
+|< <entry key="autoshow_info" value="false"/>
+|---
+|> <entry key="autoshow_info" value="true"/>
+|9c9
+|< <entry key="autostart_file" value="false"/>
+|---
+|> <entry key="autostart_file" value="true"/>
+|17c17
+|< <entry key="downpath" value="/home/david"/>
+|---
+|> <entry key="downpath" value="/home/faxuser"/>
+|20c20,21
+|< <entry key="faxserverip" value="localhost"/>
+|---
+|> <entry key="faxserverip" value="127.0.0.1"/>
+|> <entry key="faxserverport" value="22"/>
+|37c38
+|< <entry key="viewer_lin" value="sffview"/>
+|---
+|> <entry key="viewer_lin" value="/home/david/faxwork.sh"/>
+
+(faxwork.sh ist mein Script, welches das Bild anzeigt und
+dann zum Patienten verschiebt.)
+
+Gutes prefs.xml:
+
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE map SYSTEM "http://java..sun.com/dtd/preferences.dtd">
+<map MAP_XML_VERSION="1.0"><entry key="ask_number" value="true"/><entry key="autohide_onstartup" value="false"/><entry key="autoshow_info" value="false"/><entry key="autoshow_log" value="false"/><entry key="autoshow_toolbar" value="true"/><entry key="autostart_file" value="true"/><entry key="autostart_messages" value="true"/><entry key="browser_lin" value="konqueror"/><entry key="browser_mac" value="open"/><entry key="browser_param" value=""/><entry key="browser_win" value="explorer.exe"/><entry key="def_user" value=""/><entry key="del" value="true"/><entry key="downpath" value="/home/tlwartg"/><entry key="fai" value="true"/><entry key="fan" value="true"/><entry key="faxserverip" value="localhost"/><entry key="fbr" value="true"/><entry key="fem" value="true"/><entry key="fwa" value="true"/><entry key="ign" value="true"/><entry key="ini" value="true"/><entry key="laf" value="javax.swing.plaf.metal.MetalLookAndFeel"/><entry key="port" value="50000"/><entry
+ key="preferences_set" value="true"/><entry key="res" value="true"/><entry key="snd" value="true"/><entry key="suc" value="true"/><entry key="update_client_ip_port" value="false"/><entry key="use_systray" value="false"/><entry key="van" value="false"/><entry key="vbr" value="false"/><entry key="vem" value="true"/><entry key="viewer_lin" value="sffview"/><entry key="viewer_mac" value="open"/><entry key="viewer_param" value=""/><entry key="viewer_win" value="sffview.exe"/><entry key="vwa" value="false"/></map>
+
+Danach bekam ich in der Statusleiste des Client eine
+Meldung "Verbindungsversuch vom falschen Rechner" oder
+so aehnlich, nach Aendern der Server-IP von 127... auf
+die Ethernet-IP des Servers war auch dieses Problem weg.
+
+Neues Problem:
+==============
+Wenn ich auf eine Zeile im Eingangsreiter (oder woanders)
+doppelklicke und das Zielfile in /home/faxuser noch nicht
+existiert (also im Normalfall), kommt ein Javafehler:
+
+lava.lang.NullPointerException
+at java.awt.Container.createHierarchieEvents(Container.java:1335)
+at java.awt.Container.createHierarchieEvents(Container.java:1335)
+at java.awt.Container.createHierarchieEvents(Container.java:1335)
+at java.awt.Container.createHierarchieEvents(Container.java:1335)
+at java.awt.Container.createHierarchieEvents(Container.java:1335)
+at java.awt.Component.show(Component.java:1270)
+at java.awt.Windows.show(Windows.java:522)
+at java.awt.Component.show(Component.java:1302)
+at java.awt.Component.setVisible(Component.java:1255)
+at com.sshtools.shift.FileTransferDialog.getRemoteFiles(Unknown Source)
+af com.sshtools.shift.ShiftSessionPanel$7.run(Unknown Source)
+at java.land.Thread.run(Thread.java:595)
+
+(kann Tippfehler enthalten, musste ich abtippen mangels
+Markierbarkeit).
+Danach liegt das Zielfile am Ziel, aber mein Script 
+(faxwork.sh) wird nicht aufgerufen.
+
+Wenn das Zielfile schon daliegt (d.h. beim zweiten Versuch),
+fragt er, ob er es ueberschreiben soll und ruft danach mein
+Script auf.
+
+Ralf
+
+GS d->? s:++>+++ a+ C++++$ UL+++$ UH+ P++ L++ E+++ W- N++ o-- K- w--- !O M- V-
+PS+>++ PE Y+>++ PGP+ !t !5 !X !R !tv  b+++ DI+++ D?  G+ e++++ h+ r? y?
+
+
+
+      
+
+
+
+From ingo.goeppert at gmx.de  Mon Dec  8 20:09:50 2008
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-1?q?G=F6ppert?=)
+Date: Mon, 8 Dec 2008 20:09:50 +0100
+Subject: [FaxGate-users] Restprobleme FaxgateClient
+In-Reply-To: <278916.78788.qm@web28504.mail.ukl.yahoo.com>
+References: <278916.78788.qm@web28504.mail.ukl.yahoo.com>
+Message-ID: <200812082009.54791.ingo.goeppert@gmx.de>
+
+Hallo Ralf,
+
+Am Montag, 8. Dezember 2008 schrieb Ralf Muschall:
+> [ich]
+[...]
+> Neues Problem:
+> ==============
+> Wenn ich auf eine Zeile im Eingangsreiter (oder woanders)
+> doppelklicke und das Zielfile in /home/faxuser noch nicht
+> existiert (also im Normalfall), kommt ein Javafehler:
+>
+> lava.lang.NullPointerException
+> at java.awt.Container.createHierarchieEvents(Container.java:1335)
+> at java.awt.Container.createHierarchieEvents(Container.java:1335)
+> at java.awt.Container.createHierarchieEvents(Container.java:1335)
+> at java.awt.Container.createHierarchieEvents(Container.java:1335)
+> at java.awt.Container.createHierarchieEvents(Container.java:1335)
+> at java.awt.Component.show(Component.java:1270)
+> at java.awt.Windows.show(Windows.java:522)
+> at java.awt.Component.show(Component.java:1302)
+> at java.awt.Component.setVisible(Component.java:1255)
+> at com.sshtools.shift.FileTransferDialog.getRemoteFiles(Unknown
+> Source) af com.sshtools.shift.ShiftSessionPanel$7.run(Unknown Source)
+> at java.land.Thread.run(Thread.java:595)
+>
+> (kann Tippfehler enthalten, musste ich abtippen mangels
+> Markierbarkeit).
+> Danach liegt das Zielfile am Ziel, aber mein Script
+> (faxwork.sh) wird nicht aufgerufen.
+>
+> Wenn das Zielfile schon daliegt (d.h. beim zweiten Versuch),
+> fragt er, ob er es ueberschreiben soll und ruft danach mein
+> Script auf.
+
+kann ich leider nur best?tigen und derzeit nicht beheben. Tritt bei mir 
+allerdings nicht immer und bei einem kurzen Test nur bei 
+Sprachnachrichten auf. Reine Spekulation: Java scheint auf die Datei 
+zuzugreifen zu einem Zeitpunkt zu dem sie noch nicht vollst?ndig 
+runtergeladen wurde. Wann ich mir das genauer anschauen und beheben 
+kann weis ich noch nicht.
+
+Gru?
+Ingo
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20081208/6fb1cab0/attachment.pgp>
+

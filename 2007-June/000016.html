@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [FaxGate-users] opensuse102x64 / Capisuite Desaster
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/faxgate-users/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20opensuse102x64%20/%20Capisuite%20Desaster&In-Reply-To=%3C466006C2.5080609%40gmx.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000015.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[FaxGate-users] opensuse102x64 / Capisuite Desaster</H1>
+    <B>Ingo G&#246;ppert</B> 
+    <A HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20opensuse102x64%20/%20Capisuite%20Desaster&In-Reply-To=%3C466006C2.5080609%40gmx.de%3E"
+       TITLE="[FaxGate-users] opensuse102x64 / Capisuite Desaster">ingo.goeppert at gmx.de
+       </A><BR>
+    <I>Fri Jun  1 13:45:06 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000015.html">[FaxGate-users] opensuse102x64 / Capisuite Desaster
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#16">[ date ]</a>
+              <a href="thread.html#16">[ thread ]</a>
+              <a href="subject.html#16">[ subject ]</a>
+              <a href="author.html#16">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Torsten,
+
+On 01.06.2007 09:28, Torsten Kerstan wrote:
+&gt;<i> Hallo Ingo, hallo Liste,
+</I>&gt;<i> 
+</I>&gt;<i> ich habe die von Ingo bereitgestellten Dateien
+</I>&gt;<i> faxgate_opensuse102x64...auf meinem System installiert, dabei bin ich
+</I>&gt;<i> wie folgt vorgegangen:
+</I>&gt;<i> 
+</I>&gt;<i> zun&#228;chst habe ich nur die *.py Dateien entpackt und die anderen alten
+</I>&gt;<i> erhalten, da dieses nichts ver&#228;ndert hat habe ich dann alle Dateien
+</I>&gt;<i> entpackt. 
+</I>&gt;<i> 
+</I>&gt;<i> Der Status vor dieser Aktion war, dass folgendes funktioniet hatte:
+</I>&gt;<i> - Empfang von Faxen f&#252;r die eingerichteten user von capisuite
+</I>&gt;<i> - Versenden von Faxen via capisuitefax von der Komandozeile
+</I>
+aber nicht mit dem derzeitigen RPM. Weil in den Quelltexten Umlaute
+vorhanden sind bricht python mit syntax-error ab.
+
+&gt;<i> 
+</I>&gt;<i> Einziges Problem war eigentlich noch das Versenden von Faxen via CUPS
+</I>&gt;<i> und im weiteren das Ansprechen &#252;ber einen zentralen Faxdrucker per
+</I>&gt;<i> Samba. (Der Job wurde jeweils an CUPS &#252;bergeben und dann aber
+</I>&gt;<i> abgebrochen, weil keine Faxnummer gefunden wurde, obwohl diese im
+</I>&gt;<i> Dokument stand oder auch das Dokument entsprechend benannt war).
+</I>
+Dann h&#228;ttest du zuerst nur die ../backend/faxgate austauschen sollen.
+
+&gt;<i> 
+</I>&gt;<i> Nun liegt das Problem aber wieder bei der Capisuite, die gar keine Faxe
+</I>&gt;<i> mehr durchl&#228;&#223;t, dazu das Protokoll der capisuite.log:
+</I>
+Hats du Fehler in der Konfiguration? Weil:
+
+&gt;<i> 
+</I>&gt;<i> Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: *
+</I>&gt;<i> Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: &lt;CONNECT_IND PLCI 0x101 CIP
+</I>&gt;<i> 0x11
+</I>&gt;<i> Fri Jun  1 08:53:50 2007 Connection 0x8242cf8: Connection object created
+</I>&gt;<i> for incoming call PLCI 101 from **8302127797954 to 24 CIP 0x11
+</I>&gt;<i> Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: **
+</I>&gt;<i> Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: *
+</I>&gt;<i> Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: &lt;INFO_IND: Controller/PLCI
+</I>&gt;<i> 0x101, InfoNumber 1e (ignoring)
+</I>&gt;<i> Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: &gt;INFO_RESP ApplId 0x1, MsgNr
+</I>&gt;<i> 0x64, Address 0x101
+</I>&gt;<i> Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: info: 0
+</I>&gt;<i> Fri Jun  1 08:53:50 2007 Capi 0x81a6a20: **
+</I>&gt;<i> Fri Jun  1 08:53:51 2007
+</I>&gt;<i> Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8270948:
+</I>&gt;<i> PythonScript created.
+</I>&gt;<i> Fri Jun  1 08:53:51 2007
+</I>&gt;<i> Pythonscript /usr/lib/capisuite/incoming.py,callIncoming,0x8270948:
+</I>&gt;<i> Connection 0x8242cf8 created IncomingScript
+</I>&gt;<i> Fri Jun  1 08:53:51 2007 Connection 0x8242cf8: call from **8302127797954
+</I>&gt;<i> to 24 ignoring
+</I>
+hier steht &quot;ignoring&quot;. Schau deine Dateien unter /etc/capisuite nochmal
+genau an.
+
+
+&gt;<i> F&#252;r L&#246;sungshinweise bin ich wie immer sehr dankbar.
+</I>
+Config pr&#252;fen und mit der deiner Telefonanlage abgleichen.
+
+Gru&#223;
+Ingo
+
+-- 
+## Registered Linux User #274727 -- <A HREF="http://counter.li.org/">http://counter.li.org/</A>
+## Windows, Linux und Mac Office-Suite -- <A HREF="http://de.openoffice.org/">http://de.openoffice.org/</A>
+## Die OpenOffice.org PrOOo-Box -- <A HREF="http://prooo-box.org/">http://prooo-box.org/</A>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 187 bytes
+Desc: OpenPGP digital signature
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/faxgate-users/attachments/20070601/44faef77/attachment.pgp">https://lists.berlios.de/pipermail/faxgate-users/attachments/20070601/44faef77/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000015.html">[FaxGate-users] opensuse102x64 / Capisuite Desaster
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#16">[ date ]</a>
+              <a href="thread.html#16">[ thread ]</a>
+              <a href="subject.html#16">[ subject ]</a>
+              <a href="author.html#16">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/faxgate-users">More information about the FaxGate-users
+mailing list</a><br>
+</body></html>

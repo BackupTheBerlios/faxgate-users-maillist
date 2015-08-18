@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/faxgate-users/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Seltsamer%20Javaclient-Anmeldefehler&In-Reply-To=%3C183996.3806.qm%40web28514.mail.ukl.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000039.html">
+   <LINK REL="Next"  HREF="000042.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[FaxGate-users] Seltsamer Javaclient-Anmeldefehler</H1>
+    <B>Ralf Muschall</B> 
+    <A HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Seltsamer%20Javaclient-Anmeldefehler&In-Reply-To=%3C183996.3806.qm%40web28514.mail.ukl.yahoo.com%3E"
+       TITLE="[FaxGate-users] Seltsamer Javaclient-Anmeldefehler">ralf_muschall at yahoo.de
+       </A><BR>
+    <I>Thu Nov 27 12:25:09 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000039.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+        <LI>Next message: <A HREF="000042.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#41">[ date ]</a>
+              <a href="thread.html#41">[ thread ]</a>
+              <a href="subject.html#41">[ subject ]</a>
+              <a href="author.html#41">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo,
+[Umlaute manuell ersetzt - kann sein, dass yahoo die zerbissen
+hat, ist aber jetzt egal.  Wahrscheinlich haben yahoo, der
+Mailinglistenserver und mein Rechner vier verschiedene
+Meinungen &#252;ber Codierung, meine eigenen kommen auch als
+Fragezeich an.]
+
+&gt;<i> schicke bitte noch die Eintraege aus dem Logfenster des
+</I>&gt;<i> Clients.
+</I>
+Ich habe es erstmal als root gestartet und wieder beendet,
+dann als einfacher Nutzer.  Beim Start sagt das Logfenster:
+
+|<i> [27.11.2008 10:38:49] Faxgate Client gestartet...
+</I>|<i> [27.11.2008 10:38:50] Versuche Netzwerkschnittstelle zu aktivieren...
+</I>|<i> [27.11.2008 10:38:50] Benutze Port (50000)
+</I>
+und beim Verbindungsversuch:
+
+|<i> [27.11.2008 10:40:41] SFTP-Verbindungsaufbau zu (localhost) gestartet.
+</I>|<i> [27.11.2008 10:40:41] Der SFTP-Verbindungsaufbau zu (localhost) ist aus unbekanntem Grund fehlgeschlagen.
+</I>|<i> Unter &quot;Datei&quot; - &quot;Optionen&quot; - &quot;Netzwerk&quot; die Einstellung &quot;Faxserver-IP/Hostname&quot;,
+</I>|<i> die Netzwerkeinstellungen ihres Betriebssystems, die physikalische Verbindung zum Server und 
+</I>|<i> die Funktion des Servers &#252;berpr&#252;fen.
+</I>|<i> Dann bitte manuell neuen Verbindungsaufbau starten!
+</I>|<i> StackTrace: java.util.NoSuchElementException
+</I>
+Die Java-Meldungen ins Shellfenster kommen jetzt nicht mehr.
+
+&gt;<i> mit Wireshark o.ae. an. Irgendwohin muss der versuchen ne
+</I>&gt;<i> Verbindung aufzubauen. Zu mir nach Hause sicher nicht ;-)
+</I>
+Das w&#228;re aber einfacher, weil man dann die geetherealten
+Pakete besser sortieren k&#246;nnte.  Ich dort mit NX drauf,
+d.h. jede Taste oder Mausbewegung erzeugt ein paar Hundert
+SSH-Pakete von localhost an localhost, und bis auf ACK
+ist alles verschl&#252;sselt.
+
+Markus schrieb:
+
+&gt;<i> 3. Testen, ob Faxen ueber Capisuite (Konqueror - Drucken -
+</I>&gt;<i> An Fax weiterleiten) funktioniert
+</I>
+&quot;capisuitefax -d nummer testfax.ps&quot; funktioniert und kommt
+an, der Eintrag in /var/log/capisuite.log sieht gesund aus.
+
+Ich habe jetzt den Client mal als root gestartet und den
+Verbindungsknopf gedr&#252;ckt, und er bekam Verbindung (fragte
+dumm rum nach Hostkey-Fingerprint, Name, Passwort, weil ich
+in ~root/.ssh nichts derartiges liegen hatte, aber ging
+und machte dann seine Tabs auf, in denen meine Sendeversuche
+(einschlie&#223;lich des erfolgreichen von der o.g. Kommandozeile)
+erschienen.  Es scheint also doch irgendetwas seltsames
+mit Rechten (zuviel, weil der normale User zwingend ein
+gruppenschreibbares HOME haben muss, oder zuwenig, weil
+irgendetwas nicht will und ich nicht wei&#223; was) zu sein.
+
+&gt;<i> Aendern der Datei /etc/sudoers - Ergaenzungen von
+</I>&gt;<i> www.faxgate.org eintragen:
+</I>
+Bei mir steht da noch eine &#228;ltere, hoffentlich &#228;quivalente
+einzeilige Version:
+
+lp ALL=(root) NOPASSWD: /usr/bin/faxgate.py
+
+capisuitefax ging ohne sudo aufzurufen, braucht also
+offenbar keine Zeile hier.
+
+&gt;<i> sffview von CD nachinstallieren
+</I>
+Wird wohl durch ein Script vertreten, welches sff2pdf
+macht und das ins Patientenarchiv einsortiert (nach
+Sichtkontrolle).  Hier erwarte ich keine Mysterien.
+
+
+Inspiriert durch das Funktionieren als root habe ich
+jetzt folgendes gemacht
+
+useradd -m faxuser
+passwd faxuser
+ssh -X -l faxuser localhost
+java -jar dingens
+
+und es ging, auch die Verbindung.
+
+Ich baue mir jetzt erstmal Scripte, die das per KDE und
+ssh -X -l faxuser localhost &quot;machwas&quot; erschlagen, damit ich
+weiterkomme.  Woran es lag, kann ich dann sp&#228;ter erforschen
+(vielleicht hat FaxgateClient.jar (oder dessen alte Version)
+irgendwelche giftigen Files im ersten User hinterlassen
+oder sonstwas).
+
+Ralf
+
+
+
+      
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000039.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+	<LI>Next message: <A HREF="000042.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#41">[ date ]</a>
+              <a href="thread.html#41">[ thread ]</a>
+              <a href="subject.html#41">[ subject ]</a>
+              <a href="author.html#41">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/faxgate-users">More information about the FaxGate-users
+mailing list</a><br>
+</body></html>

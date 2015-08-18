@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/faxgate-users/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Seltsamer%20Javaclient-Anmeldefehler&In-Reply-To=%3C200811261945.24524.ingo.goeppert%40gmx.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000038.html">
+   <LINK REL="Next"  HREF="000041.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[FaxGate-users] Seltsamer Javaclient-Anmeldefehler</H1>
+    <B>Ingo G&#246;ppert</B> 
+    <A HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Seltsamer%20Javaclient-Anmeldefehler&In-Reply-To=%3C200811261945.24524.ingo.goeppert%40gmx.de%3E"
+       TITLE="[FaxGate-users] Seltsamer Javaclient-Anmeldefehler">ingo.goeppert at gmx.de
+       </A><BR>
+    <I>Wed Nov 26 19:45:20 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000038.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+        <LI>Next message: <A HREF="000041.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#39">[ date ]</a>
+              <a href="thread.html#39">[ thread ]</a>
+              <a href="subject.html#39">[ subject ]</a>
+              <a href="author.html#39">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo,
+
+Am Mittwoch, 26. November 2008 schrieb Ralf Muschall:
+[...]
+&gt;<i>
+</I>&gt;<i> Mein o.g. gilt weiterhin, mit und ohne authorized_keys2
+</I>&gt;<i> kann ich mit den Daemonen sprechen.  Mit &quot;loglevel DEBUG2&quot;
+</I>&gt;<i> im sshd bekomme ich bei &quot;ssh localhost&quot; oder &quot;sftp localhost&quot;
+</I>&gt;<i> massenhaft Meldungen im Log, beim Dr&#252;cken des
+</I>&gt;<i> Verbindungsknopfes im Client dagegen absolut nichts.
+</I>&gt;<i> Leider kann ich den sshd nicht ganz ausmachen und durch
+</I>&gt;<i> &quot;netcat -l -p 22 | xxd&quot; ersetzen, da ich selber nur mit
+</I>&gt;<i> ssh per Fernwartung an den Rechner komme.  Ich habe aber
+</I>&gt;<i> den Eindruck, dass der Client die Verbindung gar nicht
+</I>&gt;<i> richtig versucht.
+</I>&gt;<i>
+</I>&gt;<i> Zum Test habe ich in den Optionen mal &quot;Standardeinstellung&quot;
+</I>&gt;<i> gedr&#252;ckt (damit als Server &quot;faxserver&quot; drinsteht, den es hier
+</I>&gt;<i> nicht gibt), danach ist die Fehlermeldung beim Verbindungsversuch
+</I>&gt;<i> identisch.
+</I>&gt;<i> Der einzige Unterschied ist der, dass dann der Testknopf
+</I>&gt;<i> nicht orange &quot;kein cups&quot;, sondern rot &quot;kein CUPS/SSH&quot;
+</I>&gt;<i> meldet (was IMHO sinnvoll ist), dasselbe passiert auch bei
+</I>&gt;<i> Eintragen einer nichtexistenten IP.  Wenn ich &quot;localhost&quot; als
+</I>&gt;<i> Wort eintrage, bekomme ich gr&#252;nes &quot;OK&quot;, 127.0.0.1 aber gibt
+</I>&gt;<i> weiterhin oranges &quot;kein CUPS&quot;.
+</I>
+dann l&#228;sst CUPS auf diesem Wege halt keine Verbindung zu, was aber hier 
+nicht das Problem ist.
+
+&gt;<i>
+</I>&gt;<i> In messages kommt f&#252;r localhost beim Testknopf:
+</I>&gt;<i> Nov 26 18:26:36 linux sshd[12263]: debug1: rexec start in 4 out 4
+</I>&gt;<i> newsock 4 pipe 6 sock 7 Nov 26 18:26:36 linux sshd[11357]: debug1:
+</I>&gt;<i> Forked child 12263. Nov 26 18:26:36 linux sshd[12263]: debug1: inetd
+</I>&gt;<i> sockets after dupping: 3, 3 Nov 26 18:26:36 linux sshd[12263]:
+</I>&gt;<i> Connection from ::1 port 43704 Nov 26 18:26:36 linux sshd[12263]: Did
+</I>&gt;<i> not receive identification string from ::1
+</I>&gt;<i>
+</I>&gt;<i> und dasselbe (mit der IP statt ::1) mit eingegebener IP.
+</I>
+Komisch, bei mir (openSUSE 10.3 (X86-64)) kommt immer die IP.
+
+&gt;<i>
+</I>&gt;<i> Ich h&#228;nge mal die Log-Zeilen an, die sshd mit DEBUG2 bei
+</I>&gt;<i> &quot;sftp localhost&quot; erzeugt (ssh-key-Fingerprint (2*, identisch)
+</I>&gt;<i> hier sicherheitshalber durch xx: ersetzt).  Aufbau war
+</I>&gt;<i> 18:00:05, Abbau 18:00:07 (ctrl-d am &quot;sftp&gt;&quot;-Prompt).
+</I>&gt;<i>
+</I>&gt;<i> &quot;sftp 192.168.10.10&quot; und &quot;sftp 127.0.0.1&quot; gehen auch
+</I>&gt;<i> (nur um die Vermutung auszuschlie&#223;en, dass der sshd nur IP6
+</I>&gt;<i> mag und localhost als einziger zu ::1 erkannt wird).
+</I>
+Und wenn du es mit dem Faxgate-Client probierst passiert wird nix 
+geloggt? Dann kommt der Client nicht bis zum sshd. Schau dir das mal 
+mit Wireshark o.&#228;. an. Irgendwohin muss der versuchen ne Verbindung 
+aufzubauen. Zu mir nach Hause sicher nicht ;-)
+
+&gt;<i>
+</I>&gt;<i> PS: Die Shell, in der der Client gestartet wurde, bekommt
+</I>&gt;<i> massenhaft Java-Meldungen der folgenden Art.  Hat das etwas
+</I>&gt;<i> zu bedeuten?
+</I>
+Das du den Client noch nie als root gestartet hast um die default 
+settings zu speichern. Hintergund: Nachdem ein Java-Programm einmalig 
+versucht hat auf die systemweiten Einstellungen zuzugreifen probiert 
+Java im Hintergrund st&#228;ndig weiter die nicht gefundenen Einstellungen 
+neu anzulegen.
+
+&gt;<i>
+</I>&gt;<i> PPS: In /var/log/capisuite.* erschien seit 40 Minuten nichts
+</I>&gt;<i> (trotz diverser Versuche im Client), ich wei&#223; nicht, ob das
+</I>&gt;<i> etwas aussagt.
+</I>
+Von sich aus kann der Client keine Verbindung zu Capisuite aufbauen, da 
+wird sich nix tun solange du keine Anrufe kriegst oder Faxe 
+verschickst.
+
+&gt;<i>
+</I>&gt;<i> Unmittelbar nach dem Start des Client kommt zwischen derartigen
+</I>&gt;<i> Meldungen noch
+</I>&gt;<i>
+</I>&gt;<i> &quot;Kein Schreibzugriff auf die systemweiten Einstellungen!
+</I>&gt;<i> &quot;
+</I>
+Siehe oben.
+
+&gt;<i>
+</I>&gt;<i> Ralf
+</I>&gt;<i>
+</I>&gt;<i> %%%%%%%%%%%%%%%%% Anfang ssh-Log %%%%%%%%%%%%%%%%%%%%%%%%%%
+</I>
+H&#228;tte halt gern gesehen was der FaxgateClient macht.
+
+&gt;<i> %%%%%%%%%%%%%%%%% Anfang ssh-Log %%%%%%%%%%%%%%%%%%%%%%%%%%
+</I>
+Gru&#223;
+Ingo
+
+-- 
+## Registered Linux User #274727 -- <A HREF="http://counter.li.org/">http://counter.li.org/</A>
+## Windows, Linux und Mac Office-Suite -- <A HREF="http://de.openoffice.org/">http://de.openoffice.org/</A>
+## Die OpenOffice.org PrOOo-Box -- <A HREF="http://prooo-box.org/">http://prooo-box.org/</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/faxgate-users/attachments/20081126/55153b94/attachment.pgp">https://lists.berlios.de/pipermail/faxgate-users/attachments/20081126/55153b94/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000038.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+	<LI>Next message: <A HREF="000041.html">[FaxGate-users] Seltsamer Javaclient-Anmeldefehler
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#39">[ date ]</a>
+              <a href="thread.html#39">[ thread ]</a>
+              <a href="subject.html#39">[ subject ]</a>
+              <a href="author.html#39">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/faxgate-users">More information about the FaxGate-users
+mailing list</a><br>
+</body></html>

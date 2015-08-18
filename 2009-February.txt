@@ -1,0 +1,544 @@
+From frisch at vr-web.de  Sun Feb 22 21:57:08 2009
+From: frisch at vr-web.de (Markus Frisch)
+Date: Sun, 22 Feb 2009 21:57:08 +0100
+Subject: [FaxGate-users] Keine Nummernabfrage
+Message-ID: <49A1BC24.6070104@vr-web.de>
+
+Hallo Ingo,
+
+nach einer Neuinstallation meines Opensuse 11.0 erhalte ich keine
+Nummernabfrage von dem Faxgate-Client mehr, entsprechend wird auch nix
+mehr versandt.
+
+Faxe versenden mittels "An Fax weiterleiten" funktioniert mit deiner
+capisuite-cvs-66.1 einwandfrei.
+Benutze ich jedoch den Faxgate-Drucker r?hrt sich nichts mehr - ich
+erhalte recht schnell (wenige Sekunden sp?ter) in K-Mail eine Mail, dass
+auf Grund einer fehlenden Faxnummer hier nichts versendet wurde.
+
+Die ?nderungen in /etc/ssh/sshd.conf und in /etc/sudoers sind eingebaut.
+
+In den Log-Dateien von Capisuite (capisuite.log und capisuite.error)
+erscheint von meinen Versuchen keinerlei Eintrag, obwohl die Log-Level
+am Anschlag sind.
+
+Eine Fax.log in /var/log/cups/  wird auch nicht erstellt.
+
+in /var/log/messages erhalte ich folgende Fehlermeldung:
+
+Feb 22 16:30:24 linux sudo:       lp : TTY=unknown ; PWD=/ ; USER=root ;
+COMMAND=/usr/bin/faxgate.py -u thomas
+Feb 22 16:30:25 linux sudo:       lp : TTY=unknown ; PWD=/ ; USER=root ;
+COMMAND=/usr/bin/faxgate.py --user=thomas --ip=::ffff:192.168.1.14
+--port=50000 --command=Question: faxnumber
+Feb 22 16:30:25 linux sudo:       lp : TTY=unknown ; PWD=/ ; USER=root ;
+COMMAND=/usr/bin/faxgate.py --user=thomas --ip=::ffff:192.168.1.14
+--port=50000 --command=Warn_snd: Faxgate Fehler: Keine Faxnummer in
+Auftrag 21 gefunden!
+
+
+Beim Aufruf des Faxgate-Clients ?ber die Konsole kommt folgende Meldung
+ca alle 30 Sekunden:
+
+WARNUNG: Could not lock System prefs.Unix error code -1870848508.
+22.02.2009 16:48:58 java.util.prefs.FileSystemPreferences syncWorld
+WARNUNG: Couldn't flush system prefs:
+java.util.prefs.BackingStoreException: Couldn't get file lock.
+22.02.2009 16:49:28 java.util.prefs.FileSystemPreferences
+checkLockFile0ErrorCode
+
+
+Installiert sind folgende Versionen:
+
+Opensuse 11.0
+capisuite 0.5 cvs-66.1
+FaxGate-Client 0112
+cups 1.3.7-25
+java 1.5.0 und 1.6.0
+
+Ich habe jetzt keinen Schimmer mehr, was ich noch testen k?nnte, um
+einen Hinweis auf mein Problem zu bekommen. Vielleicht f?llt ja Dir noch
+was ein :-)
+
+Gru?
+Markus
+
+
+From ingo.goeppert at gmx.de  Mon Feb 23 09:50:42 2009
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-15?q?G=F6ppert?=)
+Date: Mon, 23 Feb 2009 09:50:42 +0100
+Subject: [FaxGate-users] Keine Nummernabfrage
+In-Reply-To: <49A1BC24.6070104@vr-web.de>
+References: <49A1BC24.6070104@vr-web.de>
+Message-ID: <200902230950.42986.ingo.goeppert@gmx.de>
+
+Hallo Markus,
+
+Am Sonntag, 22. Februar 2009 schrieb Markus Frisch:
+> Hallo Ingo,
+>
+> nach einer Neuinstallation meines Opensuse 11.0 erhalte ich keine
+> Nummernabfrage von dem Faxgate-Client mehr, entsprechend wird auch
+> nix mehr versandt.
+>
+> Faxe versenden mittels "An Fax weiterleiten" funktioniert mit deiner
+> capisuite-cvs-66.1 einwandfrei.
+> Benutze ich jedoch den Faxgate-Drucker r?hrt sich nichts mehr - ich
+> erhalte recht schnell (wenige Sekunden sp?ter) in K-Mail eine Mail,
+> dass auf Grund einer fehlenden Faxnummer hier nichts versendet wurde.
+>
+> Die ?nderungen in /etc/ssh/sshd.conf und in /etc/sudoers sind
+> eingebaut.
+>
+> In den Log-Dateien von Capisuite (capisuite.log und capisuite.error)
+> erscheint von meinen Versuchen keinerlei Eintrag, obwohl die
+> Log-Level am Anschlag sind.
+>
+> Eine Fax.log in /var/log/cups/  wird auch nicht erstellt.
+>
+> in /var/log/messages erhalte ich folgende Fehlermeldung:
+>
+> Feb 22 16:30:24 linux sudo:       lp : TTY=unknown ; PWD=/ ;
+> USER=root ; COMMAND=/usr/bin/faxgate.py -u thomas
+> Feb 22 16:30:25 linux sudo:       lp : TTY=unknown ; PWD=/ ;
+> USER=root ; COMMAND=/usr/bin/faxgate.py --user=thomas
+> --ip=::ffff:192.168.1.14 --port=50000 --command=Question: faxnumber
+> Feb 22 16:30:25 linux sudo:       lp : TTY=unknown ; PWD=/ ;
+> USER=root ; COMMAND=/usr/bin/faxgate.py --user=thomas
+> --ip=::ffff:192.168.1.14 --port=50000 --command=Warn_snd: Faxgate
+> Fehler: Keine Faxnummer in Auftrag 21 gefunden!
+
+die IP scheint mir etwas seltsam:
+-ip=::ffff:192.168.1.14
+
+Hast du IPv6 laufen? Ich weis nicht ob faxgate damit funktioniert. Was 
+kommt den im Logfenster des Clients an?
+
+>
+>
+> Beim Aufruf des Faxgate-Clients ?ber die Konsole kommt folgende
+> Meldung ca alle 30 Sekunden:
+>
+> WARNUNG: Could not lock System prefs.Unix error code -1870848508.
+> 22.02.2009 16:48:58 java.util.prefs.FileSystemPreferences syncWorld
+> WARNUNG: Couldn't flush system prefs:
+> java.util.prefs.BackingStoreException: Couldn't get file lock.
+> 22.02.2009 16:49:28 java.util.prefs.FileSystemPreferences
+> checkLockFile0ErrorCode
+
+Ist Ok solange du keine systemweiten Einstellungen als root angelegt 
+hast.
+
+Gru?
+Ingo
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20090223/2d8b2d25/attachment.pgp>
+
+From frisch at vr-web.de  Mon Feb 23 19:54:40 2009
+From: frisch at vr-web.de (Markus Frisch)
+Date: Mon, 23 Feb 2009 19:54:40 +0100
+Subject: [FaxGate-users] Keine Nummernabfrage
+In-Reply-To: <200902230950.42986.ingo.goeppert@gmx.de>
+References: <49A1BC24.6070104@vr-web.de>
+	<200902230950.42986.ingo.goeppert@gmx.de>
+Message-ID: <49A2F0F0.1040901@vr-web.de>
+
+Hallo Ingo,
+
+Ingo G?ppert schrieb:
+>> Feb 22 16:30:24 linux sudo:       lp : TTY=unknown ; PWD=/ ;
+>> USER=root ; COMMAND=/usr/bin/faxgate.py -u thomas
+>> Feb 22 16:30:25 linux sudo:       lp : TTY=unknown ; PWD=/ ;
+>> USER=root ; COMMAND=/usr/bin/faxgate.py --user=thomas
+>> --ip=::ffff:192.168.1.14 --port=50000 --command=Question: faxnumber
+>> Feb 22 16:30:25 linux sudo:       lp : TTY=unknown ; PWD=/ ;
+>> USER=root ; COMMAND=/usr/bin/faxgate.py --user=thomas
+>> --ip=::ffff:192.168.1.14 --port=50000 --command=Warn_snd: Faxgate
+>> Fehler: Keine Faxnummer in Auftrag 21 gefunden!
+>>     
+>
+> die IP scheint mir etwas seltsam:
+> -ip=::ffff:192.168.1.14
+>   
+stimmt - ich habe da anscheinend den Protokoll-Teil eines Versuchs ?ber
+einen Windows-Client erwischt - ein localer Versuch auf der Kiste sieht
+in der /var/log/messages so aus:
+
+Feb 23 19:02:13 linux su: (to root) thomas on /dev/pts/2
+Feb 23 19:02:13 linux su: (to root) thomas on /dev/pts/2
+Feb 23 19:02:45 linux sudo:       lp : TTY=unknown ; PWD=/ ; USER=root ;
+COMMAND=/usr/bin/faxgate.py -u thomas
+Feb 23 19:02:46 linux sudo:       lp : TTY=unknown ; PWD=/ ; USER=root ;
+COMMAND=/usr/bin/faxgate.py --user=thomas --ip=localhost --port=50000
+--command=Question: faxnumber
+Feb 23 19:02:47 linux sudo:       lp : TTY=unknown ; PWD=/ ; USER=root ;
+COMMAND=/usr/bin/faxgate.py --user=thomas --ip=localhost --port=50000
+--command=Warn_snd: Faxgate Fehler: Keine Faxnummer in Auftrag 24 gefunden!
+
+> Hast du IPv6 laufen? Ich weis nicht ob faxgate damit funktioniert.
+In den Netzwerkeinstellungen ist unter "IPv6-Protokoll-Einstellungen ein
+H?kchen vor
+"IPv6 aktivieren" gesetzt.
+Ich habe das jetzt mal deaktiviert und den Rechner neu gestartet -> das
+Ergebnis ist das Gleiche :'( ,
+also hab ich das jetzt wieder angeschaltet.
+>  Was 
+> kommt den im Logfenster des Clients an?
+>   
+Nach dem Start des Clients steht im Log-Fenster:
+-Faxgate Client gestartet...
+-Versuche Netzwerkschnittstelle zu aktivieren...
+-Benutze Port (50000)
+
+Beim Versuch, ein Fax ?ber den Faxgate-Drucker zu versenden, ?ndert sich
+im Client-Log absolut nichts - der bekommt das gar nicht mit.
+
+Ich habe jetzt noch Eintr?ge in der Datei /var/log/cups/error.log
+gefunden, die sehen so aus:
+
+I [23/Feb/2009:19:02:45 +0100] [Job 24] Adding start banner page "none".
+I [23/Feb/2009:19:02:45 +0100] [Job 24] Adding job file of type
+application/postscript.
+I [23/Feb/2009:19:02:45 +0100] [Job 24] Adding end banner page "none".
+I [23/Feb/2009:19:02:45 +0100] [Job 24] Queued on "Faxgate" by "thomas".
+I [23/Feb/2009:19:02:45 +0100] [Job 24] Started filter
+/usr/lib/cups/filter/pstops (PID 25375)
+I [23/Feb/2009:19:02:45 +0100] [Job 24] Started backend
+/usr/lib/cups/backend/faxgate (PID 25376)
+E [23/Feb/2009:19:02:46 +0100] [Job 24] Keine Faxnummer gefunden,
+Auftrag 24 abgebrochen!
+I [23/Feb/2009:19:02:47 +0100] [Job 24] Completed successfully.
+
+Zus?tzlich gibts da eine Datei mit Namen
+/var/spool/cups/tmp/faxgate.log, die h?nge ich mal als Anhang an die
+Mail (weiss gar nicht, wie ne log-Datei ins spool-Verzeichnis kommt??).
+
+Gru?
+Markus
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: faxgate.log
+Type: text/x-log
+Size: 1444 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20090223/c087bea7/attachment.bin>
+
+From ingo.goeppert at gmx.de  Tue Feb 24 09:28:40 2009
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-15?q?G=F6ppert?=)
+Date: Tue, 24 Feb 2009 09:28:40 +0100
+Subject: [FaxGate-users] Keine Nummernabfrage
+In-Reply-To: <49A2F0F0.1040901@vr-web.de>
+References: <49A1BC24.6070104@vr-web.de>
+	<200902230950.42986.ingo.goeppert@gmx.de>
+	<49A2F0F0.1040901@vr-web.de>
+Message-ID: <200902240928.44660.ingo.goeppert@gmx.de>
+
+Hallo Markus,
+
+Am Montag, 23. Februar 2009 schrieb Markus Frisch:
+[...]
+
+Das:
+
+> USER=root ; COMMAND=/usr/bin/faxgate.py -u thomas
+> Feb 23 19:02:46 linux sudo:       lp : TTY=unknown ; PWD=/ ;
+> USER=root ; COMMAND=/usr/bin/faxgate.py --user=thomas --ip=localhost
+> --port=50000 --command=Question: faxnumber
+
+sollte dazu f?hren dass das Abfragefenster angezeigt wird.
+
+[...]
+>
+> >  Was
+> > kommt den im Logfenster des Clients an?
+>
+> Nach dem Start des Clients steht im Log-Fenster:
+> -Faxgate Client gestartet...
+> -Versuche Netzwerkschnittstelle zu aktivieren...
+> -Benutze Port (50000)
+>
+> Beim Versuch, ein Fax ?ber den Faxgate-Drucker zu versenden, ?ndert
+> sich im Client-Log absolut nichts - der bekommt das gar nicht mit.
+
+Warum? Das faxgate.py macht nix anderes als wenn du z.B.
+telnet localhost 50000
+und dann
+Question: faxnumber
+eingibst.
+
+Geht das? Du musst zumindest mal im Logfenster des Clients was sehen.
+
+>
+> Ich habe jetzt noch Eintr?ge in der Datei /var/log/cups/error.log
+> gefunden, die sehen so aus:
+>
+> I [23/Feb/2009:19:02:45 +0100] [Job 24] Adding start banner page
+> "none". I [23/Feb/2009:19:02:45 +0100] [Job 24] Adding job file of
+> type application/postscript.
+> I [23/Feb/2009:19:02:45 +0100] [Job 24] Adding end banner page
+> "none". I [23/Feb/2009:19:02:45 +0100] [Job 24] Queued on "Faxgate"
+> by "thomas". I [23/Feb/2009:19:02:45 +0100] [Job 24] Started filter
+> /usr/lib/cups/filter/pstops (PID 25375)
+> I [23/Feb/2009:19:02:45 +0100] [Job 24] Started backend
+> /usr/lib/cups/backend/faxgate (PID 25376)
+> E [23/Feb/2009:19:02:46 +0100] [Job 24] Keine Faxnummer gefunden,
+> Auftrag 24 abgebrochen!
+> I [23/Feb/2009:19:02:47 +0100] [Job 24] Completed successfully.
+
+Ist soweit in Ordnung, wenn du den Loglevel f?r cups hochsetzt 
+erscheinen auch die Fehlermeldungen, welche erzeugt werden wenn das 
+faxgate.py Script den Host nicht erreichen kann.
+
+>
+> Zus?tzlich gibts da eine Datei mit Namen
+> /var/spool/cups/tmp/faxgate.log, die h?nge ich mal als Anhang an die
+> Mail (weiss gar nicht, wie ne log-Datei ins spool-Verzeichnis
+> kommt??).
+
+Du hast das in der faxgate.conf mit DEBUG=1 oder DEBUG=2 aktiviert.
+
+Gru?
+Ingo
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20090224/a1939ee6/attachment.pgp>
+
+From frisch at vr-web.de  Tue Feb 24 20:07:42 2009
+From: frisch at vr-web.de (Markus Frisch)
+Date: Tue, 24 Feb 2009 20:07:42 +0100
+Subject: [FaxGate-users] Keine Nummernabfrage
+In-Reply-To: <200902240928.44660.ingo.goeppert@gmx.de>
+References: <49A1BC24.6070104@vr-web.de>	<200902230950.42986.ingo.goeppert@gmx.de>	<49A2F0F0.1040901@vr-web.de>
+	<200902240928.44660.ingo.goeppert@gmx.de>
+Message-ID: <49A4457E.4090207@vr-web.de>
+
+Hallo Ingo,
+
+Ingo G?ppert schrieb:
+>> Beim Versuch, ein Fax ?ber den Faxgate-Drucker zu versenden, ?ndert
+>> sich im Client-Log absolut nichts - der bekommt das gar nicht mit.
+>>     
+>
+> Warum? Das faxgate.py macht nix anderes als wenn du z.B.
+> telnet localhost 50000
+> und dann
+> Question: faxnumber
+> eingibst.
+>
+> Geht das? Du musst zumindest mal im Logfenster des Clients was sehen.
+>   
+
+Ja, das funktioniert :-) . Und es r?hrt sich auch was im Log-Fenster:
+
+- Verbindung (0) angenommen
+- Faxserver: Question: faxnumber
+- FaxgateClient: 5214725
+- Verbindung (0) erfolgreich getrennt.
+
+Das Fax-Nummernfenster erschien und ich habe mal meine Faxnummer darin
+eingegeben.
+> Ist soweit in Ordnung, wenn du den Loglevel f?r cups hochsetzt 
+> erscheinen auch die Fehlermeldungen, welche erzeugt werden wenn das 
+> faxgate.py Script den Host nicht erreichen kann.
+>   
+Sollte ich den Cups-Loglevel hochsetzen? Bringt mich das weiter?
+
+Gru?
+Markus
+
+
+
+
+From ingo.goeppert at gmx.de  Wed Feb 25 10:20:16 2009
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-15?q?G=F6ppert?=)
+Date: Wed, 25 Feb 2009 10:20:16 +0100
+Subject: [FaxGate-users] Keine Nummernabfrage
+In-Reply-To: <49A4457E.4090207@vr-web.de>
+References: <49A1BC24.6070104@vr-web.de>
+	<200902240928.44660.ingo.goeppert@gmx.de>
+	<49A4457E.4090207@vr-web.de>
+Message-ID: <200902251020.16213.ingo.goeppert@gmx.de>
+
+Am Dienstag, 24. Februar 2009 schrieb Markus Frisch:
+> Hallo Ingo,
+>
+> Ingo G?ppert schrieb:
+> >> Beim Versuch, ein Fax ?ber den Faxgate-Drucker zu versenden,
+> >> ?ndert sich im Client-Log absolut nichts - der bekommt das gar
+> >> nicht mit.
+> >
+> > Warum? Das faxgate.py macht nix anderes als wenn du z.B.
+> > telnet localhost 50000
+> > und dann
+> > Question: faxnumber
+> > eingibst.
+> >
+> > Geht das? Du musst zumindest mal im Logfenster des Clients was
+> > sehen.
+>
+> Ja, das funktioniert :-) . Und es r?hrt sich auch was im Log-Fenster:
+>
+> - Verbindung (0) angenommen
+> - Faxserver: Question: faxnumber
+> - FaxgateClient: 5214725
+> - Verbindung (0) erfolgreich getrennt.
+>
+> Das Fax-Nummernfenster erschien und ich habe mal meine Faxnummer
+> darin eingegeben.
+>
+> > Ist soweit in Ordnung, wenn du den Loglevel f?r cups hochsetzt
+> > erscheinen auch die Fehlermeldungen, welche erzeugt werden wenn das
+> > faxgate.py Script den Host nicht erreichen kann.
+>
+> Sollte ich den Cups-Loglevel hochsetzen? Bringt mich das weiter?
+
+wenn das (alles in einer Zeile):
+/usr/bin/faxgate.py --user=thomas --ip=localhost --port=50000 --command=Question: 
+faxnumber
+
+dich nicht weiter bringt.
+
+Gru?
+Ingo
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20090225/e7bbd87b/attachment.pgp>
+
+From frisch at vr-web.de  Wed Feb 25 20:07:40 2009
+From: frisch at vr-web.de (Markus Frisch)
+Date: Wed, 25 Feb 2009 20:07:40 +0100
+Subject: [FaxGate-users] Keine Nummernabfrage
+In-Reply-To: <200902251020.16213.ingo.goeppert@gmx.de>
+References: <49A1BC24.6070104@vr-web.de>	<200902240928.44660.ingo.goeppert@gmx.de>	<49A4457E.4090207@vr-web.de>
+	<200902251020.16213.ingo.goeppert@gmx.de>
+Message-ID: <49A596FC.6060105@vr-web.de>
+
+Hallo Ingo,
+
+
+Ingo G?ppert schrieb:
+>> Sollte ich den Cups-Loglevel hochsetzen? Bringt mich das weiter?
+>>     
+>
+> wenn das (alles in einer Zeile):
+> /usr/bin/faxgate.py --user=thomas --ip=localhost --port=50000 --command=Question: 
+> faxnumber
+>
+> dich nicht weiter bringt.
+>   
+
+Das Ergebnis ist folgendes:
+- in einer User-Konsole:
+   DEBUG: faxgate.py:  --user may only used as root!
+
+- in einer root-Konsole:
+   DEBUG: faxgate.py:  User thomas nicht f?r Faxgate Client Verbindungen
+konfiguriert.
+
+Jetzt habe ich aber keinen Schimmer, wo denn ein User f?r diese
+Verbindungen konfiguriert werden kann :'(
+In der capisuite.conf ist auf jeden Fall alles f?r den user "thomas"
+eingestellt - ?ber die capisuite mittels "An Fax weiterleiten" kann ja
+auch gefaxt werden!
+
+Gru?
+Markus
+
+
+
+From ingo.goeppert at gmx.de  Wed Feb 25 21:00:58 2009
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-15?q?G=F6ppert?=)
+Date: Wed, 25 Feb 2009 21:00:58 +0100
+Subject: [FaxGate-users] Keine Nummernabfrage
+In-Reply-To: <49A596FC.6060105@vr-web.de>
+References: <49A1BC24.6070104@vr-web.de>
+	<200902251020.16213.ingo.goeppert@gmx.de>
+	<49A596FC.6060105@vr-web.de>
+Message-ID: <200902252101.01923.ingo.goeppert@gmx.de>
+
+Am Mittwoch, 25. Februar 2009 schrieb Markus Frisch:
+> Hallo Ingo,
+>
+> Ingo G?ppert schrieb:
+> >> Sollte ich den Cups-Loglevel hochsetzen? Bringt mich das weiter?
+> >
+> > wenn das (alles in einer Zeile):
+> > /usr/bin/faxgate.py --user=thomas --ip=localhost --port=50000
+> > --command=Question: faxnumber
+> >
+> > dich nicht weiter bringt.
+>
+> Das Ergebnis ist folgendes:
+> - in einer User-Konsole:
+>    DEBUG: faxgate.py:  --user may only used as root!
+>
+> - in einer root-Konsole:
+>    DEBUG: faxgate.py:  User thomas nicht f?r Faxgate Client
+> Verbindungen konfiguriert.
+>
+> Jetzt habe ich aber keinen Schimmer, wo denn ein User f?r diese
+> Verbindungen konfiguriert werden kann :'(
+
+normal global in der fax.conf mit:
+# Added by Ingo Goeppert for FaxgateClient (yes/no)
+# Global Setting if Client should get Messages about fax or not
+# leave empty or set to no if you don't wan't this messages
+# You have to set an client_ip per user in answering_machine.conf
+# or fax.conf, more info see section "client_ip" below at "user
+# settings"
+fax_client_messages="yes"
+
+> In der capisuite.conf ist auf jeden Fall alles f?r den user "thomas"
+> eingestellt - ?ber die capisuite mittels "An Fax weiterleiten" kann
+> ja auch gefaxt werden!
+
+in der capisuite.conf wird nix f?r thomas konfiguriert. Wenn dann in der 
+fax.conf und answering_machine.conf.
+
+Du kannst mir auch mal deine Konfiguration direkt an meine Mailadresse 
+schicken.
+
+Gru?
+Ingo
+
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20090225/266c2185/attachment.pgp>
+

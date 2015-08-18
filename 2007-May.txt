@@ -1,0 +1,136 @@
+From tkbah at gmx.net  Wed May  9 09:22:49 2007
+From: tkbah at gmx.net (Tony Kurz)
+Date: Wed, 9 May 2007 09:22:49 +0200
+Subject: [FaxGate-users] CapiSuite 0.5 cvs Suse 10.2
+Message-ID: <200705090922.49657.tkbah@gmx.net>
+
+Ich versuche schon seit ein paar tagen capisuite ?ber denn Faxgate Client zum 
+laufen zu Bringen. Wenn ich die 0.45 Original Installiere und die Patche geht 
+Faxgate nicht. Wenn ich die 0-5cvs-7.11 installiere geht Faxgate aber ich 
+kann keine faxe mehr empfangen... kommt ein Besetzzeichen... woran liegt 
+das?? 
+
+
+From ingo.goeppert at gmx.de  Sun May 13 15:29:42 2007
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-1?q?G=F6ppert?=)
+Date: Sun, 13 May 2007 15:29:42 +0200
+Subject: [FaxGate-users] CapiSuite 0.5 cvs Suse 10.2
+In-Reply-To: <200705090922.49657.tkbah@gmx.net>
+References: <200705090922.49657.tkbah@gmx.net>
+Message-ID: <200705131529.45894.ingo.goeppert@gmx.de>
+
+Hallo Tony,
+
+Am Mittwoch, 9. Mai 2007 09:22 schrieb Tony Kurz:
+> Ich versuche schon seit ein paar tagen capisuite ?ber denn Faxgate
+> Client zum laufen zu Bringen. Wenn ich die 0.45 Original Installiere
+> und die Patche geht Faxgate nicht. Wenn ich die 0-5cvs-7.11
+> installiere geht Faxgate aber ich kann keine faxe mehr empfangen...
+> kommt ein Besetzzeichen... woran liegt das??
+
+kann ich ohne Logfile nichts dazu sagen.
+
+Es gibt aber einen neuen Build 26. ?nderungen waren aber haups?chlich 
+f?r die x86_64.
+
+Bitte ein capisuite.log/capisuite.error mit capisuite 0.45 und einmal 
+mit 0.5.cvs-26 erzeugen. 
+
+Von wo wird gefaxt? An dich selbst mit capisuite oder von einem analagen 
+Ger?t oder...
+Geht das Versenden an andere Gegenstellen?
+
+Gru?
+Ingo
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20070513/fc47d44f/attachment.pgp>
+
+From tkbah at gmx.net  Tue May 15 10:43:49 2007
+From: tkbah at gmx.net (Tony Kurz)
+Date: Tue, 15 May 2007 10:43:49 +0200
+Subject: [FaxGate-users] CapiSuite 0.5 cvs Suse 10.2
+Message-ID: <200705151043.49583.tkbah@gmx.net>
+
+ !!
+? ? Tue May 15 10:19:57 2007 Connection 0x8250468: WARNING: error during 
+string 
+? ? conversion (iconv): Invalid or incomplete multibyte or wide character
+? ? !!
+? ? > Mailing list subscription confirmation notice for mailing list
+? ? > FaxGate-users
+
+Es ist ein Suse10.2 32Bit Rechner mit ner AVM PCI Karte.. wenn ich die nummer 
+anrufe kommt ein Besetzt Zeichen.., was ich nicht verstehe
+
+weil es vorgestern mit der Version noch ging und ich habe nichts ge?ndert.
+
+Senden kann ich.. nur empfangen nicht *heul*
+
+
+From ingo.goeppert at gmx.de  Tue May 15 19:54:28 2007
+From: ingo.goeppert at gmx.de (Ingo =?iso-8859-1?q?G=F6ppert?=)
+Date: Tue, 15 May 2007 19:54:28 +0200
+Subject: [FaxGate-users] CapiSuite 0.5 cvs Suse 10.2
+In-Reply-To: <200705151043.49583.tkbah@gmx.net>
+References: <200705151043.49583.tkbah@gmx.net>
+Message-ID: <200705151954.32443.ingo.goeppert@gmx.de>
+
+Hallo Tony,
+
+Am Dienstag, 15. Mai 2007 10:43 schrieb Tony Kurz:
+>  !!
+> ? ? Tue May 15 10:19:57 2007 Connection 0x8250468: WARNING: error
+> during string
+> ? ? conversion (iconv): Invalid or incomplete multibyte or wide
+> character !!
+
+das ist unkritisch. tritt auf wenn im Faxheader Umlaute oder 
+Sonderzeichen sind.
+
+> ? ? > Mailing list subscription confirmation notice for mailing list
+> ? ? > FaxGate-users
+>
+> Es ist ein Suse10.2 32Bit Rechner mit ner AVM PCI Karte.. wenn ich
+> die nummer anrufe kommt ein Besetzt Zeichen.., was ich nicht verstehe
+>
+> weil es vorgestern mit der Version noch ging und ich habe nichts
+> ge?ndert.
+
+Vergleiche einfach die capisuite.error, capisuite.log, messages und die 
+isdn.log vom Zeitpunkt an dem es funktionierte und vom Zeitpunkt an dem 
+das Besetztzeichen kam oder schick sie mir als Dateianhang (tar.gz) mit 
+Angabe der genauen Zeitpunkte.
+
+Gru?
+Ingo
+
+>
+> Senden kann ich.. nur empfangen nicht *heul*
+
+Dann kanns ja nicht so viel sein...
+
+Gru?
+Ingo
+
+-- 
+## Registered Linux User #274727 -- http://counter.li.org/
+## Windows, Linux und Mac Office-Suite -- http://de.openoffice.org/
+## Die OpenOffice.org PrOOo-Box -- http://prooo-box.org/
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/faxgate-users/attachments/20070515/60b9797c/attachment.pgp>
+

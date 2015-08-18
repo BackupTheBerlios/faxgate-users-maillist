@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [FaxGate-users] Keine Nummernabfrage
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/faxgate-users/2009-February/index.html" >
+   <LINK REL="made" HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Keine%20Nummernabfrage&In-Reply-To=%3C200902240928.44660.ingo.goeppert%40gmx.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000047.html">
+   <LINK REL="Next"  HREF="000049.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[FaxGate-users] Keine Nummernabfrage</H1>
+    <B>Ingo G&#246;ppert</B> 
+    <A HREF="mailto:faxgate-users%40lists.berlios.de?Subject=Re%3A%20%5BFaxGate-users%5D%20Keine%20Nummernabfrage&In-Reply-To=%3C200902240928.44660.ingo.goeppert%40gmx.de%3E"
+       TITLE="[FaxGate-users] Keine Nummernabfrage">ingo.goeppert at gmx.de
+       </A><BR>
+    <I>Tue Feb 24 09:28:40 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000047.html">[FaxGate-users] Keine Nummernabfrage
+</A></li>
+        <LI>Next message: <A HREF="000049.html">[FaxGate-users] Keine Nummernabfrage
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#48">[ date ]</a>
+              <a href="thread.html#48">[ thread ]</a>
+              <a href="subject.html#48">[ subject ]</a>
+              <a href="author.html#48">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Markus,
+
+Am Montag, 23. Februar 2009 schrieb Markus Frisch:
+[...]
+
+Das:
+
+&gt;<i> USER=root ; COMMAND=/usr/bin/faxgate.py -u thomas
+</I>&gt;<i> Feb 23 19:02:46 linux sudo:       lp : TTY=unknown ; PWD=/ ;
+</I>&gt;<i> USER=root ; COMMAND=/usr/bin/faxgate.py --user=thomas --ip=localhost
+</I>&gt;<i> --port=50000 --command=Question: faxnumber
+</I>
+sollte dazu f&#252;hren dass das Abfragefenster angezeigt wird.
+
+[...]
+&gt;<i>
+</I>&gt;<i> &gt;  Was
+</I>&gt;<i> &gt; kommt den im Logfenster des Clients an?
+</I>&gt;<i>
+</I>&gt;<i> Nach dem Start des Clients steht im Log-Fenster:
+</I>&gt;<i> -Faxgate Client gestartet...
+</I>&gt;<i> -Versuche Netzwerkschnittstelle zu aktivieren...
+</I>&gt;<i> -Benutze Port (50000)
+</I>&gt;<i>
+</I>&gt;<i> Beim Versuch, ein Fax &#252;ber den Faxgate-Drucker zu versenden, &#228;ndert
+</I>&gt;<i> sich im Client-Log absolut nichts - der bekommt das gar nicht mit.
+</I>
+Warum? Das faxgate.py macht nix anderes als wenn du z.B.
+telnet localhost 50000
+und dann
+Question: faxnumber
+eingibst.
+
+Geht das? Du musst zumindest mal im Logfenster des Clients was sehen.
+
+&gt;<i>
+</I>&gt;<i> Ich habe jetzt noch Eintr&#228;ge in der Datei /var/log/cups/error.log
+</I>&gt;<i> gefunden, die sehen so aus:
+</I>&gt;<i>
+</I>&gt;<i> I [23/Feb/2009:19:02:45 +0100] [Job 24] Adding start banner page
+</I>&gt;<i> &quot;none&quot;. I [23/Feb/2009:19:02:45 +0100] [Job 24] Adding job file of
+</I>&gt;<i> type application/postscript.
+</I>&gt;<i> I [23/Feb/2009:19:02:45 +0100] [Job 24] Adding end banner page
+</I>&gt;<i> &quot;none&quot;. I [23/Feb/2009:19:02:45 +0100] [Job 24] Queued on &quot;Faxgate&quot;
+</I>&gt;<i> by &quot;thomas&quot;. I [23/Feb/2009:19:02:45 +0100] [Job 24] Started filter
+</I>&gt;<i> /usr/lib/cups/filter/pstops (PID 25375)
+</I>&gt;<i> I [23/Feb/2009:19:02:45 +0100] [Job 24] Started backend
+</I>&gt;<i> /usr/lib/cups/backend/faxgate (PID 25376)
+</I>&gt;<i> E [23/Feb/2009:19:02:46 +0100] [Job 24] Keine Faxnummer gefunden,
+</I>&gt;<i> Auftrag 24 abgebrochen!
+</I>&gt;<i> I [23/Feb/2009:19:02:47 +0100] [Job 24] Completed successfully.
+</I>
+Ist soweit in Ordnung, wenn du den Loglevel f&#252;r cups hochsetzt 
+erscheinen auch die Fehlermeldungen, welche erzeugt werden wenn das 
+faxgate.py Script den Host nicht erreichen kann.
+
+&gt;<i>
+</I>&gt;<i> Zus&#228;tzlich gibts da eine Datei mit Namen
+</I>&gt;<i> /var/spool/cups/tmp/faxgate.log, die h&#228;nge ich mal als Anhang an die
+</I>&gt;<i> Mail (weiss gar nicht, wie ne log-Datei ins spool-Verzeichnis
+</I>&gt;<i> kommt??).
+</I>
+Du hast das in der faxgate.conf mit DEBUG=1 oder DEBUG=2 aktiviert.
+
+Gru&#223;
+Ingo
+
+-- 
+## Registered Linux User #274727 -- <A HREF="http://counter.li.org/">http://counter.li.org/</A>
+## Windows, Linux und Mac Office-Suite -- <A HREF="http://de.openoffice.org/">http://de.openoffice.org/</A>
+## Die OpenOffice.org PrOOo-Box -- <A HREF="http://prooo-box.org/">http://prooo-box.org/</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 194 bytes
+Desc: This is a digitally signed message part.
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/faxgate-users/attachments/20090224/a1939ee6/attachment.pgp">https://lists.berlios.de/pipermail/faxgate-users/attachments/20090224/a1939ee6/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000047.html">[FaxGate-users] Keine Nummernabfrage
+</A></li>
+	<LI>Next message: <A HREF="000049.html">[FaxGate-users] Keine Nummernabfrage
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#48">[ date ]</a>
+              <a href="thread.html#48">[ thread ]</a>
+              <a href="subject.html#48">[ subject ]</a>
+              <a href="author.html#48">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/faxgate-users">More information about the FaxGate-users
+mailing list</a><br>
+</body></html>
